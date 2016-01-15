@@ -143,7 +143,10 @@ let g:syntastic_check_on_wq = 0
 
 " Toggle nerdtree with F10
 map <F10> :NERDTreeToggle<CR>
+<<<<<<< HEAD
 
+=======
+>>>>>>> e29a0c8d3a73d68bc38cc0c3a413a9490f7a0e6f
 " Current file in nerdtree
 map <F9> :NERDTreeFind<CR>
 
