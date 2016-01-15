@@ -15,3 +15,7 @@ ln -s $DIR/.tigrc ~/.tigrc
 # KillDjango
 ln -s $DIR/usr/local/bin/killdjango /usr/local/bin/killdjango
 
+# KillChromeDriver
+ln -s $DIR/usr/local/bin/killchromedriver /usr/local/bin/killchromedriver
+
+

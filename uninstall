@@ -8,4 +8,8 @@ rm ~/.vimrc
 rm ~/.vim
 
 # KillDjango
-rm $DIR/usr/local/bin/killdjango 
+rm $DIR/usr/local/bin/killdjango
+
+# KillChromeDriver
+rm $DIR/usr/local/bin/killchromedriver
+
