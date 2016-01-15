@@ -1,0 +1,2 @@
+#!/bin/bash
+kill $(ps -fe | grep 'python manage.py runserver' | grep -v grep | awk '{print $2}')

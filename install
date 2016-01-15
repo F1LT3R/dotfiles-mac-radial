@@ -1,0 +1,17 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Oh-My-Zsh
+ln -s $DIR/.zshrc ~/.zshrc
+
+# VIM
+ln -s $DIR/.vimrc ~/.vimrc
+ln -s $DIR/.vim ~/.vim
+
+# Tig Pager
+ln -s $DIR/.tigrc ~/.tigrc
+
+# KillDjango
+ln -s $DIR/usr/local/bin/killdjango /usr/local/bin/killdjango
+
