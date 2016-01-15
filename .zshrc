@@ -52,3 +52,6 @@ alias e="mvim"
 
 # Re-Source .zshrc
 alias reup="source ~/.zshrc"
+
+# Kill Chrome
+alias kc="killall -9 \"Google Chrome\""
