@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Oh-My-Zsh
+rm ~/.zshrc
+
+# VIM
+rm ~/.vimrc
+rm ~/.vim
+
+# KillDjango
+rm $DIR/usr/local/bin/killdjango 
