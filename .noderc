@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Where NPM Packages will get installed
+export NPM_PACKAGES="$HOME/.npm-packages"
+
+# Node.JS looks here when including modules at runtime
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+
+# Allow modules installed with -g to be run from anywhere
+export PATH="$PATH:$NPM_PACKAGES/bin"
+
+# Update Man paths for Node.JS
+unset MANPATH
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"

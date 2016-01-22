@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+
+
+### Un-Link .RC Files
+
+# ZProfile
+rm ~/.zprofile
+
 # Oh-My-Zsh
 rm ~/.zshrc
 
@@ -7,9 +15,8 @@ rm ~/.zshrc
 rm ~/.vimrc
 rm ~/.vim
 
-# KillDjango
-rm $DIR/usr/local/bin/killdjango
+# NODE
+rm ~/.noderc
 
-# KillChromeDriver
-rm $DIR/usr/local/bin/killchromedriver
-
+# Tig Pager
+rm ~/.tigrc

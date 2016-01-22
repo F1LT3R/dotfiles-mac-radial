@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Uninstall node.js
+# 
+# Options:
+#
+# -d Actually delete files, otherwise the script just _prints_ a command to delete.
+# -p Installation prefix. Default /usr/local
+# -f BOM file. Default /var/db/receipts/org.nodejs.node.pkg.bom
+
+CMD="echo sudo rm -fr"
+BOM_FILE="/var/db/receipts/org.nodejs.node.pkg.bom"
+PREFIX="/usr/local"
+
+while getopts "dp:f:" arg; do
+    case $arg in
+        d)
+            CMD="sudo rm -fr"
+            ;;
+        p)
+            PREFIX=$arg
+            ;;
+        f)
+            BOM_FILE=$arg
+            ;;
+    esac
+done
+
+lsbom -f -l -s -pf ${BOM_FILE} \
+    | while read i; do
+          $CMD ${PREFIX}/${i}
+      done
+
+$CMD ${PREFIX}/lib/node \
+     ${PREFIX}/lib/node_modules \
+     ${BOM_FILE}
+

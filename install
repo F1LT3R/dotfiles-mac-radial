@@ -1,6 +1,12 @@
 #!/bin/bash
 
+# Get current DIR
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+### Link .RC Files
+
+# ZProfile
+ln -s $DIR/.zprofile ~/.zprofile
 
 # Oh-My-Zsh
 ln -s $DIR/.zshrc ~/.zshrc
@@ -9,13 +15,8 @@ ln -s $DIR/.zshrc ~/.zshrc
 ln -s $DIR/.vimrc ~/.vimrc
 ln -s $DIR/.vim ~/.vim
 
+# NODE
+ln -s $DIR/.noderc ~/.noderc
+
 # Tig Pager
 ln -s $DIR/.tigrc ~/.tigrc
-
-# KillDjango
-ln -s $DIR/usr/local/bin/killdjango /usr/local/bin/killdjango
-
-# KillChromeDriver
-ln -s $DIR/usr/local/bin/killchromedriver /usr/local/bin/killchromedriver
-
-

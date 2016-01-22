@@ -16,10 +16,18 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'vim-fugitive' " Visualize GIT branches in Powerline
 Plugin 'mhinz/vim-startify' " Fancy VIM start screen
-Plugin 'jistr/vim-nerdtree-tabs' " Open the same NERDTree in all tabs
+" Plugin 'jistr/vim-nerdtree-tabs' " Open the same NERDTree in all tabs
 Plugin 'othree/javascript-libraries-syntax.vim' " Syntax highlighting for Angular
 Plugin 'edsono/vim-matchit' " Jumps to matchin XML tags with %
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'osyo-manga/vim-over'
+
+" To help with Nerd Commenter
+filetype plugin on
+let mapleader=","
+set timeout timeoutlen=1500
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -38,10 +46,10 @@ filetype plugin indent on    " required
 
 
 " Ctrl+P Menu Plugin
-set runtimepath^=~/.vim/bundle/ctrlp.vim " http://ctrlpvim.github.io/ctrlp.vim/#installation
+" set runtimepath^=~/.vim/bundle/ctrlp.vim " http://ctrlpvim.github.io/ctrlp.vim/#installation
 
 " Vim-Over Substitute Highlight Plugin
-set runtimepath^=~/.vim/bundle/vim-over " https://github.com/osyo-manga/vim-over
+" set runtimepath^=~/.vim/bundle/vim-over " https://github.com/osyo-manga/vim-over
 
 " Begin live highlight with Vim-Over
 map <F8> :OverCommandLine<CR>
@@ -65,7 +73,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 :retab
 
-:set shiftwidth=4
+:set shiftwidth=2
 
 :set nowrap
 
@@ -81,7 +89,8 @@ set cursorline
 "colorscheme solarized
 
 " Molokai Color Scheme
-colorscheme molokai
+colorscheme molokai-clean
+" colorscheme molokai
 " let g:molokai_original = 1
 " let g:rehash256 = 1
 
@@ -93,20 +102,23 @@ set background=dark
 " Set Fonts
 if has("gui_running")
     set transparency=2
-  
     if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+    " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:14
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h15
     " set guifont=ProggyCleanTTSZ:h16
-    " set guifont=Menlo\ for\ Powerline:h15
+    " set guifont=Menlo\ for\ Powerline:h13
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
 endif
 
 " Anti-Aliased Fonts
-" set noantialias
+set noantialias
+
+" Space between each line (pixels I think)
+set linespace=2
 
 " Powerline patched font symbols
 let g:Powerline_symbols = 'fancy'
@@ -125,9 +137,9 @@ set guioptions-=r
 " Turn off Terminal Bell (BOINK sound when hitting edge of screen etc)
 autocmd! GUIEnter * set vb t_vb=
 
-vmap <C-c> "*y     " Yank current selection into system clipboard
-nmap <C-c> "*Y     " Yank current line into system clipboard (if nothing is selected)
-nmap <C-v> "*p     " Paste from system clipboard
+" vmap <C-c> "*y     " Yank current selection into system clipboard
+" nmap <C-c> "*Y     " Yank current line into system clipboard (if nothing is selected)
+" nmap <C-v> "*p     " Paste from system clipboard
 
 
 " Syntastic Settings
@@ -191,16 +203,16 @@ let g:startify_custom_header = [
 \]
 
 " When vim is opened with no file arg, show startify screen
-autocmd VimEnter *
-  \   if !argc()
-  \ |   Startify
-  \ |   NERDTree
-  \ |   wincmd w
-  \ | endif
+" autocmd VimEnter *
+"  \   if !argc()
+"  \ |   Startify
+"  \ |   NERDTree
+"  \ |   wincmd w
+"  \ | endif
 
 
-" Always add NERDTree to new tabs 
-let g:nerdtree_tabs_open_on_console_startup=1
+" Always add NERDTree to new tabs
+" let g:nerdtree_tabs_open_on_console_startup=1
 
 " Extended syntax highlighting
 let g:used_javascript_libs = 'angularjs,requirejs,jasmine,angularuirouter'
@@ -231,5 +243,3 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " Anything over 80 chars highlighted red
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
-
-
