@@ -28,7 +28,7 @@ alias ip="echo $(ifconfig en0|grep 'inet '| awk '{ print $2}')"
 # List Files
 alias l="ls -la"
 
-# Editor
+# Edit in MacVim
 alias v="open -a MacVim.app $1"
 
 # Re-Source .zshrc

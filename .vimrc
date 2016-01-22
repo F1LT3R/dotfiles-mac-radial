@@ -23,6 +23,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'osyo-manga/vim-over'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " To help with Nerd Commenter
 filetype plugin on
@@ -62,6 +63,17 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 
+" Indent Guide Settings for: nathanaelkane/vim-indent-guides
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" let g:indent_guides_auto_colors = 1
+let g:indent_guides_color_change_percent = 5
+let g:indent_guides_start_level = 2
+let g:indent_guides_indent_levels = 6
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
 " Line Numbers
 :set number
 
@@ -71,7 +83,8 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " 2 Spaces Per Tab
 :set tabstop=2
 
-:retab
+" Change tabs to spaces on load
+" :retab
 
 :set shiftwidth=2
 
@@ -241,5 +254,19 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 
 " Anything over 80 chars highlighted red
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=red guibg=#592929
+"match OverLength /\%81v.\+/
+
+" 80 character limit line
+if exists('+colorcolumn')
+  set colorcolumn=100
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+endi
+
+" 80 Char limit line
+" let &colorcolumn=join(range(81,999),",")
+" let &colorcolumn="80,".join(range(400,999),",")
+
+
+
