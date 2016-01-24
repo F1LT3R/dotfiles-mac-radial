@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sudo rm -r ~/.npm_modules
+sudo rm -r ~/.npm-packages
+sudo rm -r ~/.npm
+sudo rm -r ~/.node-gyp
+sudo rm -r ~/.nvm
+rm /usr/local/bin/npm
+sudo rm -r /usr/local/lib/node_modules
+
+
+

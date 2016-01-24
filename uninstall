@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+
+
+### Un-Link .RC Files
+
+# ZProfile
+rm ~/.zprofile
+
+# Oh-My-Zsh
+rm ~/.zshrc
+
+# VIM
+rm ~/.vimrc
+rm ~/.vim
+
+# NODE
+rm ~/.noderc
+
+# Tig Pager
+rm ~/.tigrc

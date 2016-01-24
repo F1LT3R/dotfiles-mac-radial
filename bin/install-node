@@ -1,0 +1,8 @@
+#!/bin/bash
+brew update
+# sudo chown -R $(whoami):admin /usr/local
+
+sudo chmod g+w /usr/local
+sudo chgrp staff /usr/local
+
+brew install homebrew/versions/node4-lts

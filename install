@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Get current DIR
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+### Link .RC Files
+
+# ZProfile
+ln -s $DIR/.zprofile ~/.zprofile
+
+# Oh-My-Zsh
+ln -s $DIR/.zshrc ~/.zshrc
+
+# VIM
+ln -s $DIR/.vimrc ~/.vimrc
+ln -s $DIR/.vim ~/.vim
+
+# NODE
+ln -s $DIR/.noderc ~/.noderc
+
+# Tig Pager
+ln -s $DIR/.tigrc ~/.tigrc
