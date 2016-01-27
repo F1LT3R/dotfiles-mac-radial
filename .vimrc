@@ -88,7 +88,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 :set shiftwidth=2
 
-:set nowrap
+
+
+
 
 :set laststatus=2
 
@@ -119,9 +121,9 @@ if has("gui_running")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
     " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:14
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h15
+    " set guifont=Source\ Code\ Pro\ for\ Powerline:h15
     " set guifont=ProggyCleanTTSZ:h16
-    " set guifont=Menlo\ for\ Powerline:h13
+    set guifont=Menlo\ for\ Powerline:h13
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
@@ -253,6 +255,7 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 
+
 " Anything over 80 chars highlighted red
 "highlight OverLength ctermbg=red guibg=#592929
 "match OverLength /\%81v.\+/
@@ -268,5 +271,18 @@ endi
 " let &colorcolumn=join(range(81,999),",")
 " let &colorcolumn="80,".join(range(400,999),",")
 
+set wrap
 
+" :set nowrap
 
+:function ToggleWrap()
+: if (&wrap == 1)
+:   set nowrap
+: else
+:   set wrap  " enable "visual" wrapping
+:    set textwidth=0 wrapmargin=0  " turn off \n insertion on wrapped lines
+: endif
+:endfunction
+
+map <F7> :call ToggleWrap()<CR>
+map! <F7> ^[:call ToggleWrap()<CR>
