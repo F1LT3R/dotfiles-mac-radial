@@ -20,3 +20,6 @@ ln -s $DIR/.noderc ~/.noderc
 
 # Tig Pager
 ln -s $DIR/.tigrc ~/.tigrc
+
+# JSHint
+ln -s $DIR/.jshintrc ~/.jshintrc

@@ -102,7 +102,7 @@ hi Underlined      guifg=#808080               gui=underline
 
 hi VertSplit       guifg=#808080 guibg=#080808 gui=none
 hi VisualNOS                     guibg=#403D3D
-hi Visual                        guibg=#403D3D
+hi Visual          guifg=#000000 guibg=#FD971F
 hi WarningMsg      guifg=#FFFFFF guibg=#333333 gui=none
 hi WildMenu        guifg=#66D9EF guibg=#000000
 
@@ -130,6 +130,24 @@ else
    hi NonText         guifg=#465457
    hi SpecialKey      guifg=#465457
 end
+
+
+hi Visual          guifg=#000000 guibg=#FD971F
+
+" Default Colors for CursorLine
+highlight CursorLine guibg=#3E3D32
+highlight Cursor guibg=#A6E22E;
+
+" Change Color when entering Insert Mode
+autocmd InsertEnter * highlight  CursorLine guibg=#323D3E
+autocmd InsertEnter * highlight  Cursor guibg=#00AAFF;
+
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * highlight  CursorLine guibg=#3E3D32
+autocmd InsertLeave * highlight  Cursor guibg=#A6E22E;
+
+
+
 
 "
 " Support for 256-color terminal

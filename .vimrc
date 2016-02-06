@@ -1,208 +1,271 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+" VUNDLE (Required)
+" ================================================================================================
+set nocompatible                   " be iMproved, required
+filetype off                       " required
+set rtp+=~/.vim/bundle/Vundle.vim  " Vundle Runtime Path
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+Plugin 'VundleVim/Vundle.vim'      " Plugin manager
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'scrooloose/syntastic'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'vim-fugitive' " Visualize GIT branches in Powerline
-Plugin 'mhinz/vim-startify' " Fancy VIM start screen
-" Plugin 'jistr/vim-nerdtree-tabs' " Open the same NERDTree in all tabs
+
+" PLUGIN LIST
+" ================================================================================================
+
+Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
+Plugin 'scrooloose/nerdtree.git'                  " File browser sidebar
+Plugin 'scrooloose/syntastic'                     " Syntax/error checking
+Plugin 'airblade/vim-gitgutter'                   " Git Diff in sidebar
+Plugin 'Lokaltog/vim-powerline'                   " Status bar
+Plugin 'vim-fugitive'                             " Visualize Git branches in Powerline
+Plugin 'mhinz/vim-startify'                       " Fancy VIM start screen
+" Plugin 'jistr/vim-nerdtree-tabs'                  " Open the same NERDTree in all tabs
 Plugin 'othree/javascript-libraries-syntax.vim' " Syntax highlighting for Angular
-Plugin 'edsono/vim-matchit' " Jumps to matchin XML tags with %
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'osyo-manga/vim-over'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
+Plugin 'terryma/vim-multiple-cursors'             " Multi-select and edit
+Plugin 'scrooloose/nerdcommenter'                 " Comment Block Highlighting
+Plugin 'ctrlpvim/ctrlp.vim'                       " File list on steriods (like Sublime Ctrl+P)
+Plugin 'osyo-manga/vim-over'                      " Realtime search/replace highlighting
+" Plugin 'nathanaelkane/vim-indent-guides'          " Indent level guides (Ugly but fast)
+Plugin 'Yggdroot/indentLine'                      " Indent level guide lines (pretty but slower)
+Plugin 'junegunn/goyo.vim'                        " Distraction free editing
+Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser output
+Plugin 'genoma/vim-less'                          " Less syntax support
+Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
+Plugin 'ap/vim-css-color'                         " Support for hex/rgb color highlighting (slow)
 
-" To help with Nerd Commenter
-filetype plugin on
-let mapleader=","
-set timeout timeoutlen=1500
 
-" All of your Plugins must be added before the following line
+" VUNDLE (Required)
+" ================================================================================================
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" ================================================================================================
 
 
-" Ctrl+P Menu Plugin
-" set runtimepath^=~/.vim/bundle/ctrlp.vim " http://ctrlpvim.github.io/ctrlp.vim/#installation
+" BASIC EDITOR SETUP
+" ================================================================================================
 
-" Vim-Over Substitute Highlight Plugin
-" set runtimepath^=~/.vim/bundle/vim-over " https://github.com/osyo-manga/vim-over
-
-" Begin live highlight with Vim-Over
-map <F8> :OverCommandLine<CR>
-
-" Enable Syntax Highlighting
-syntax on
-
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-
-" Indent Guide Settings for: nathanaelkane/vim-indent-guides
-"let g:indent_guides_auto_colors = 0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-" let g:indent_guides_auto_colors = 1
-let g:indent_guides_color_change_percent = 5
-let g:indent_guides_start_level = 2
-let g:indent_guides_indent_levels = 6
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
-
-" Line Numbers
-:set number
-
-" Tabs to Spaces
-:set expandtab
-
-" 2 Spaces Per Tab
-:set tabstop=2
-
-" Change tabs to spaces on load
-" :retab
-
-:set shiftwidth=2
+set number            " Line Numbers
+set shiftwidth=2      " Width to shift over
+set nowrap            " Start without wrapping
+set cursorline        " Highlight the current line
+set tabstop=2         " 2 Spaces Per Tab
+set expandtab         " Insert spaces with tab key
+set laststatus=2      " Always display status bar
+set linespace=0       " Space between each line (pixels I think)
+set antialias         " Turn on/off Anti-Aliased Fonts
+set cursorline        " Highlight the current line
+set nocursorcolumn    " Cursor column highlight is slow
+set guioptions-=T     " - Hide Scrollbars in MacVim
+set guioptions-=r     " - Hide Scrollbars in MacVim
+set guioptions-=L     " Hide scrollbars in NERDTree
+set noswapfile        " Comment our rather than add to .girignore
+set encoding=utf-8    " Unicode
+set hlsearch          " Highlight searched words
+syntax enable         " Enable syntax highlighting
+retab                 " Convert tabs to spaces on load
 
 
 
+" COLOR SCHEME
+" ================================================================================================
 
-
-:set laststatus=2
-
-" Line/Column Highlighting
-highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-set cursorline
-" se cursorcolumn
-
-" Solarized Color Scheme
-" let g:solarized_termcolors=256
-"colorscheme solarized
-
-" Molokai Color Scheme
-colorscheme molokai-clean
-" colorscheme molokai
-" let g:molokai_original = 1
-" let g:rehash256 = 1
-
-
-syntax enable
+let g:molokai_original = 1   " Use classic style Molokai (Sublime~ish)
+colorscheme molokai-clean    " Custom version of Molokai w/o italics, etc.
 set background=dark
+" let g:rehash256 = 1         " Terminal only colors
 
 
-" Set Fonts
+" FONT SETTINGS
+" ================================================================================================
+
 if has("gui_running")
-    set transparency=2
-    if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
+  set transparency=2
+  if has("gui_gtk2")
+    set guifont=Inconsolata:12
   elseif has("gui_macvim")
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h13
     " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:14
-    " set guifont=Source\ Code\ Pro\ for\ Powerline:h15
     " set guifont=ProggyCleanTTSZ:h16
-    set guifont=Menlo\ for\ Powerline:h13
+    " set guifont=Menlo\ for\ Powerline:h13
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
 endif
 
-" Anti-Aliased Fonts
-set noantialias
 
-" Space between each line (pixels I think)
-set linespace=2
+" OTHER SETTINGS
+" ================================================================================================
 
-" Powerline patched font symbols
-let g:Powerline_symbols = 'fancy'
-let g:airline_powerline_fonts = 1
+" Make System Clipboard and registers one and the same
+set clipboard=unnamedplus
 
-" Hide Scrollbars in MacVim
-set guioptions-=T
-set guioptions-=r
+" WHITESPACE LIST CHARS
+set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
 
-" Hide scrollbars in NERDTree
-:set guioptions-=L
-
-
-" autocmd vimenter * NERDTree
-
-" Turn off Terminal Bell (BOINK sound when hitting edge of screen etc)
-autocmd! GUIEnter * set vb t_vb=
-
-" vmap <C-c> "*y     " Yank current selection into system clipboard
-" nmap <C-c> "*Y     " Yank current line into system clipboard (if nothing is selected)
-" nmap <C-v> "*p     " Paste from system clipboard
+" INDENT GUIDE LINES
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#504D4D'
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+let g:indentLine_char = '│'  " Options: │┆⏐┊╽
 
 
-" Syntastic Settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" DRAW 100 CHAR RULER
+if exists('+colorcolumn')
+  set colorcolumn=100
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+endi
 
 
-" Toggle nerdtree with F10
-map <F10> :NERDTreeToggle<CR>
-
-" Current file in nerdtree
-map <F9> :NERDTreeFind<CR>
-
-
-set noswapfile  "http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·
-
-set encoding=utf-8
-
-
-" Persistent undo
+" UNDO LEVELS
 set undodir=~/.vim/undo/
 set undofile
 set undolevels=1000
 set undoreload=10000
 
+" POWERLINE (STATUS BAR) PATCHED FONT SYMBOLS
+let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+
+" NERDTREE
+let g:NERDTreeDirArrowExpandable = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
+
+" DISABLED TERMINAL BELL
+autocmd! GUIEnter * set vb t_vb=
+
+" SYTASTIC SETTINGS
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height=3
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_enable_highlighting=1
-let g:syntastic_javascript_checkers=['jscs', 'jshint']
+let g:syntastic_javascript_checkers=['jscs', 'jshint']  " npm install jshint -g
 
 " Ignore certain kinds of HTML errors (re: Angular)
 let g:syntastic_html_tidy_ignore_errors=['proprietary attribute', 'is not recognized!']
 
-" Make System Clipboard and registers one and the same
-:set clipboard=unnamedplus
+" Extended syntax highlighting
+let g:used_javascript_libs = 'angularjs,requirejs,jasmine,angularuirouter'
 
 
-" Custom Startify Header
+" WRITE MODE
+let b:write = "no"
+function! ToggleWrite()
+  if exists("b:write") && b:write == "yes"
+    let b:write = "no"
+    set nolinebreak
+    set textwidth=0
+    set wrapmargin=0
+    set nobreakindent
+    Goyo!
+    if has('gui_running')
+      " set nofullscreen
+      set linespace=0
+    endif
+    set nowrap
+    set nospell
+  else
+    let b:write = "yes"
+    set linebreak
+    set textwidth=50
+    set wrapmargin=0
+    " set nolist  " I already have this set
+    set breakindent
+    Goyo 50x100%
+    if has('gui_running')
+      " set fullscreen
+      set linespace=0
+    endif
+    set wrap
+    set spell
+  endif
+endfunction
+
+
+" MAP THE LEADER KEY
+let mapleader=","
+set timeout timeoutlen=1500
+
+
+" SCREENMOVEMENT
+" (move by screenlines in softwrap)
+let b:gmove = "yes"
+function! ScreenMovement(movement)
+  if &wrap && b:gmove == 'yes'
+    return "g" . a:movement
+  else
+    return a:movement
+  endif
+endfunction
+
+
+" SCREENMOVE MAP VIM MOVEMENT KEYS
+onoremap <silent> <expr> j ScreenMovement("j")
+onoremap <silent> <expr> k ScreenMovement("k")
+onoremap <silent> <expr> 0 ScreenMovement("0")
+onoremap <silent> <expr> ^ ScreenMovement("^")
+onoremap <silent> <expr> $ ScreenMovement("$")
+nnoremap <silent> <expr> j ScreenMovement("j")
+nnoremap <silent> <expr> k ScreenMovement("k")
+nnoremap <silent> <expr> 0 ScreenMovement("0")
+nnoremap <silent> <expr> ^ ScreenMovement("^")
+nnoremap <silent> <expr> $ ScreenMovement("$")
+vnoremap <silent> <expr> j ScreenMovement("j")
+vnoremap <silent> <expr> k ScreenMovement("k")
+vnoremap <silent> <expr> 0 ScreenMovement("0")
+vnoremap <silent> <expr> ^ ScreenMovement("^")
+vnoremap <silent> <expr> $ ScreenMovement("$")
+vnoremap <silent> <expr> j ScreenMovement("j")
+
+
+" SCREENMOVE MAP HOME KEYS
+onoremap <silent> <expr> <C-h> ScreenMovement("0")
+nnoremap <silent> <expr> <C-h> ScreenMovement("0")
+vnoremap <silent> <expr> <C-h> ScreenMovement("0")
+onoremap <silent> <expr> <C-l> ScreenMovement("$")
+nnoremap <silent> <expr> <C-l> ScreenMovement("$")
+vnoremap <silent> <expr> <C-l> ScreenMovement("$")
+
+
+" SCREENMOVE MAP ARROW KEYS
+onoremap <silent> <expr> <C-Left> ScreenMovement("0")
+nnoremap <silent> <expr> <C-Left> ScreenMovement("0")
+vnoremap <silent> <expr> <C-Left> ScreenMovement("0")
+onoremap <silent> <expr> <C-Right> ScreenMovement("$")
+nnoremap <silent> <expr> <C-Right> ScreenMovement("$")
+vnoremap <silent> <expr> <C-Right> ScreenMovement("$")
+
+
+" MOVE N-LINES IN SOFTWRAP
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+nnoremap <expr> <Up> (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> <Down> (v:count == 0 ? 'gj' : 'j')
+
+
+" STARTIFY HEADER
+" ================================================================================================
+
+"
+"     )\-"```-,_
+"    /.   _     `"-._
+"   _`-c_/_'. `\   , `"-._
+"  (_.--`  '-_;-'   \     `"-.
+"          (_.-----'`-.._     `\._
+"                        `\     `\'._
+"                          `'.    '._'._
+"                             `'---, `._'-._
+"                                   `-._/'--'
+
 let g:startify_custom_header = [
   \'',
   \'',
@@ -217,72 +280,33 @@ let g:startify_custom_header = [
   \' ',
 \]
 
-" When vim is opened with no file arg, show startify screen
-" autocmd VimEnter *
-"  \   if !argc()
-"  \ |   Startify
-"  \ |   NERDTree
-"  \ |   wincmd w
-"  \ | endif
 
+" KEYBOARD MAPPING
+" ================================================================================================
 
-" Always add NERDTree to new tabs
-" let g:nerdtree_tabs_open_on_console_startup=1
-
-" Extended syntax highlighting
-let g:used_javascript_libs = 'angularjs,requirejs,jasmine,angularuirouter'
-
-set runtimepath^=~/.vim/bundle/vim-matchit/matchit.vim
-
-" Highlight searched words
-set hlsearch
-
-" Toggle highlighing of the last search
-nnoremap <F3> :set hlsearch!<CR>
-
-" Lazy Moving Lines - Ctrl-J/K to move up and down
-
-" Normal mode
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-
-" Insert mode
-inoremap <C-j> <ESC>:m .+1<CR>==gi
-inoremap <C-k> <ESC>:m .-2<CR>==gi
-
-" Visual mode
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-
-
-
-" Anything over 80 chars highlighted red
-"highlight OverLength ctermbg=red guibg=#592929
-"match OverLength /\%81v.\+/
-
-" 80 character limit line
-if exists('+colorcolumn')
-  set colorcolumn=100
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
-endi
-
-" 80 Char limit line
-" let &colorcolumn=join(range(81,999),",")
-" let &colorcolumn="80,".join(range(400,999),",")
-
-set wrap
-
-" :set nowrap
-
-:function ToggleWrap()
-: if (&wrap == 1)
-:   set nowrap
-: else
-:   set wrap  " enable "visual" wrapping
-:    set textwidth=0 wrapmargin=0  " turn off \n insertion on wrapped lines
-: endif
-:endfunction
-
-map <F7> :call ToggleWrap()<CR>
-map! <F7> ^[:call ToggleWrap()<CR>
+" Write Mode (distraction free
+nmap ,w :call ToggleWrite()<cr>     
+" Toggle Search Highlight
+nnoremap <F3> :set hlsearch!<CR>    
+" Normal Lazy Move Down
+nnoremap <D-j> :m .+1<CR>==         
+" Normal Lazy Move Up
+nnoremap <D-k> :m .-2<CR>==         
+" Insert Lazy Move Down
+inoremap <D-j> <ESC>:m .+1<CR>==gi  
+" Insert Lazt Move Up
+inoremap <D-k> <ESC>:m .-2<CR>==gi  
+" Visual Lazy Move Down
+vnoremap <D-j> :m '>+1<CR>gv=gv     
+" Visual Lazy Move Up 
+vnoremap <D-k> :m '<-2<CR>gv=gv     
+" Toggle Indent Guidlines
+map <C-i> :IndentLinesToggle<CR>    
+" Begin live highlight with Vim-Over
+map <F8> :OverCommandLine<CR>
+" Current file in nerdtree
+map <F9> :NERDTreeFind<CR>          
+" Toggle NERDTree Sidebar with F10
+map <F10> :NERDTreeToggle<CR>       
+" Toggle Show Whitespace Chars
+noremap <F2> :set list!<CR>         

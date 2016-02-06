@@ -20,3 +20,6 @@ rm ~/.noderc
 
 # Tig Pager
 rm ~/.tigrc
+
+# JSHint
+rm ~/.jshintrc
