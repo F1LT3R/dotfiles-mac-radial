@@ -9,7 +9,7 @@ Plugin 'VundleVim/Vundle.vim'      " Plugin manager
 
 " PLUGIN LIST
 " ================================================================================================
-
+"Plugin 'xolox/vim-session'
 Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
 Plugin 'scrooloose/nerdtree.git'                  " File browser sidebar
 Plugin 'scrooloose/syntastic'                     " Syntax/error checking
@@ -31,6 +31,8 @@ Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser ou
 Plugin 'genoma/vim-less'                          " Less syntax support
 Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
 Plugin 'ap/vim-css-color'                         " Support for hex/rgb color highlighting (slow)
+Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
+" Plugin 'tpope/vim-ragtag'
 
 
 " VUNDLE (Required)
@@ -51,7 +53,6 @@ set tabstop=2         " 2 Spaces Per Tab
 set expandtab         " Insert spaces with tab key
 set laststatus=2      " Always display status bar
 set linespace=0       " Space between each line (pixels I think)
-set antialias         " Turn on/off Anti-Aliased Fonts
 set cursorline        " Highlight the current line
 set nocursorcolumn    " Cursor column highlight is slow
 set guioptions-=T     " - Hide Scrollbars in MacVim
@@ -64,6 +65,31 @@ syntax enable         " Enable syntax highlighting
 retab                 " Convert tabs to spaces on load
 
 
+" FONT SETTINGS
+" ================================================================================================
+
+set noantialias       " Turn on/off Anti-Aliased Fonts
+
+if has("gui_running")
+  set transparency=2
+  if has("gui_gtk2")
+    set guifont=Inconsolata:12
+  elseif has("gui_macvim")
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h15
+    " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:14
+    " set guifont=ProggyCleanTTSZ:h16
+    " set guifont=Menlo\ for\ Powerline:h13
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+
+
+" AUTO-SAVE/LOAD SESSSION
+" ================================================================================================
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
+
 
 " COLOR SCHEME
 " ================================================================================================
@@ -72,24 +98,6 @@ let g:molokai_original = 1   " Use classic style Molokai (Sublime~ish)
 colorscheme molokai-clean    " Custom version of Molokai w/o italics, etc.
 set background=dark
 " let g:rehash256 = 1         " Terminal only colors
-
-
-" FONT SETTINGS
-" ================================================================================================
-
-if has("gui_running")
-  set transparency=2
-  if has("gui_gtk2")
-    set guifont=Inconsolata:12
-  elseif has("gui_macvim")
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-    " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:14
-    " set guifont=ProggyCleanTTSZ:h16
-    " set guifont=Menlo\ for\ Powerline:h13
-  elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
-  endif
-endif
 
 
 " OTHER SETTINGS
@@ -191,6 +199,39 @@ function! ToggleWrite()
 endfunction
 
 
+" REMOVE TRAILING WHITESPACE
+"function! TrimWhiteSpace()
+  "%s/\s*$//''
+":endfunction
+
+"set list listchars=trail:.,extends:>
+"autocmd FileWritePre * :call TrimWhiteSpace()
+"autocmd FileAppendPre * :call TrimWhiteSpace()
+"autocmd FilterWritePre * :call TrimWhiteSpace()
+"autocmd BufWritePre * :call TrimWhiteSpace()
+
+function! StripTrailingWhitespace()
+  normal mZ
+  let l:chars = col("$")
+  %s/\s\+$//e
+  "if (line("'Z") != line(".")) || (l:chars != col("$"))
+    "echo "Trailing whitespace stripped\n"
+  "endif
+  normal `Z
+endfunction
+
+:autocmd BufWritePre * :call StripTrailingWhitespace()
+
+" REMOVE \N FROM EOL
+:SetNoEOL
+" setlocal noeol | let b:PreserveNoEOL = 1
+
+
+inoremap <M-o>       <Esc>o
+inoremap <C-j>       <Down>
+let g:ragtag_global_maps = 1
+
+
 " MAP THE LEADER KEY
 let mapleader=","
 set timeout timeoutlen=1500
@@ -255,58 +296,35 @@ nnoremap <expr> <Down> (v:count == 0 ? 'gj' : 'j')
 " STARTIFY HEADER
 " ================================================================================================
 
-"
-"     )\-"```-,_
-"    /.   _     `"-._
-"   _`-c_/_'. `\   , `"-._
-"  (_.--`  '-_;-'   \     `"-.
-"          (_.-----'`-.._     `\._
-"                        `\     `\'._
-"                          `'.    '._'._
-"                             `'---, `._'-._
-"                                   `-._/'--'
-
-let g:startify_custom_header = [
-  \'',
-  \'',
-  \'    _______ __ _      _______ ______________  ',
-  \'   (_______)  | |    (_______|_______(_____ \ ',
-  \'    _____ /_/ | |     _         ____  _____) ) ',
-  \'   |  ___)  | | |    | |       (___ \(_____ ( ',
-  \'   | |      | | |____| |_____ _____) )     | |',
-  \'   |_|      |_|_______)______|______/      |_|',
-  \' ',
-  \' ',
-  \' ',
-\]
+let g:startify_custom_header = readfile(expand('~/.vim/ascii-art/panther.txt'))
 
 
 " KEYBOARD MAPPING
 " ================================================================================================
 
 " Write Mode (distraction free
-nmap ,w :call ToggleWrite()<cr>     
+nmap ,w :call ToggleWrite()<cr>
 " Toggle Search Highlight
-nnoremap <F3> :set hlsearch!<CR>    
+nnoremap <F3> :set hlsearch!<CR>
 " Normal Lazy Move Down
-nnoremap <D-j> :m .+1<CR>==         
+nnoremap <D-j> :m .+1<CR>==
 " Normal Lazy Move Up
-nnoremap <D-k> :m .-2<CR>==         
+nnoremap <D-k> :m .-2<CR>==
 " Insert Lazy Move Down
-inoremap <D-j> <ESC>:m .+1<CR>==gi  
+inoremap <D-j> <ESC>:m .+1<CR>==gi
 " Insert Lazt Move Up
-inoremap <D-k> <ESC>:m .-2<CR>==gi  
+inoremap <D-k> <ESC>:m .-2<CR>==gi
 " Visual Lazy Move Down
-vnoremap <D-j> :m '>+1<CR>gv=gv     
-" Visual Lazy Move Up 
-vnoremap <D-k> :m '<-2<CR>gv=gv     
+vnoremap <D-j> :m '>+1<CR>gv=gv
+" Visual Lazy Move Up
+vnoremap <D-k> :m '<-2<CR>gv=gv
 " Toggle Indent Guidlines
-map <C-i> :IndentLinesToggle<CR>    
+map <C-i> :IndentLinesToggle<CR>
 " Begin live highlight with Vim-Over
 map <F8> :OverCommandLine<CR>
 " Current file in nerdtree
-map <F9> :NERDTreeFind<CR>          
+map <F9> :NERDTreeFind<CR>
 " Toggle NERDTree Sidebar with F10
-map <F10> :NERDTreeToggle<CR>       
+map <F10> :NERDTreeToggle<CR>
 " Toggle Show Whitespace Chars
-noremap <F2> :set list!<CR>         
+noremap <F2> :set list!<CR>

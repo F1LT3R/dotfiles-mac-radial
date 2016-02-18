@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo
+highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-light
+echo
