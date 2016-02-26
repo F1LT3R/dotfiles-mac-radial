@@ -33,7 +33,7 @@ Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline l
 Plugin 'ap/vim-css-color'                         " Support for hex/rgb color highlighting (slow)
 Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
 " Plugin 'tpope/vim-ragtag'
-
+Plugin 'elzr/vim-json'
 
 " VUNDLE (Required)
 " ================================================================================================
@@ -53,7 +53,6 @@ set tabstop=2         " 2 Spaces Per Tab
 set expandtab         " Insert spaces with tab key
 set laststatus=2      " Always display status bar
 set linespace=0       " Space between each line (pixels I think)
-set cursorline        " Highlight the current line
 set nocursorcolumn    " Cursor column highlight is slow
 set guioptions-=T     " - Hide Scrollbars in MacVim
 set guioptions-=r     " - Hide Scrollbars in MacVim
@@ -91,6 +90,7 @@ let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
 
 
+
 " COLOR SCHEME
 " ================================================================================================
 
@@ -114,7 +114,7 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#504D4D'
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
-let g:indentLine_char = '│'  " Options: │┆⏐┊╽
+let g:indentLine_char = '፧'  " Options: │┆⏐┊╽▏⠇⠅  ፧
 
 
 " DRAW 100 CHAR RULER
@@ -199,6 +199,21 @@ function! ToggleWrite()
 endfunction
 
 
+" WRITE MODE
+let b:trans = "no"
+function! ToggleTrans()
+  if exists("b:trans") && b:trans == "yes"
+    let b:trans = "no"
+    set transparency=2
+  else
+    let b:trans = "yes"
+    set transparency=30
+  endif
+endfunction
+
+
+
+
 " REMOVE TRAILING WHITESPACE
 "function! TrimWhiteSpace()
   "%s/\s*$//''
@@ -220,7 +235,7 @@ function! StripTrailingWhitespace()
   normal `Z
 endfunction
 
-:autocmd BufWritePre * :call StripTrailingWhitespace()
+" :autocmd BufWritePre * :call StripTrailingWhitespace()
 
 " REMOVE \N FROM EOL
 :SetNoEOL
@@ -292,6 +307,12 @@ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 nnoremap <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> <Down> (v:count == 0 ? 'gj' : 'j')
 
+" DON'T HIDE DOUBLE-QUOTES (JSON)
+" ================================================================================================
+let g:vim_json_syntax_conceal = 0
+
+
+
 
 " STARTIFY HEADER
 " ================================================================================================
@@ -302,6 +323,10 @@ let g:startify_custom_header = readfile(expand('~/.vim/ascii-art/panther.txt'))
 " KEYBOARD MAPPING
 " ================================================================================================
 
+" Comment Toggle
+map <D-Bslash> <plug>NERDCommenterToggle
+" Transparent mode toggle
+nmap <D-u> :call ToggleTrans()<cr>
 " Write Mode (distraction free
 nmap ,w :call ToggleWrite()<cr>
 " Toggle Search Highlight
