@@ -14,6 +14,9 @@ ln -s $DIR/.zshrc ~/.zshrc
 # VIM
 ln -s $DIR/.vimrc ~/.vimrc
 ln -s $DIR/.vim ~/.vim
+ln -s $DIR/.gvimrc ~/.gvimrc
+ln -s $DIR/.gvim ~/.gvim
+
 
 # NODE
 ln -s $DIR/.noderc ~/.noderc
