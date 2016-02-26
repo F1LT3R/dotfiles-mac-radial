@@ -1,3 +1,3 @@
 *.swp
 bundle/
-!bundle/Vundle.vim
+!bundle/Vundle.vim/
