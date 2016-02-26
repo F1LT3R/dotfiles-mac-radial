@@ -6,22 +6,20 @@
 ### Un-Link .RC Files
 
 # ZProfile
-rm ~/.zprofile
+rm $HOME/.zprofile
 
 # Oh-My-Zsh
-rm ~/.zshrc
+rm $HOME/.zshrc
 
 # VIM
-rm ~/.vimrc
-rm ~/.vim
-rm ~/.gvimrc
-rm ~/.gvim
+rm $HOME/.vimrc
+rm $HOME/.vim
 
 # NODE
-rm ~/.noderc
+rm $HOME/.noderc
 
 # Tig Pager
-rm ~/.tigrc
+rm $HOME/.tigrc
 
 # JSHint
-rm ~/.jshintrc
+rm $HOME/.jshintrc

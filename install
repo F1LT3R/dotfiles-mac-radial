@@ -6,23 +6,21 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ### Link .RC Files
 
 # ZProfile
-ln -s $DIR/.zprofile ~/.zprofile
+ln -s $DIR/.zprofile $HOME/.zprofile
 
 # Oh-My-Zsh
-ln -s $DIR/.zshrc ~/.zshrc
+ln -s $DIR/.zshrc $HOME/.zshrc
 
 # VIM
-ln -s $DIR/.vimrc ~/.vimrc
-ln -s $DIR/.vim ~/.vim
-ln -s $DIR/.gvimrc ~/.gvimrc
-ln -s $DIR/.gvim ~/.gvim
+ln -s $DIR/.vimrc $HOME/.vimrc
+ln -s $DIR/.vim/ $HOME/.vim
 
 
 # NODE
-ln -s $DIR/.noderc ~/.noderc
+ln -s $DIR/.noderc $HOME/.noderc
 
 # Tig Pager
-ln -s $DIR/.tigrc ~/.tigrc
+ln -s $DIR/.tigrc $HOME/.tigrc
 
 # JSHint
-ln -s $DIR/.jshintrc ~/.jshintrc
+ln -s $DIR/.jshintrc $HOME/.jshintrc
