@@ -70,7 +70,7 @@ retab                 " Convert tabs to spaces on load
 set noantialias       " Turn on/off Anti-Aliased Fonts
 
 if has("gui_running")
-  set transparency=30
+  set transparency=2
   if has("gui_gtk2")
     set guifont=Inconsolata:12
   elseif has("gui_macvim")
