@@ -14,10 +14,11 @@ Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
 Plugin 'scrooloose/nerdtree.git'                  " File browser sidebar
 Plugin 'scrooloose/syntastic'                     " Syntax/error checking
 Plugin 'airblade/vim-gitgutter'                   " Git Diff in sidebar
-Plugin 'Lokaltog/vim-powerline'                   " Status bar
-Plugin 'vim-fugitive'                             " Visualize Git branches in Powerline
+Plugin 'tpope/vim-fugitive'                             " Visualize Git branches in Powerline
 Plugin 'mhinz/vim-startify'                       " Fancy VIM start screen
 " Plugin 'jistr/vim-nerdtree-tabs'                  " Open the same NERDTree in all tabs
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'othree/javascript-libraries-syntax.vim' " Syntax highlighting for Angular
 Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
 Plugin 'terryma/vim-multiple-cursors'             " Multi-select and edit
@@ -74,14 +75,13 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata:12
   elseif has("gui_macvim")
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h15
-    " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:14
-    " set guifont=ProggyCleanTTSZ:h16
-    " set guifont=Menlo\ for\ Powerline:h13
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h11
+    "set guifont=ProggyCleanTTSZ:h16
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
 endif
+
 
 
 " AUTO-SAVE/LOAD SESSSION
@@ -131,9 +131,10 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 
-" POWERLINE (STATUS BAR) PATCHED FONT SYMBOLS
-let g:Powerline_symbols = 'fancy'
-let g:airline_powerline_fonts = 1
+" AIRLINE (STATUS BAR) PATCHED FONT SYMBOLS
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
+let g:airline_theme='powerlineish'
 
 " NERDTREE
 let g:NERDTreeDirArrowExpandable = '▶'
@@ -241,10 +242,6 @@ endfunction
 :SetNoEOL
 " setlocal noeol | let b:PreserveNoEOL = 1
 
-
-inoremap <M-o>       <Esc>o
-inoremap <C-j>       <Down>
-let g:ragtag_global_maps = 1
 
 
 " MAP THE LEADER KEY
