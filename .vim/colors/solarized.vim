@@ -1115,3 +1115,18 @@ autocmd ColorScheme * if g:colors_name != "solarized" | silent! aunmenu Solarize
 "
 " vim:foldmethod=marker:foldlevel=0
 "}}}
+
+
+hi Visual          guifg=#FB0082 guibg=#FFFFFF
+
+" Default Colors for CursorLine
+highlight CursorLine guibg=#073642
+highlight Cursor guibg=#00AAFF;
+
+" Change Color when entering Insert Mode
+autocmd InsertEnter * highlight  CursorLine guibg=#1c1c1c
+autocmd InsertEnter * highlight  Cursor guibg=#b58900;
+
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * highlight  CursorLine guibg=#073642
+autocmd InsertLeave * highlight  Cursor guibg=#00AAFF;

@@ -506,11 +506,11 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSColorPanelMode</key>
-	<string>5</string>
+	<string>1</string>
 	<key>NSColorPickerPageableNameListDefaults</key>
-	<string>1Web Safe Colors</string>
+	<string>1Unnamed</string>
 	<key>NSColorPickerSlidersDefaults</key>
-	<string>3</string>
+	<string>1</string>
 	<key>NSFontPanelAttributes</key>
 	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
@@ -548,7 +548,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSColorPanel</key>
-	<string>494 687 224 325 0 0 2560 1417 </string>
+	<string>494 687 228 325 0 0 2560 1417 </string>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>204 281 743 395 0 0 2560 1417 </string>
 	<key>NSWindow Frame Preferences</key>
@@ -556,9 +556,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1280 41 1279 1376 0 0 2560 1417 </string>
+	<string>1280 26 1279 1391 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 11 1277 1406 0 0 2560 1417 </string>
+	<string>0 929 730 476 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>160 711 1280 706 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
@@ -684,11 +684,11 @@
 			<key>Ansi 5 Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.51174521446228027</real>
+				<real>0.50980395078659058</real>
 				<key>Green Component</key>
 				<real>0.0</real>
 				<key>Red Component</key>
-				<real>0.98602080345153809</real>
+				<real>0.9843137264251709</real>
 			</dict>
 			<key>Ansi 6 Color</key>
 			<dict>
@@ -742,7 +742,7 @@
 			<key>Background Image Is Tiled</key>
 			<true/>
 			<key>Background Image Location</key>
-      <string>/Users/al/dotfiles/iterm2/iterm2-grid-background.gif</string>
+			<string>/Users/al/dotfiles/iterm2/iterm2-grid-background.gif</string>
 			<key>Blend</key>
 			<real>0.40416803956031799</real>
 			<key>Blink Allowed</key>
@@ -1146,20 +1146,20 @@
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>1</real>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>1</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>1</real>
 			</dict>
 			<key>Selection Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.50980395078659058</real>
 				<key>Green Component</key>
-				<real>0.40000000596046448</real>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.9843137264251709</real>
 			</dict>
 			<key>Semantic History</key>
 			<dict>
@@ -1305,10 +1305,12 @@
 	</array>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLost</key>
+	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>477527685.00113899</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>478201735.166673</real>
+	<real>478454352.84983701</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>

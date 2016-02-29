@@ -16,8 +16,9 @@ Plugin 'airblade/vim-gitgutter'                   " Git Diff in sidebar
 Plugin 'tpope/vim-fugitive'                             " Visualize Git branches in Powerline
 Plugin 'mhinz/vim-startify'                       " Fancy VIM start screen
 " Plugin 'jistr/vim-nerdtree-tabs'                  " Open the same NERDTree in all tabs
+Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'F1LT3R/vim-airline-themes'
 Plugin 'othree/javascript-libraries-syntax.vim' " Syntax highlighting for Angular
 Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
 Plugin 'terryma/vim-multiple-cursors'             " Multi-select and edit
@@ -73,7 +74,7 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata:12
   elseif has("gui_macvim")
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h11
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h15
     "set guifont=ProggyCleanTTSZ:h16
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
@@ -82,20 +83,16 @@ endif
 
 
 
-" AUTO-SAVE/LOAD SESSSION
-" ================================================================================================
-let g:session_autosave = 'yes'
-let g:session_autoload = 'yes'
-
 
 
 " COLOR SCHEME
 " ================================================================================================
 
-let g:molokai_original = 1   " Use classic style Molokai (Sublime~ish)
-colorscheme molokai-clean    " Custom version of Molokai w/o italics, etc.
+"let g:molokai_original = 1   " Use classic style Molokai (Sublime~ish)
+"colorscheme molokai-clean    " Custom version of Molokai w/o italics, etc.
+colorscheme solarized
 set background=dark
-" let g:rehash256 = 1         " Terminal only colors
+" let g:rehash256 = 1:s         " Terminal only colors
 
 
 " OTHER SETTINGS
@@ -109,10 +106,10 @@ set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
 
 " INDENT GUIDE LINES
 let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#504D4D'
+let g:indentLine_color_gui = '#586e75'
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
-let g:indentLine_char = '፧'  " Options: │┆⏐┊╽▏⠇⠅  ፧
+let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧
 
 
 "" DRAW 100 CHAR RULER
@@ -129,10 +126,18 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 
-" AIRLINE (STATUS BAR) PATCHED FONT SYMBOLS
+
+
+
+" AIRLINE (STATUS BAR)
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
+let g:airline_theme='solarized'
+
+
+
+
+
 
 " NERDTREE
 let g:NERDTreeDirArrowExpandable = '▶'
