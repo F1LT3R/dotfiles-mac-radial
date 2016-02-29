@@ -9,7 +9,6 @@ Plugin 'VundleVim/Vundle.vim'      " Plugin manager
 
 " PLUGIN LIST
 " ================================================================================================
-"Plugin 'xolox/vim-session'
 Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
 Plugin 'scrooloose/nerdtree.git'                  " File browser sidebar
 Plugin 'scrooloose/syntastic'                     " Syntax/error checking
@@ -33,7 +32,6 @@ Plugin 'genoma/vim-less'                          " Less syntax support
 Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
 Plugin 'ap/vim-css-color'                         " Support for hex/rgb color highlighting (slow)
 Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
-" Plugin 'tpope/vim-ragtag'
 Plugin 'elzr/vim-json'
 
 " VUNDLE (Required)
@@ -117,12 +115,12 @@ let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_char = '፧'  " Options: │┆⏐┊╽▏⠇⠅  ፧
 
 
-" DRAW 100 CHAR RULER
-if exists('+colorcolumn')
-  set colorcolumn=100
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
-endi
+"" DRAW 100 CHAR RULER
+"if exists('+colorcolumn')
+  "set colorcolumn=100
+"else
+  "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+"endi
 
 
 " UNDO LEVELS
@@ -184,7 +182,7 @@ function! ToggleWrite()
     set nospell
   else
     let b:write = "yes"
-    set linebreak
+    " set linebreak
     set textwidth=50
     set wrapmargin=0
     " set nolist  " I already have this set
