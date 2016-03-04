@@ -96,17 +96,18 @@ set background=dark
 " OTHER SETTINGS
 " ================================================================================================
 
-" WHITESPACE LIST CHARS
-set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
-:hi Specialkey guibg=#FB0082 guifg=#1c1c1c
-:hi NonText guifg=#FB0082 guibg=#1c1c1c
+" HANDLED IN COLOR SCHEME NOW
+"" WHITESPACE LIST CHARS
+"set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
+":hi Specialkey guibg=#FB0082 guifg=#1c1c1c
+":hi NonText guifg=#FB0082 guibg=#1c1c1c
 
 " INDENT GUIDE LINES
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#30525c'
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
-let g:indentLine_char = '▏'  " Options: │┆⏐┊╽▏⠇⠅  ፧
+let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧ │
 
 "" DRAW 100 CHAR RULER
 "if exists('+colorcolumn')

@@ -216,7 +216,7 @@ call s:SetOption("bold",1)
 call s:SetOption("underline",1)
 call s:SetOption("italic",1) " note that we need to override this later if the terminal doesn't support
 call s:SetOption("termcolors",16)
-call s:SetOption("contrast","normal")
+call s:SetOption("contrast","high")
 call s:SetOption("visibility","normal")
 call s:SetOption("diffmode","normal")
 call s:SetOption("hitrail",0)
@@ -404,6 +404,18 @@ if g:solarized_contrast == "high"
     let s:base2       = s:base3
     let s:back        = s:back
 endif
+
+if g:solarized_contrast == "super"
+    let s:base01      = s:base00
+    let s:base00      = s:base0
+    let s:base0       = s:base1
+    let s:base1       = s:base2
+    let s:base2       = s:base3
+    let s:back        = s:back
+endif
+
+
+
 if g:solarized_contrast == "low"
     let s:back        = s:base02
     let s:ou          = ",underline"
@@ -1039,6 +1051,7 @@ function! SolarizedMenu()
         amenu &Solarized.&Contrast.&Low\ Contrast        :let g:solarized_contrast="low"       \| colorscheme solarized<CR>
         amenu &Solarized.&Contrast.&Normal\ Contrast     :let g:solarized_contrast="normal"    \| colorscheme solarized<CR>
         amenu &Solarized.&Contrast.&High\ Contrast       :let g:solarized_contrast="high"      \| colorscheme solarized<CR>
+        amenu &Solarized.&Contrast.&Super\ Contrast       :let g:solarized_contrast="super"      \| colorscheme solarized<CR>        
         an    &Solarized.&Contrast.-sep-                 <Nop>
         amenu &Solarized.&Contrast.&Help:\ Contrast      :help 'solarized_contrast'<CR>
 
@@ -1161,6 +1174,7 @@ endfunction
 function! SetCursorLineNrColorVisual()
   set updatetime=0
   highlight LineNr guifg=#FB0082 guibg=#58164b
+  return ''
 endfunction
 
 
@@ -1170,9 +1184,9 @@ function! ResetCursorLineNrColor()
 endfunction
 
 vnoremap <silent> <expr> <SID>SetCursorLineNrColorVisual SetCursorLineNrColorVisual()
-nnoremap <silent> <script> v v<SID>SetCursorLineNrColorVisual
-nnoremap <silent> <script> V V<SID>SetCursorLineNrColorVisual
-nnoremap <silent> <script> <C-v> <C-v><SID>SetCursorLineNrColorVisual
+nnoremap <silent> <script> v v<SID>SetCursorLineNrColorVisual<left><right>
+nnoremap <silent> <script> V V<SID>SetCursorLineNrColorVisual<left><right>
+nnoremap <silent> <script> <C-v> <C-v><SID>SetCursorLineNrColorVisual<left><right>
 
 augroup CursorLineNrColorSwap
     autocmd!
@@ -1199,3 +1213,11 @@ autocmd InsertLeave * highlight Cursor guifg=#FFFFFF guibg=#268bd2
 autocmd InsertLeave * highlight LineNr guifg=#657b83 guibg=#073642
 
 highlight MatchParen guibg=#b58900 guifg=#FFFFFF
+
+
+
+" WHITESPACE LIST CHARS
+set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
+:hi Specialkey guibg=#FB0082 guifg=#1c1c1c
+:hi NonText guifg=#FB0082 guibg=#1c1c1c
+

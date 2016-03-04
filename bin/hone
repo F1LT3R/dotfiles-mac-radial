@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/Applications/Honer.app/Contents/MacOS/Honer &

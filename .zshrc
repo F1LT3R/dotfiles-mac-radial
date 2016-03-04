@@ -8,7 +8,7 @@ source $ZSH/oh-my-zsh.sh
 DEFAULT_USER=$(whoami)
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git git-extras git-flow git-remote-branch gitfast node npm osx pip python osx colored-man colorize grunt django postgres brew grunt brew fabric brew-cask)
+plugins=(rtab git git-extras git-flow git-remote-branch gitfast node npm osx pip python osx colored-man colorize grunt django postgres brew grunt brew fabric brew-cask)
 export HISTFILE=~/.histfile
 HISTSIZE=99999999
 SAVEHIST=99999999
