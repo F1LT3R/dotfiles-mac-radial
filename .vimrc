@@ -33,7 +33,8 @@ Plugin 'genoma/vim-less'                          " Less syntax support
 Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
 Plugin 'ap/vim-css-color'                         " Support for hex/rgb color highlighting (slow)
 Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
-Plugin 'elzr/vim-json'
+Plugin 'elzr/vim-json'                            " Get quotes back for JSON (why VIM removes!?)
+Plugin 'maksimr/vim-jsbeautify'
 
 " VUNDLE (Required)
 " ================================================================================================
@@ -82,9 +83,6 @@ if has("gui_running")
 endif
 
 
-
-
-
 " COLOR SCHEME
 " ================================================================================================
 
@@ -98,19 +96,17 @@ set background=dark
 " OTHER SETTINGS
 " ================================================================================================
 
-" Make System Clipboard and registers one and the same
-" set clipboard=unnamedplus
-
 " WHITESPACE LIST CHARS
 set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
+:hi Specialkey guibg=#FB0082 guifg=#1c1c1c
+:hi NonText guifg=#FB0082 guibg=#1c1c1c
 
 " INDENT GUIDE LINES
 let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#586e75'
+let g:indentLine_color_gui = '#30525c'
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
-let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧
-
+let g:indentLine_char = '▏'  " Options: │┆⏐┊╽▏⠇⠅  ፧
 
 "" DRAW 100 CHAR RULER
 "if exists('+colorcolumn')

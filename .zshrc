@@ -16,6 +16,10 @@ SAVEHIST=99999999
 # Radial Analytics
 source $HOME/.radialrc
 
+# Personal API Keys
+source $HOME/.apikeys
+
+
 ### Aliases
 
 # Grep Source fro ~TODO Spec
