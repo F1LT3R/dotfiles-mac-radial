@@ -1157,6 +1157,7 @@ autocmd ColorScheme * if g:colors_name != "solarized" | silent! aunmenu Solarize
 " green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
 "
 
+
 " Colorize line numbers in insert and visual modes
 " ------------------------------------------------
 function! SetCursorLineNrColorInsert(mode)
@@ -1174,6 +1175,11 @@ endfunction
 function! SetCursorLineNrColorVisual()
   set updatetime=0
   highlight LineNr guifg=#FB0082 guibg=#58164b
+  highlight SignColumn guifg=#FB0082 guibg=#58164b
+  highlight GitGutterAdd guifg=#FB0082 guibg=#58164b
+  highlight GitGutterChange guifg=#FB0082 guibg=#58164b
+  highlight GitGutterDelete guifg=#FB0082 guibg=#58164b
+  highlight GitGutterChangeDelete guifg=#FB0082 guibg=#58164b  
   return ''
 endfunction
 
@@ -1181,6 +1187,11 @@ endfunction
 function! ResetCursorLineNrColor()
   set updatetime=4000
   highlight LineNr guifg=#657b83 guibg=#073642
+  highlight SignColumn guibg=#073642
+  highlight GitGutterAdd guibg=#073642 guifg=#5f8700
+  highlight GitGutterChange guibg=#073642 guifg=#b58900
+  highlight GitGutterDelete guibg=#073642 guifg=#d70000
+  highlight GitGutterChangeDelete guibg=#073642 guifg=#5f5faf
 endfunction
 
 vnoremap <silent> <expr> <SID>SetCursorLineNrColorVisual SetCursorLineNrColorVisual()
@@ -1197,23 +1208,34 @@ augroup END
 
 hi Visual guifg=#FB0082 guibg=#FFFFFF
 
-" Default Colors for CursorLine
+" Normal Mode Colors
 highlight CursorLine guibg=#073642
 highlight Cursor guifg=#FFFFFF guibg=#268bd2
 highlight LineNr guifg=#657b83 guibg=#073642
+" highlight SignColumn guibg=#073642
 
-" Change Color when entering Insert Mode
+" Insert Enter
 autocmd InsertEnter * highlight CursorLine guibg=#1c1c1c
 autocmd InsertEnter * highlight Cursor guifg=#FFFFFF guibg=#F9CD00
-autocmd InsertEnter * highlight LineNr guifg=#b58900 guibg=#5b5a1b
+autocmd InsertEnter * highlight LineNr guifg=#000000 guibg=#b58900
+autocmd InsertEnter * highlight SignColumn guibg=#b58900
+autocmd InsertEnter * highlight GitGutterAdd guibg=#b58900 guifg=#000000
+autocmd InsertEnter * highlight GitGutterChange guibg=#b58900 guifg=#000000
+autocmd InsertEnter * highlight GitGutterDelete guibg=#b58900 guifg=#000000
+autocmd InsertEnter * highlight GitGutterChangeDelete guibg=#b58900 guifg=#000000
 
-" Revert Color to default when leaving Insert Mode
+" Insert Leave
 autocmd InsertLeave * highlight CursorLine guibg=#073642
 autocmd InsertLeave * highlight Cursor guifg=#FFFFFF guibg=#268bd2
 autocmd InsertLeave * highlight LineNr guifg=#657b83 guibg=#073642
+autocmd InsertLeave * highlight SignColumn guibg=#073642
+autocmd InsertLeave * highlight GitGutterAdd guibg=#073642 guifg=#5f8700
+autocmd InsertLeave * highlight GitGutterChange guibg=#073642 guifg=#b58900
+autocmd InsertLeave * highlight GitGutterDelete guibg=#073642 guifg=#d70000
+autocmd InsertLeave * highlight GitGutterChangeDelete guibg=#073642 guifg=#5f5faf
+
 
 highlight MatchParen guibg=#b58900 guifg=#FFFFFF
-
 
 
 " WHITESPACE LIST CHARS
