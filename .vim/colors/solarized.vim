@@ -1173,6 +1173,7 @@ endfunction
 
 function! SetCursorLineNrColorVisual()
   set updatetime=0
+  highlight Cursor guifg=#FB0082 guibg=#FFFFFF
   highlight LineNr guifg=#FB0082 guibg=#58164b
   highlight CursorLineNr guifg=#58164b guibg=#FB0082
   highlight SignColumn guifg=#FB0082 guibg=#58164b
@@ -1188,6 +1189,7 @@ endfunction
 
 function! ResetCursorLineNrColor()
   set updatetime=4000
+  highlight Cursor guifg=#FFFFFF guibg=#268bd2
   highlight LineNr guifg=#657b83 guibg=#073642
   highlight SignColumn guibg=#073642
   highlight CursorLineNr guifg=#657b83 guibg=#073642  
