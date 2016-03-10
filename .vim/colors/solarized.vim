@@ -1264,7 +1264,9 @@ autocmd InsertLeave * hi SyntasticWarningSign guibg=#073642 guifg=#5f5faf
 highlight MatchParen guibg=#b58900 guifg=#FFFFFF
 
 
-" WHITESPACE LIST CHARS
+" WHITESPACE LIST CHARS  ↵
 set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
-:hi Specialkey guibg=#FB0082 guifg=#1c1c1c
-:hi NonText guifg=#FB0082 guibg=#1c1c1c
+":hi Specialkey guibg=#FB0082 guifg=#1c1c1c
+":hi NonText guifg=#FB0082 guibg=#1c1c1c
+:hi Specialkey guibg=#FB0082
+:hi NonText guifg=#FB0082

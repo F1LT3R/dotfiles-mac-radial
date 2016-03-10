@@ -13,6 +13,7 @@ rm $HOME/.zshrc
 
 # VIM
 rm $HOME/.vimrc
+rm $HOME/.gvimrc
 rm $HOME/.vim
 
 # NODE

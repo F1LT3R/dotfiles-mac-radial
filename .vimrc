@@ -35,6 +35,7 @@ Plugin 'ap/vim-css-color'                         " Support for hex/rgb color hi
 Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
 Plugin 'elzr/vim-json'                            " Get quotes back for JSON (why VIM removes!?)
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'tpope/vim-surround'
 
 " VUNDLE (Required)
 " ================================================================================================
@@ -61,6 +62,7 @@ set guioptions-=L     " Hide scrollbars in NERDTree
 set noswapfile        " Comment our rather than add to .girignore
 set encoding=utf-8    " Unicode
 set hlsearch          " Highlight searched words
+set autochdir         " New files are automatically saved in dir of current file
 syntax enable         " Enable syntax highlighting
 retab                 " Convert tabs to spaces on load
 
@@ -236,7 +238,7 @@ function! StripTrailingWhitespace()
   normal `Z
 endfunction
 
-" :autocmd BufWritePre * :call StripTrailingWhitespace()
+:autocmd BufWritePre * :call StripTrailingWhitespace()
 
 " REMOVE \N FROM EOL
 :SetNoEOL
@@ -307,9 +309,6 @@ set timeout timeoutlen=1500
 " DON'T HIDE DOUBLE-QUOTES (JSON)
 " ================================================================================================
 let g:vim_json_syntax_conceal = 0
-
-
-
 
 
 " STARTIFY HEADER

@@ -13,6 +13,7 @@ ln -s $DIR/.zshrc $HOME/.zshrc
 
 # VIM
 ln -s $DIR/.vimrc $HOME/.vimrc
+ln -s $DIR/.gvimrc $HOME/.gvimrc
 ln -s $DIR/.vim/ $HOME/.vim
 
 
