@@ -27,6 +27,7 @@ else
 endif
 
 
+
 hi Boolean         guifg=#AE81FF
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF

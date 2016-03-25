@@ -1,0 +1,5 @@
+#!/bin/bash
+brew update
+# brew install source-highlight
+brew install highlight
+brew install macvim
