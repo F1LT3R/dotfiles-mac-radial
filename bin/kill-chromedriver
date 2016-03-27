@@ -1,2 +1,0 @@
-#!/bin/bash
-kill $(ps -fe | grep 'chromedriver --port' | grep -v grep | awk '{print $2}')

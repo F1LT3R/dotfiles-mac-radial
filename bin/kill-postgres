@@ -1,0 +1,2 @@
+#!/bin/bash
+kill $(ps -fe | grep 'postgres' | grep -v grep | awk '{print $2}')
