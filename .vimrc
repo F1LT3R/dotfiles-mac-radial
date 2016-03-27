@@ -111,12 +111,12 @@ let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧ │
 
-"" DRAW 100 CHAR RULER
-"if exists('+colorcolumn')
-  "set colorcolumn=100
-"else
-  "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
-"endi
+" DRAW 100 CHAR RULER
+if exists('+colorcolumn')
+  set colorcolumn=100
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+endi
 
 
 " UNDO LEVELS
@@ -315,6 +315,14 @@ let g:vim_json_syntax_conceal = 0
 " ================================================================================================
 
 let g:startify_custom_header = readfile(expand('~/.vim/ascii-art/panther.txt'))
+
+" Go Continuous Scroll-Binding
+" Vertically split the current buffer into two windows which will stay
+" scroll-bound together.  Allows you to see twice as much as before!
+" (disables the wrap setting and expands folds to work better)
+" (PS: this is kind of janky, but I like it anyway)
+nnoremap <silent> gcsb :<c-u>let @z=&so<cr>:set so=0 noscb nowrap nofen<cr>:bo vs<cr>Ljzt:setl scb<cr><c-w>p:setl scb<cr>:let &so=@z<cr>
+
 
 
 " KEYBOARD MAPPING
