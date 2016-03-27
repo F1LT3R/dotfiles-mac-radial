@@ -91,8 +91,8 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
-else
-let g:rehash256 = 1:s         " Terminal only colors
+elseif
+  let g:rehash256 = 1:s         " Terminal only colors
 endif
 
 
