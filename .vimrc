@@ -32,12 +32,12 @@ Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline l
 Plugin 'coldfix/hexHighlight'
 Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
 Plugin 'elzr/vim-json'                            " Get quotes back for JSON (why VIM removes!?)
-Plugin 'maksimr/vim-jsbeautify'
+Plugin 'maksimr/vim-jsbeautify'                   " JS/JSON Beautifier
 Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'sjl/gundo.vim'
+Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
 
 " VUNDLE (Required)
 " ================================================================================================
@@ -56,9 +56,9 @@ set tabstop=2             " 2 Spaces Per Tab
 set expandtab             " Insert spaces with tab key
 set laststatus=2          " Always display status bar
 set nocursorcolumn        " Cursor column highlight is slow
-set guioptions-=T         " - Hide Scrollbars in MacVim
-set guioptions-=r         " - Hide Scrollbars in MacVim
-set guioptions-=L         " Hide scrollbars in NERDTree
+"set guioptions-=T         " - Hide Scrollbars in MacVim
+"set guioptions-=r         " - Hide Scrollbars in MacVim
+"set guioptions-=L         " Hide scrollbars in NERDTree
 set noswapfile            " Comment our rather than add to .gitignore
 set encoding=utf-8        " Unicode
 set hlsearch              " Highlight searched words
@@ -337,14 +337,29 @@ function! ToggleColorScheme()
   if exists("b:ColorSchemeSwitch") && b:ColorSchemeSwitch == "yes"
     let b:ColorSchemeSwitch = "no"
     :colorscheme mokai2
-    hexHighlight
+    "hexHighlight
   else
     let b:ColorSchemeSwitch = "yes"
     colorscheme solarized
-    hexHighlight
+    "hexHighlight
   endif
 endfunction
 
+" Toggle ScrollBars
+"let b:ScrollBars = "no"
+"function! ToggleScrollBars()
+  "if exists("b:ScrollBars") && b:ScrollBars == "yes"
+    "let b:ScrollBars = "no"
+    "set guioptions-=T         " - Hide Scrollbars in MacVim
+    "set guioptions-=r         " - Hide Scrollbars in MacVim
+    "set guioptions-=L         " Hide scrollbars in NERDTree
+  "else
+    "let b:ScrollBars = "yes"
+    "set guioptions-=T         " - Hide Scrollbars in MacVim
+    "set guioptions-=r         " - Hide Scrollbars in MacVim
+    "set guioptions-=L         " Hide scrollbars in NERDTree
+  "endif
+"endfunction
 
 
 
@@ -355,12 +370,7 @@ endfunction
 map <D-Bslash> <plug>NERDCommenterToggle
 " Transparent mode toggle
 nmap <D-u> :call ToggleTrans()<cr>
-" Write Mode (distraction free)
-nmap ,w :call ToggleWrite()<cr>
-" Wrap Mode
-nmap <F6> :call ToggleWrapMode()<cr>
-" Toggle Search Highlight
-nnoremap <F3> :set hlsearch!<CR>
+
 " Normal Lazy Move Down
 nnoremap <D-j> :m .+1<CR>==
 " Normal Lazy Move Up
@@ -375,18 +385,16 @@ vnoremap <D-j> :m '>+1<CR>gv=gv
 vnoremap <D-k> :m '<-2<CR>gv=gv
 " Toggle Indent Guidlines
 map <C-i> :IndentLinesToggle<CR>
-" Begin live highlight with Vim-Over
-map <F1> :OverCommandLine<CR>
-" Current file in nerdtree
-map <F7> :NERDTreeFind<CR>
-" Toggle NERDTree Sidebar with F10
-map <F9> :NERDTreeToggle<CR>
-" Toggle Show Whitespace Chars
-noremap <F2> :set list!<CR>
-" Map undo tree
-nnoremap <F4> :GundoToggle<CR>
-" Markdown Preview
-nnoremap <F5> :InstantMarkdownPreview<CR>
 
-nnoremap <F10> :call ToggleColorScheme()<CR>
-nmap <F8> <Plug>ToggleHexHighlight
+
+map <F1> :OverCommandLine<CR>                        " Vim-Over: search/replace/highlihght
+noremap <F2> :set list!<CR>                          " Toggle Show Whitespace Chars
+nnoremap <F3> :set hlsearch!<CR>                     " Toggle Search Highlight
+nnoremap <F4> :GundoToggle<CR>                       " Map undo tree
+nnoremap <F5> :InstantMarkdownPreview<CR>            " Markdown Preview
+nmap <F6> :call ToggleWrapMode()<cr>                 " Wrap Mode
+map <F7> :NERDTreeFind<CR>                           " Current file in nerdtree
+nmap <F8> <Plug>ToggleHexHighlight                   " Highlight hex colors
+map <F9> :NERDTreeToggle<CR>                         " Toggle NERDTree Sidebar with F10
+nnoremap <F10> :call ToggleColorScheme()<CR>         " Switch between Solarized and Custom color sceheme
+
