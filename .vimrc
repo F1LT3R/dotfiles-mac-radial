@@ -28,7 +28,6 @@ Plugin 'junegunn/goyo.vim'                        " Distraction free editing
 Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser output
 Plugin 'genoma/vim-less'                          " Less syntax support
 Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
-"Plugin 'ap/vim-css-color'                         " Support for hex/rgb color highlighting (slow)
 Plugin 'coldfix/hexHighlight'
 Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
 Plugin 'elzr/vim-json'                            " Get quotes back for JSON (why VIM removes!?)
@@ -56,9 +55,6 @@ set tabstop=2             " 2 Spaces Per Tab
 set expandtab             " Insert spaces with tab key
 set laststatus=2          " Always display status bar
 set nocursorcolumn        " Cursor column highlight is slow
-"set guioptions-=T         " - Hide Scrollbars in MacVim
-"set guioptions-=r         " - Hide Scrollbars in MacVim
-"set guioptions-=L         " Hide scrollbars in NERDTree
 set noswapfile            " Comment our rather than add to .gitignore
 set encoding=utf-8        " Unicode
 set hlsearch              " Highlight searched words
@@ -101,9 +97,10 @@ endif
 
 "let g:molokai_original = 1   " Use classic style Molokai (Sublime~ish)
 "colorscheme molokai-clean    " Custom version of Molokai w/o italics, etc.
-colorscheme solarized
+"colorscheme solarized
 "colorscheme mokai2
-set background=dark
+colorscheme scripty
+"set background=dark
 
 
 " OTHER SETTINGS
@@ -117,7 +114,7 @@ set background=dark
 
 " INDENT GUIDE LINES
 let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#30525c'
+"let g:indentLine_color_gui = '#30525c'
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧ │
@@ -159,6 +156,7 @@ let g:NERDTreeDirArrowCollapsible = '▼'
 " DISABLED TERMINAL BELL
 autocmd! GUIEnter * set vb t_vb=
 
+
 " SYTASTIC SETTINGS
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -180,6 +178,7 @@ let g:syntastic_html_tidy_ignore_errors=['proprietary attribute', 'is not recogn
 
 " Extended syntax highlighting
 let g:used_javascript_libs = 'angularjs,requirejs,jasmine,angularuirouter'
+
 
 
 " WRAP MODE
@@ -219,17 +218,7 @@ endfunction
 
 
 
-" REMOVE TRAILING WHITESPACE
-"function! TrimWhiteSpace()
-  "%s/\s*$//''
-":endfunction
-
-"set list listchars=trail:.,extends:>
-"autocmd FileWritePre * :call TrimWhiteSpace()
-"autocmd FileAppendPre * :call TrimWhiteSpace()
-"autocmd FilterWritePre * :call TrimWhiteSpace()
-"autocmd BufWritePre * :call TrimWhiteSpace()
-
+" REMOVE TRAILING WHITESPACE ON SAVE
 function! StripTrailingWhitespace()
   normal mZ
   let l:chars = col("$")
@@ -243,7 +232,7 @@ endfunction
 :autocmd BufWritePre * :call StripTrailingWhitespace()
 
 " REMOVE \N FROM EOL
-" :SetNoEOL
+" But preserve EOL if one already exists in the file
 setlocal noeol | let b:PreserveNoEOL = 1
 
 
@@ -251,72 +240,6 @@ setlocal noeol | let b:PreserveNoEOL = 1
 " MAP THE LEADER KEY
 "let mapleader=","
 set timeout timeoutlen=1500
-
-
-"" SCREENMOVEMENT
-" (move by screenlines in softwrap)
-let b:gmove = "yes"
-function! ScreenMovement(movement)
-  if &wrap && b:gmove == 'yes'
-    return "g" . a:movement
-  else
-    return a:movement
-  endif
-endfunction
-
-
-" SCREENMOVE MAP VIM MOVEMENT KEYS
-onoremap <silent> <expr> j ScreenMovement("j")
-onoremap <silent> <expr> k ScreenMovement("k")
-onoremap <silent> <expr> 0 ScreenMovement("0")
-onoremap <silent> <expr> ^ ScreenMovement("^")
-onoremap <silent> <expr> $ ScreenMovement("$")
-nnoremap <silent> <expr> j ScreenMovement("j")
-nnoremap <silent> <expr> k ScreenMovement("k")
-nnoremap <silent> <expr> 0 ScreenMovement("0")
-nnoremap <silent> <expr> ^ ScreenMovement("^")
-nnoremap <silent> <expr> $ ScreenMovement("$")
-vnoremap <silent> <expr> j ScreenMovement("j")
-vnoremap <silent> <expr> k ScreenMovement("k")
-vnoremap <silent> <expr> 0 ScreenMovement("0")
-vnoremap <silent> <expr> ^ ScreenMovement("^")
-vnoremap <silent> <expr> $ ScreenMovement("$")
-vnoremap <silent> <expr> j ScreenMovement("j")
-
-
-" SCREENMOVE MAP HOME KEYS
-onoremap <silent> <expr> <C-h> ScreenMovement("0")
-nnoremap <silent> <expr> <C-h> ScreenMovement("0")
-vnoremap <silent> <expr> <C-h> ScreenMovement("0")
-onoremap <silent> <expr> <C-l> ScreenMovement("$")
-nnoremap <silent> <expr> <C-l> ScreenMovement("$")
-vnoremap <silent> <expr> <C-l> ScreenMovement("$")
-
-onoremap <silent> <expr> <HOME> ScreenMovement("0")
-nnoremap <silent> <expr> <HOME> ScreenMovement("0")
-vnoremap <silent> <expr> <HOME> ScreenMovement("0")
-onoremap <silent> <expr> <HOME> ScreenMovement("$")
-nnoremap <silent> <expr> <HOME> ScreenMovement("$")
-vnoremap <silent> <expr> <HOME> ScreenMovement("$")
-
-
-" SCREENMOVE MAP ARROW KEYS
-onoremap <silent> <expr> <C-Left> ScreenMovement("0")
-nnoremap <silent> <expr> <C-Left> ScreenMovement("0")
-vnoremap <silent> <expr> <C-Left> ScreenMovement("0")
-onoremap <silent> <expr> <C-Right> ScreenMovement("$")
-nnoremap <silent> <expr> <C-Right> ScreenMovement("$")
-vnoremap <silent> <expr> <C-Right> ScreenMovement("$")
-
-
-" MOVE N-LINES IN SOFTWRAP
-nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
-nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-nnoremap <expr> <Up> (v:count == 0 ? 'gk' : 'k')
-nnoremap <expr> <Down> (v:count == 0 ? 'gj' : 'j')
-
-"set formatprg=par
-
 
 " DON'T HIDE DOUBLE-QUOTES (JSON)
 " ================================================================================================
@@ -338,38 +261,57 @@ nnoremap <silent> gcsb :<c-u>let @z=&so<cr>:set so=0 noscb nowrap nofen<cr>:bo v
 
 
 
-
 " Toggle ColorScheme
 let b:ColorSchemeSwitch = "yes"
 function! ToggleColorScheme()
   if exists("b:ColorSchemeSwitch") && b:ColorSchemeSwitch == "yes"
     let b:ColorSchemeSwitch = "no"
     :colorscheme mokai2
-    "hexHighlight
   else
     let b:ColorSchemeSwitch = "yes"
     colorscheme solarized
-    "hexHighlight
   endif
 endfunction
 
+
+
 " Toggle ScrollBars
-"let b:ScrollBars = "no"
-"function! ToggleScrollBars()
-  "if exists("b:ScrollBars") && b:ScrollBars == "yes"
-    "let b:ScrollBars = "no"
-    "set guioptions-=T         " - Hide Scrollbars in MacVim
-    "set guioptions-=r         " - Hide Scrollbars in MacVim
-    "set guioptions-=L         " Hide scrollbars in NERDTree
-  "else
-    "let b:ScrollBars = "yes"
-    "set guioptions-=T         " - Hide Scrollbars in MacVim
-    "set guioptions-=r         " - Hide Scrollbars in MacVim
-    "set guioptions-=L         " Hide scrollbars in NERDTree
-  "endif
-"endfunction
+let b:ScrollBars = "no"
+
+" Hide MacVim chrome (inc. scrollbars)
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+
+function! ToggleScrollBars()
+  if exists("b:ScrollBars") && b:ScrollBars == "yes"
+    let b:ScrollBars = "no"
+    set guioptions-=r
+  else
+    let b:ScrollBars = "yes"
+    set guioptions+=r
+  endif
+endfunction
 
 
+
+" Toggle NerdTree
+let g:ntt = "yes"
+function! ToggleNerdTree()
+  if g:ntt == "yes"
+    let g:ntt = "no"
+    "let g:currentFile = bufname("%")
+    NERDTreeFind
+    "let line=getline('.')
+    "exe "/"line
+    "let i=line('.')
+    "exe "/\%"i"l"
+  else
+    let g:ntt = "yes"
+    NERDTreeClose
+  endif
+endfunction
+let g:NERDTreeHighlightCursorline = 1
 
 " KEYBOARD MAPPING
 " ================================================================================================
@@ -392,17 +334,19 @@ vnoremap <D-j> :m '>+1<CR>gv=gv
 " Visual Lazy Move Up
 vnoremap <D-k> :m '<-2<CR>gv=gv
 " Toggle Indent Guidlines
-map <C-i> :IndentLinesToggle<CR>
+nnoremap <C-i> :IndentLinesToggle<CR>
 
 
-map <F1> :OverCommandLine<CR>                        " Vim-Over: search/replace/highlihght
-noremap <F2> :set list!<CR>                          " Toggle Show Whitespace Chars
-nnoremap <F3> :set hlsearch!<CR>                     " Toggle Search Highlight
-nnoremap <F4> :GundoToggle<CR>                       " Map undo tree
-nnoremap <F5> :InstantMarkdownPreview<CR>            " Markdown Preview
-nmap <F6> :call ToggleWrapMode()<cr>                 " Wrap Mode
-map <F7> :NERDTreeFind<CR>                           " Current file in nerdtree
-nmap <F8> <Plug>ToggleHexHighlight                   " Highlight hex colors
-map <F9> :NERDTreeToggle<CR>                         " Toggle NERDTree Sidebar with F10
-nnoremap <F10> :call ToggleColorScheme()<CR>         " Switch between Solarized and Custom color sceheme
+" Vim-Over: search/replace/highlihght
+map <F1> :OverCommandLine<CR>
+noremap <F2> :set list!<CR>                               " Toggle Show Whitespace Chars
+nnoremap <F3> :set hlsearch!<CR>                          " Toggle Search Highlight
+nnoremap <F4> :GundoToggle<CR>                            " Map undo tree
+nnoremap <F5> :InstantMarkdownPreview<CR>                 " Markdown Preview
+nnoremap <F6> :call ToggleWrapMode()<cr>                  " Wrap/Write Mode
+nnoremap <F7> :call ToggleColorScheme()<CR>               " Switch between Solarized and Custom color sceheme
+nnoremap <F9> :call ToggleScrollBars()<CR>                " Toggle Scrollbars
+" Toggle NERDTree current file
+map <F10> :call ToggleNerdTree()<cr>
+map <F8> <Plug>ToggleHexHighlight
 

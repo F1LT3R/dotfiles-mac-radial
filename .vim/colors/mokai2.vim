@@ -1,21 +1,30 @@
 " Molokai
-let s:bgdark  ="#1B1D1E"
-let s:bglight ="#272822"
+let s:darkchoc  ="#1B1D1E"
+let s:milkchoc  ="#272822"
 "#293739
 "#75715E
-"#7E8E91
+let s:slate     ="#7E8E91"
 "#BCBCBC
 "#D4D4D1
-let b:text="#F8F8F2"
-"#E6DB74
-"#FD971F
+let s:text      ="#F8F8F2"
+let s:sherbert  ="#E6DB74"
+let s:hibiscus  ="#FD971F"
 "#ef5939
-"#F92672
-"#7070F0
+let s:salmon    ="#F92672"
+let s:deeppurp  ="#7070F0"
 "#70F0F0
-"#66D9EF
+let s:skyblue   ="#66D9EF"
 "#A6E22E experimental
 
+
+let s:visual_fg = s:darkchoc
+let s:visual_mg = s:deeppurp
+let s:visual_bg = s:salmon
+
+
+let s:insert_bg = s:darkchoc
+let s:insert_fg = s:sherbert
+let s:insert_mg = s:hibiscus
 
 
 " Vim color file
@@ -36,8 +45,8 @@ if exists("syntax_on")
 endif
 let g:colors_name="mokai2"
 
-exe "hi! Normal     guibg=".s:bgdark
-"hi Normal          guifg=s:text guibg=s:bgdark
+exe "hi! Normal     guifg=".s:text." guibg=".s:darkchoc
+"hi Normal          guifg=s:text guibg=s:darkchoc
 
 " OR
 
@@ -76,7 +85,7 @@ exe "hi! Normal     guibg=".s:bgdark
 "hi Folded
 "hi FoldColumn
 "hi IncSearch
-"hi LineNr guifg=#7E8E91 guibg=#
+exe "hi! LineNr guifg=".s:text." guibg=".s:milkchoc
 "hi ModeMsg
 "hi MoreMsg
 "hi NonText
@@ -97,7 +106,7 @@ exe "hi! Normal     guibg=".s:bgdark
 " syntax highlighting groups
 hi Comment guifg=#7E8E91
 hi Constant guifg=#AE81FF
-"hi Identifier
+"hi Identifier guifg=
 "hi Statement
 "hi PreProc
 "hi Type
@@ -106,6 +115,20 @@ hi Constant guifg=#AE81FF
 "hi Ignore
 "hi Error
 "hi Todo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 "" Colorize line numbers in insert and visual modes
@@ -174,18 +197,18 @@ hi Constant guifg=#AE81FF
 "hi SyntasticWarningSign guibg=#073642 guifg=#5f5faf
 
 
-"" Inseirt Enter
-"autocmd InsertEnter * highlight CursorLine guibg=#1c1c1c
-"autocmd InsertEnter * highlight Cursor guifg=#FFFFFF guibg=#F9CD00
-"autocmd InsertEnter * highlight CursorLineNr guibg=#F9CD00 guifg=#b58900
-"autocmd InsertEnter * highlight LineNr guibg=#b58900 guifg=#F9CD00
-"autocmd InsertEnter * highlight SignColumn guibg=#b58900
-"autocmd InsertEnter * highlight GitGutterAdd guibg=#b58900 guifg=#F9CD00
-"autocmd InsertEnter * highlight GitGutterChange guibg=#b58900 guifg=#F9CD00
-"autocmd InsertEnter * highlight GitGutterDelete guibg=#b58900 guifg=#F9CD00
-"autocmd InsertEnter * highlight GitGutterChangeDelete guibg=#b58900 guifg=#F9CD00
-"autocmd InsertEnter * hi SyntasticErrorSign guibg=#b58900 guifg=#F9CD00
-"autocmd InsertEnter * hi SyntasticWarningSign guibg=#b58900 guifg=#F9CD00
+"" Insert Enter
+"exe "autocmd InsertEnter * highlight CursorLine guibg=".s:insert_bg
+"exe "autocmd InsertEnter * highlight Cursor guifg=".s:text." guibg=".s:insert_fg
+"exe "autocmd InsertEnter * highlight CursorLineNr guibg=".s:insert_fg." guifg=".s:visual_mg
+"exe "autocmd InsertEnter * highlight LineNr guibg="s:insert_mg." guifg=".s:visual_fg
+"exe "autocmd InsertEnter * highlight SignColumn guibg=#b58900"
+"exe "autocmd InsertEnter * highlight GitGutterAdd guibg="s:insert_mg." guifg=".s:visual_fg
+"exe "autocmd InsertEnter * highlight GitGutterChange guibg="s:insert_mg." guifg=".s:visual_fg
+"exe "autocmd InsertEnter * highlight GitGutterDelete guibg="s:insert_mg." guifg=".s:visual_fg
+"exe "autocmd InsertEnter * highlight GitGutterChangeDelete guibg="s:insert_mg." guifg=".s:visual_fg
+"exe "autocmd InsertEnter * hi SyntasticErrorSign guibg="s:insert_mg." guifg=".s:visual_fg
+"exe "autocmd InsertEnter * hi SyntasticWarningSign guibg="s:insert_mg." guifg=".s:visual_fg
 
 ""autocmd InsertEnter * highlight SyntasticErrorSign guibg=#b58900 guifg=#F9CD00
 ""autocmd InsertEnter * highlight SyntasticWarningSign guibg=#b58900 guifg=#F9CD00
@@ -216,8 +239,8 @@ hi Constant guifg=#AE81FF
 
 "" WHITESPACE LIST CHARS  ↵
 "set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
-"":hi Specialkey guibg=#FB0082 guifg=#1c1c1c
-"":hi NonText guifg=#FB0082 guibg=#1c1c1c
+":hi Specialkey guibg=#FB0082 guifg=#1c1c1c
+":hi NonText guifg=#FB0082 guibg=#1c1c1c
 ":hi Specialkey guibg=#FB0082
 ":hi NonText guifg=#FB0082
 
