@@ -1,4 +1,4 @@
-" VUNDLE (Required)
+
 " ================================================================================================
 set nocompatible                   " be iMproved, required
 filetype off                       " required
@@ -76,8 +76,8 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata:12
   elseif has("gui_macvim")
-    "set guifont=Sauce\ Code\ Pro\ Light:h15
-    set guifont=Sauce\ Code\ Pro:h12
+    set guifont=Sauce\ Code\ Pro\ Light:h18
+    "set guifont=Sauce\ Code\ Pro:h12
     "set guifont=ProggyCleanTTSZ:h16
     "set guifont=ProggyTinyTTSZ:h24
     "set guifont=Crisp:h18
@@ -100,7 +100,7 @@ endif
 "colorscheme solarized
 "colorscheme mokai2
 colorscheme scripty
-"set background=dark
+set background=dark
 
 
 " OTHER SETTINGS
@@ -113,10 +113,10 @@ colorscheme scripty
 ":hi NonText guifg=#FB0082 guibg=#1c1c1c
 
 " INDENT GUIDE LINES
-let g:indentLine_color_term = 239
+"let g:indentLine_color_term = 239
 "let g:indentLine_color_gui = '#30525c'
-let g:indentLine_color_tty_light = 7 " (default: 4)
-let g:indentLine_color_dark = 1 " (default: 2)
+"let g:indentLine_color_tty_light = 7 " (default: 4)
+"let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧ │
 
 " DRAW 100 CHAR RULER
@@ -349,4 +349,3 @@ nnoremap <F9> :call ToggleScrollBars()<CR>                " Toggle Scrollbars
 " Toggle NERDTree current file
 map <F10> :call ToggleNerdTree()<cr>
 map <F8> <Plug>ToggleHexHighlight
-

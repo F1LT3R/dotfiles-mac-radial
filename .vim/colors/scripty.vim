@@ -1,17 +1,15 @@
 " Vim colorscheme Scripty
 " Author: Alistair MacDonald
 
-set background=dark
-let g:darkchoc  ="#1B1D1E"
 
-
+" Experimental colors
 let g:milkchoc  ="#272822"
 "#293739
 "#75715E
 let g:slate     ="#7E8E91"
 "#BCBCBC
 "#D4D4D1
-let g:text      ="#F8F8F2"
+"let g:text      ="#F8F8F2"
 let g:sherbert  ="#E6DB74"
 let g:hibiscus  ="#FD971F"
 "#ef5939
@@ -21,14 +19,30 @@ let g:deeppurp  ="#7070F0"
 let g:skyblue   ="#66D9EF"
 "#A6E22E experimental
 
-let g:clay = "#272822"
-let g:mud = "#293739"
-let g:coffee = "#75715E"
-let g:orchid = "#F92672"
-let g:cyan = "#66D9EF"
-let g:henink = "#A6E22E"
-let g:spice = "#FD971F"
-let g:sherbert = "#E6DB74"
+
+
+
+" Base Color Definition
+
+let g:darkchoc  ="#1B1D1E"
+let g:clay      ="#272822"
+let g:mud       ="#293739"
+let g:coffee    ="#75715E"
+let g:orchid    ="#F92672"
+let g:skye      ="#66D9EF"
+let g:henink    ="#A6E22E"
+let g:spice     ="#FD971F"
+let g:sherbert  ="#E6DB74"
+let g:text      ="#F8F8F2"
+
+
+
+" Mode Colors
+
+let g:v_lite = g:henink
+let g:v_dark = g:darkchoc
+let g:e_lite = "#FFAAAA"
+
 
 
 highlight clear
@@ -36,6 +50,9 @@ if exists("syntax_on")
     syntax reset
 endif
 let g:colors_name="scripty"
+
+set background=dark
+
 
 
 " Editor settings
@@ -50,14 +67,14 @@ hi NonText         guifg=#FFFFFF
 
 " Variable types
 
-exe "hi Constant   guifg=".g:cyan
+exe "hi Constant   guifg=".g:skye
 exe "hi String     guifg=".g:sherbert
 hi StringDelimiter guifg=#FFFFFF
 hi Character       guifg=#FFFFFF
-exe "hi Number     guifg=".g:cyan
-exe "hi Float      guifg=".g:cyan
+exe "hi Number     guifg=".g:skye
+exe "hi Float      guifg=".g:skye
 exe "hi Boolean    guifg=".g:orchid
-hi Identifier      guifg=#FFFFFF
+exe "hi Identifier guifg=".g:orchid
 exe "hi Function   guifg=".g:henink
 
 
@@ -75,7 +92,7 @@ exe "hi Comment         guifg=".g:coffee." gui=italic"
 exe "hi Special         guifg=".g:orchid
 hi SpecialChar     guifg=#FFFFFF
 hi Tag             guifg=#FFFFFF
-hi Delimiter       guifg=#FFFFFF
+exe "hi Delimiter       guifg=".g:spice
 hi SpecialComment  guifg=#FFFFFF
 hi Debug           guifg=#FFFFFF
 
@@ -89,7 +106,8 @@ hi Macro           guifg=#FFFFFF
 hi PreCondit       guifg=#FFFFFF
 
 exe "hi Type            guifg=".g:spice
-hi StorageClass    guifg=#FFFFFF
+"var"
+exe "hi StorageClass    guifg=".g:orchid
 hi Structure       guifg=#FFFFFF
 hi Typedef         guifg=#FFFFFF
 
@@ -101,64 +119,67 @@ hi FoldColumn      guifg=#FFFFFF
 hi SignColumn      guifg=#FFFFFF
 hi Folded          guifg=#FFFFFF
 
+
 " Window/Tab delimiters
 
 
-" - File Navigation / Searching -
+" File Navigation, Search
 
-hi Directory       ctermfg=none    ctermbg=none    cterm=none
-hi Search          ctermfg=none    ctermbg=none    cterm=none
-hi IncSearch       ctermfg=none    ctermbg=none    cterm=none
+hi Directory       guifg=#FFFFFF
+exe "hi Search          guifg=".g:darkchoc." guibg=".g:sherbert
+exe "hi IncSearch       guifg=".g:darkchoc." guibg=".g:henink
 
 
 " Prompt/Status
 
-hi StatusLine      ctermfg=none    ctermbg=none    cterm=none
-hi StatusLineNC    ctermfg=none    ctermbg=none    cterm=none
-hi WildMenu        ctermfg=none    ctermbg=none    cterm=none
-hi Question        ctermfg=none    ctermbg=none    cterm=none
-hi Title           ctermfg=none    ctermbg=none    cterm=none
-hi ModeMsg         ctermfg=none    ctermbg=none    cterm=none
-hi MoreMsg         ctermfg=none    ctermbg=none    cterm=none
+hi StatusLine      guifg=#FFFFFF
+hi StatusLineNC    guifg=#FFFFFF
+hi WildMenu        guifg=#FFFFFF
+hi Question        guifg=#FFFFFF
+exe "hi Title           guifg=".g:henink
+hi ModeMsg         guifg=#FFFFFF
+hi MoreMsg         guifg=#FFFFFF
+
 
 " Visual aid
 
-hi MatchParen      ctermfg=none    ctermbg=none    cterm=none
-hi Visual          ctermfg=none    ctermbg=none    cterm=none
-hi VisualNOS       ctermfg=none    ctermbg=none    cterm=none
-hi NonText         ctermfg=none    ctermbg=none    cterm=none
+exe "hi MatchParen      guifg=#FFFFFF guibg=".g:orchid
+hi Visual          guifg=#FFFFFF
+hi VisualNOS       guifg=#FFFFFF
+hi NonText         guifg=#FFFFFF
 
-hi Todo            ctermfg=none    ctermbg=none    cterm=none
-hi Underlined      ctermfg=none    ctermbg=none    cterm=none
-hi Error           ctermfg=none    ctermbg=none    cterm=none
-hi ErrorMsg        ctermfg=none    ctermbg=none    cterm=none
-hi WarningMsg      ctermfg=none    ctermbg=none    cterm=none
-hi Ignore          ctermfg=none    ctermbg=none    cterm=none
-hi SpecialKey      ctermfg=none    ctermbg=none    cterm=none
+hi Todo            guifg=#FFFFFF
+exe "hi Underlined      guifg=".g:skye
+exe "hi Error           guifg=".g:e_lite
+hi ErrorMsg        guifg=#FFFFFF
+hi WarningMsg      guifg=#FFFFFF
+hi Ignore          guifg=#FFFFFF
+hi SpecialKey      guifg=#FFFFFF
 
 
-" Diff
+" Diff (user defaults)
 
-hi DiffAdd         guifg=#FFFFFF
-hi DiffChange      guifg=#FFFFFF
-hi DiffDelete      guifg=#FFFFFF
-hi DiffText        guifg=#FFFFFF
+"hi DiffAdd         guifg=#FFFFFF
+"hi DiffChange      guifg=#FFFFFF
+"hi DiffDelete      guifg=#FFFFFF
+"hi DiffText        guifg=#FFFFFF
 
 
 " Completion menu
 
-hi Pmenu           guifg=#FFFFFF
-hi PmenuSel        guifg=#FFFFFF
-hi PmenuSbar       guifg=#FFFFFF
-hi PmenuThumb      guifg=#FFFFFF
+exe "hi Pmenu           guifg=".g:text." guibg=".g:coffee
+exe "hi PmenuSel        guifg=".g:v_dark." guibg=".g:v_lite
+exe "hi PmenuSbar       guibg=".g:v_lite
+exe "hi PmenuThumb      guibg=".g:v_dark
 
 
-" Spelling
+" Spelling (use default settings)
 
-hi SpellBad        guifg=#FFFFFF
-hi SpellCap        guifg=#FFFFFF
-hi SpellLocal      guifg=#FFFFFF
-hi SpellRare       guifg=#FFFFFF
+"hi SpellBad
+"hi SpellCap
+"hi SpellLocal
+"hi SpellRare
+
 
 
 " Plugin Coloring
