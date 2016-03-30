@@ -76,8 +76,8 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata:12
   elseif has("gui_macvim")
-    set guifont=Sauce\ Code\ Pro\ Light:h15
-    "set guifont=Sauce\ Code\ Pro:h16
+    "set guifont=Sauce\ Code\ Pro\ Light:h15
+    set guifont=Sauce\ Code\ Pro:h12
     "set guifont=ProggyCleanTTSZ:h16
     "set guifont=ProggyTinyTTSZ:h24
     "set guifont=Crisp:h18

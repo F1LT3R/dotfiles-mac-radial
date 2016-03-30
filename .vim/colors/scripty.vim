@@ -58,7 +58,7 @@ exe "hi Number     guifg=".g:cyan
 exe "hi Float      guifg=".g:cyan
 exe "hi Boolean    guifg=".g:orchid
 hi Identifier      guifg=#FFFFFF
-exe "hi Function   guifg=".g:cyan
+exe "hi Function   guifg=".g:henink
 
 
 " Language constructs
@@ -67,12 +67,12 @@ exe "hi Statement       guifg=".g:orchid
 exe "hi Conditional     guifg=".g:orchid
 hi Repeat          guifg=#FFFFFF
 hi Label           guifg=#FFFFFF
-exe "hi Operator        guifg=".g:henink
+exe "hi Operator        guifg=".g:orchid
 hi Keyword         guifg=#FFFFFF
 hi Exception       guifg=#FFFFFF
 exe "hi Comment         guifg=".g:coffee." gui=italic"
 
-hi Special         guifg=#FFFFFF
+exe "hi Special         guifg=".g:orchid
 hi SpecialChar     guifg=#FFFFFF
 hi Tag             guifg=#FFFFFF
 hi Delimiter       guifg=#FFFFFF
@@ -111,7 +111,7 @@ hi Search          ctermfg=none    ctermbg=none    cterm=none
 hi IncSearch       ctermfg=none    ctermbg=none    cterm=none
 
 
-" - Prompt/Status -
+" Prompt/Status
 
 hi StatusLine      ctermfg=none    ctermbg=none    cterm=none
 hi StatusLineNC    ctermfg=none    ctermbg=none    cterm=none
@@ -121,7 +121,7 @@ hi Title           ctermfg=none    ctermbg=none    cterm=none
 hi ModeMsg         ctermfg=none    ctermbg=none    cterm=none
 hi MoreMsg         ctermfg=none    ctermbg=none    cterm=none
 
-" - Visual aid -
+" Visual aid
 
 hi MatchParen      ctermfg=none    ctermbg=none    cterm=none
 hi Visual          ctermfg=none    ctermbg=none    cterm=none
@@ -144,8 +144,8 @@ hi DiffChange      guifg=#FFFFFF
 hi DiffDelete      guifg=#FFFFFF
 hi DiffText        guifg=#FFFFFF
 
-" Completion menu
 
+" Completion menu
 
 hi Pmenu           guifg=#FFFFFF
 hi PmenuSel        guifg=#FFFFFF
@@ -159,9 +159,6 @@ hi SpellBad        guifg=#FFFFFF
 hi SpellCap        guifg=#FFFFFF
 hi SpellLocal      guifg=#FFFFFF
 hi SpellRare       guifg=#FFFFFF
-
-
-
 
 
 " Plugin Coloring
