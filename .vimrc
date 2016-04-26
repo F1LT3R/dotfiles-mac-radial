@@ -67,7 +67,7 @@ set guicursor=a:blinkon0  " Disable cusor blink
 " FONT SETTINGS
 " ================================================================================================
 
-set noantialias       " Turn on/off Anti-Aliased Fonts
+set noantialias      " Turn on/off Anti-Aliased Fonts
 "set antialias       " Turn on/off Anti-Aliased Fonts
 set linespace=0       " Space between each line (pixels I think)
 
@@ -76,8 +76,8 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata:12
   elseif has("gui_macvim")
-    set guifont=Sauce\ Code\ Pro\ Light:h18
-    "set guifont=Sauce\ Code\ Pro:h12
+    "set guifont=Sauce\ Code\ Pro\ Light:h18
+    set guifont=Sauce\ Code\ Pro:h12
     "set guifont=ProggyCleanTTSZ:h16
     "set guifont=ProggyTinyTTSZ:h24
     "set guifont=Crisp:h18
@@ -88,7 +88,7 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 elseif
-  let g:rehash256 = 1:s         " Terminal only colors
+  let g:rehash256 = 1         " Terminal only colors
 endif
 
 
