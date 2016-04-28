@@ -6,7 +6,6 @@ set rtp+=~/.vim/bundle/Vundle.vim  " Vundle Runtime Path
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'      " Plugin manager
 
-
 " PLUGIN LIST
 " ================================================================================================
 Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
@@ -20,7 +19,8 @@ Plugin 'F1LT3R/vim-airline-themes'
 Plugin 'othree/javascript-libraries-syntax.vim' " Syntax highlighting for Angular
 Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
 Plugin 'terryma/vim-multiple-cursors'             " Multi-select and edit
-Plugin 'scrooloose/nerdcommenter'                 " Comment Block Highlighting
+"Plugin 'scrooloose/nerdcommenter'                 " Comment Block Highlighting
+Plugin 'tpope/vim-commentary'
 Plugin 'ctrlpvim/ctrlp.vim'                       " File list on steriods (like Sublime Ctrl+P)
 Plugin 'osyo-manga/vim-over'                      " Realtime search/replace highlighting
 Plugin 'Yggdroot/indentLine'                      " Indent level guide lines (pretty but slower)
@@ -35,8 +35,12 @@ Plugin 'maksimr/vim-jsbeautify'                   " JS/JSON Beautifier
 Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-abolish'
+Plugin 'svermeulen/vim-easyclip'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
+Plugin 'Valloric/YouCompleteMe'
 
 " VUNDLE (Required)
 " ================================================================================================
@@ -215,10 +219,6 @@ endfunction
 
 
 
-
-
-
-
 " REMOVE TRAILING WHITESPACE ON SAVE
 function! StripTrailingWhitespace()
   normal mZ
@@ -319,6 +319,8 @@ let g:NERDTreeHighlightCursorline = 1
 
 " Comment Toggle
 map <D-Bslash> <plug>NERDCommenterToggle
+map <D-Bslash> gcc
+
 " Transparent mode toggle
 nmap <D-u> :call ToggleTrans()<cr>
 
