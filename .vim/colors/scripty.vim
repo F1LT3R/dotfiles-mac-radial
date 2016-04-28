@@ -86,7 +86,7 @@ hi Repeat          guifg=#FFFFFF
 hi Label           guifg=#FFFFFF
 exe "hi Operator        guifg=".g:orchid
 hi Keyword         guifg=#FFFFFF
-hi Exception       guifg=#FFFFFF
+exe "hi Exception       guifg=".g:orchid
 exe "hi Comment         guifg=".g:coffee." gui=italic"
 
 exe "hi Special         guifg=".g:orchid
