@@ -1,13 +1,12 @@
-
-" ================================================================================================
 set nocompatible                   " be iMproved, required
 filetype off                       " required
 set rtp+=~/.vim/bundle/Vundle.vim  " Vundle Runtime Path
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'      " Plugin manager
 
+
 " PLUGIN LIST
-" ================================================================================================
+
 Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
 Plugin 'scrooloose/nerdtree.git'                  " File browser sidebar
 Plugin 'scrooloose/syntastic'                     " Syntax/error checking
@@ -19,7 +18,6 @@ Plugin 'F1LT3R/vim-airline-themes'
 Plugin 'othree/javascript-libraries-syntax.vim' " Syntax highlighting for Angular
 Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
 Plugin 'terryma/vim-multiple-cursors'             " Multi-select and edit
-"Plugin 'scrooloose/nerdcommenter'                 " Comment Block Highlighting
 Plugin 'tpope/vim-commentary'
 Plugin 'ctrlpvim/ctrlp.vim'                       " File list on steriods (like Sublime Ctrl+P)
 Plugin 'osyo-manga/vim-over'                      " Realtime search/replace highlighting
@@ -42,15 +40,15 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
 Plugin 'Valloric/YouCompleteMe'
 
+
 " VUNDLE (Required)
-" ================================================================================================
+
 call vundle#end()            " required
 filetype plugin indent on    " required
-" ================================================================================================
 
 
 " BASIC EDITOR SETUP
-" ================================================================================================
+
 set number                " Line Numbers
 set shiftwidth=2          " Width to shift over
 set nowrap                " Start without wrapping
@@ -69,10 +67,8 @@ set guicursor=a:blinkon0  " Disable cusor blink
 
 
 " FONT SETTINGS
-" ================================================================================================
 
 set noantialias      " Turn on/off Anti-Aliased Fonts
-"set antialias       " Turn on/off Anti-Aliased Fonts
 set linespace=0       " Space between each line (pixels I think)
 
 if has("gui_running")
@@ -80,15 +76,8 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata:12
   elseif has("gui_macvim")
-    set guifont=SauceCodePro\ Nerd\ Font:h13
-    "set guifont=Sauce\ Code\ Pro:h12
-    "set guifont=Source\ Code\ Pro\ for\ Powerline:h15
+    set guifont=SauceCodePro\ Nerd\ Font:h15
     "set guifont=ProggyCleanTTSZ:h16
-    "set guifont=ProggyTinyTTSZ:h24
-    "set guifont=Crisp:h18
-    "set guifont=ProggySquareTTSZ:h16
-    "set guifont=Secret\ Code:h16
-   "set guifont=Josefin\ Slab:h24
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
@@ -98,24 +87,19 @@ endif
 
 
 " COLOR SCHEME
-" ================================================================================================
 
-"let g:molokai_original = 1   " Use classic style Molokai (Sublime~ish)
-"colorscheme molokai-clean    " Custom version of Molokai w/o italics, etc.
 "colorscheme solarized
-"colorscheme mokai2
 colorscheme scripty
 set background=dark
 
 
 " OTHER SETTINGS
-" ================================================================================================
 
 " HANDLED IN COLOR SCHEME NOW
 "" WHITESPACE LIST CHARS
-"set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
-":hi Specialkey guibg=#FB0082 guifg=#1c1c1c
-":hi NonText guifg=#FB0082 guibg=#1c1c1c
+set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
+" :hi Specialkey guibg=#FB0082 guifg=#1c1c1c
+" :hi NonText guifg=#FB0082 guibg=#1c1c1c
 
 " INDENT GUIDE LINES
 "let g:indentLine_color_term = 239
@@ -220,17 +204,16 @@ endfunction
 
 
 " REMOVE TRAILING WHITESPACE ON SAVE
-function! StripTrailingWhitespace()
-  normal mZ
-  let l:chars = col("$")
-  %s/\s\+$//e
-  "if (line("'Z") != line(".")) || (l:chars != col("$"))
-    "echo "Trailing whitespace stripped\n"
-  "endif
-  normal `Z
-endfunction
 
-:autocmd BufWritePre * :call StripTrailingWhitespace()
+"   let l:chars = col("$")
+"   %s/\s\+$//e
+"   "if (line("'Z") != line(".")) || (l:chars != col("$"))
+"     "echo "Trailing whitespace stripped\n"
+"   "endif
+"   normal `Z
+" endfunction
+
+" :autocmd BufWritePre * :call StripTrailingWhitespace()
 
 " REMOVE \N FROM EOL
 " But preserve EOL if one already exists in the file
@@ -301,12 +284,7 @@ let g:ntt = "yes"
 function! ToggleNerdTree()
   if g:ntt == "yes"
     let g:ntt = "no"
-    "let g:currentFile = bufname("%")
     NERDTreeFind
-    "let line=getline('.')
-    "exe "/"line
-    "let i=line('.')
-    "exe "/\%"i"l"
   else
     let g:ntt = "yes"
     NERDTreeClose
@@ -318,7 +296,6 @@ let g:NERDTreeHighlightCursorline = 1
 " ================================================================================================
 
 " Comment Toggle
-map <D-Bslash> <plug>NERDCommenterToggle
 map <D-Bslash> gcc
 
 " Transparent mode toggle
@@ -341,6 +318,7 @@ nnoremap <C-i> :IndentLinesToggle<CR>
 
 
 " Vim-Over: search/replace/highlihght
+
 map <F1> :OverCommandLine<CR>
 noremap <F2> :set list!<CR>                               " Toggle Show Whitespace Chars
 nnoremap <F3> :set hlsearch!<CR>                          " Toggle Search Highlight
@@ -349,6 +327,5 @@ nnoremap <F5> :InstantMarkdownPreview<CR>                 " Markdown Preview
 nnoremap <F6> :call ToggleWrapMode()<cr>                  " Wrap/Write Mode
 nnoremap <F7> :call ToggleColorScheme()<CR>               " Switch between Solarized and Custom color sceheme
 nnoremap <F9> :call ToggleScrollBars()<CR>                " Toggle Scrollbars
-" Toggle NERDTree current file
 map <F10> :call ToggleNerdTree()<cr>
 map <F8> <Plug>ToggleHexHighlight
