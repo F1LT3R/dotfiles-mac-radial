@@ -132,7 +132,7 @@ let g:gutter_diff_changedelete_fg_visual = g:henink
 let g:menu_fg = g:white
 let g:menu_bg = g:coffee
 let g:menu_select_bg = g:henink
-let g:menu_select_fg = g:henink_dark
+
 
 
 " Match
@@ -245,7 +245,7 @@ hi VisualNOS       guifg=#FFFFFF
 hi NonText         guifg=#FFFFFF
 
 hi Todo            guifg=#FFFFFF
-exe "hi Underlined      guifg=".g:skye
+exe "hi Underlined      guifg=".g:error_fg."'"
 exe "hi Error           guifg=".g:error_fg." guibg=".g:error_bg."'"
 hi ErrorMsg        guifg=#FFFFFF
 hi WarningMsg      guifg=#FFFFFF
@@ -271,7 +271,7 @@ exe "hi PmenuThumb      guibg=".g:menu_select_bg
 
 " Spelling (use default settings)
 
-" exe "hi SpellBad           guifg=".g:errfg."'"
+exe "hi SpellBad           guifg=".g:error_fg."'"
 " hi SpellCap
 " hi SpellLocal
 " hi SpellRare

@@ -107,6 +107,7 @@ set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
 "let g:indentLine_color_tty_light = 7 " (default: 4)
 "let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧ │
+let g:indentLine_enabled = 0
 
 " DRAW 100 CHAR RULER
 if exists('+colorcolumn')
@@ -204,7 +205,7 @@ endfunction
 
 
 " REMOVE TRAILING WHITESPACE ON SAVE
-
+" function! StripTrailingWhitespace()
 "   let l:chars = col("$")
 "   %s/\s\+$//e
 "   "if (line("'Z") != line(".")) || (l:chars != col("$"))
@@ -214,6 +215,23 @@ endfunction
 " endfunction
 
 " :autocmd BufWritePre * :call StripTrailingWhitespace()
+
+
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+autocmd BufWritePre     *.* :call TrimWhiteSpace()
+
+
+
 
 " REMOVE \N FROM EOL
 " But preserve EOL if one already exists in the file
