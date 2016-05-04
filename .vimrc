@@ -263,6 +263,10 @@ nnoremap <silent> gcsb :<c-u>let @z=&so<cr>:set so=0 noscb nowrap nofen<cr>:bo v
 
 
 
+" YouCompleteMe Settings
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_add_preview_to_completeopt = 0
+
 " Toggle ColorScheme
 let b:ColorSchemeSwitch = "yes"
 function! ToggleColorScheme()
