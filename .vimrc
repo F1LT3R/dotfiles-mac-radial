@@ -137,6 +137,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#exclude_preview = 1
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#show_splits = 0
 
 " NERDTREE
 let g:NERDTreeDirArrowExpandable = '▶'
@@ -297,10 +298,10 @@ let g:NERDTreeHighlightCursorline = 1
 
 " Comment Toggle
 map <D-Bslash> gcc
-
+" Compile and run C code
+map <D-R> :exe '!gcc %:p' <bar> exe '!'.getcwd().'/a.out'<cr>
 " Transparent mode toggle
 nmap <D-u> :call ToggleTrans()<cr>
-
 " Normal Lazy Move Down
 nnoremap <D-j> :m .+1<CR>==
 " Normal Lazy Move Up
