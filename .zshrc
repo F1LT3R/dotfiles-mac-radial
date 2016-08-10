@@ -13,12 +13,9 @@ export HISTFILE=~/.histfile
 HISTSIZE=99999999
 SAVEHIST=99999999
 
-# Radial Analytics
-source $HOME/.radialrc
 
-# Personal API Keys
-source $HOME/.apikeys
-
+# Hidden RC File
+source $HOME/.hiddenrc
 
 ### Aliases
 

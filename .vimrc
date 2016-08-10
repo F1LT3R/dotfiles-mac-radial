@@ -74,13 +74,14 @@ set linespace=0       " Space between each line (pixels I think)
 
 if has("gui_macvim")
   set transparency=2
+  " set guifont=ProggyCleanTTSZ:h15
   set guifont=SauceCodePro\ Nerd\ Font:h15
 endif
 
 
 " COLOR SCHEME
 
-"colorscheme solarized
+" colorscheme solarized
 colorscheme scripty
 set background=dark
 

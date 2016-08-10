@@ -1,14 +1,14 @@
-" Vim colorscheme Scripty
+" Vim colorscheme Scriptysol
 " Author: Alistair MacDonald // changetest
 
 
 " Base Color Definition
 
-let g:darkchoc  ="#1B1D1E"
-let g:clay      ="#272822"
+let g:darkchoc  ="#073642"
+let g:clay      ="#073642"
 let g:mud       ="#293739"
 let g:coffee    ="#75715E"
-let g:orchid    ="#F92672"
+let g:orchid    ="#FFFFFF"
 let g:skye      ="#66D9EF"
 let g:henink    ="#A6E22E"
 let g:spice     ="#FD971F"
@@ -17,7 +17,7 @@ let g:sherbert  ="#E6DB74"
 
 " Extended Color Definition
 
-let g:text         ="#F8F8F2"
+let g:text         ="#FFFFFF"
 let g:orchid_dark  ="#841331"
 let g:henink_dark  ="#5f8700"
 let g:spice_medium ="#C9640C"
