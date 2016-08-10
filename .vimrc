@@ -40,6 +40,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mkitt/tabline.vim'                        " Succinct tabline
+Plugin 'ekalinin/Dockerfile.vim'                  " Docker syntax highlighting
 
 
 " VUNDLE (Required)
@@ -81,8 +82,8 @@ endif
 
 " COLOR SCHEME
 
-" colorscheme solarized
-colorscheme scripty
+colorscheme solarized
+" colorscheme scripty
 set background=dark
 
 
