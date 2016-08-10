@@ -15,6 +15,7 @@ ln -s $DIR/.zshrc $HOME/.zshrc
 ln -s $DIR/.vimrc $HOME/.vimrc
 ln -s $DIR/.gvimrc $HOME/.gvimrc
 ln -s $DIR/.vim/ $HOME/.vim
+ln -s $DIR/.tern-config $HOME/.tern-config
 
 
 # NODE

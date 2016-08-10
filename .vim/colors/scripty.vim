@@ -1,4 +1,4 @@
-" Vim colorscheme Scripty
+s" Vim colorscheme Scripty
 " Author: Alistair MacDonald // changetest
 
 
@@ -18,6 +18,7 @@ let g:sherbert  ="#E6DB74"
 " Extended Color Definition
 
 let g:text         ="#F8F8F2"
+let g:orchid_dark  ="#841331"
 let g:henink_dark  ="#5f8700"
 let g:spice_medium ="#C9640C"
 let g:spice_dark   ="#320004"
@@ -60,7 +61,7 @@ let g:error_bg = g:black
 " Normal
 
 let g:cursor_fg_normal = g:darkchoc
-let g:cursor_bg_normal = g:white
+let g:cursor_bg_normal = g:text
 
 let g:gutter_bg_normal = g:black
 let g:gutter_fg_normal = g:coffee
@@ -129,10 +130,12 @@ let g:gutter_diff_changedelete_fg_visual = g:henink
 
 " Menu
 
-let g:menu_fg = g:white
+let g:menu_fg = g:text
 let g:menu_bg = g:coffee
+let g:menu_select_fg = g:black
 let g:menu_select_bg = g:henink
-
+let g:menu_bar_bg = g:darkchoc
+let g:menu_bar_fg = g:henink_dark
 
 
 " Match
@@ -165,8 +168,8 @@ hi NonText         guifg=#FFFFFF
 
 exe "hi Constant   guifg=".g:skye
 exe "hi String     guifg=".g:sherbert
-hi StringDelimiter guifg=#FFFFFF
-hi Character       guifg=#FFFFFF
+hi StringDelimiter guifg=#FF0000
+hi Character       guifg=#FF0000
 exe "hi Number     guifg=".g:skye
 exe "hi Float      guifg=".g:skye
 exe "hi Boolean    guifg=".g:orchid
@@ -178,16 +181,16 @@ exe "hi Function   guifg=".g:henink
 
 exe "hi Statement       guifg=".g:orchid
 exe "hi Conditional     guifg=".g:orchid
-hi Repeat          guifg=#FFFFFF
-hi Label           guifg=#FFFFFF
+hi Repeat          guifg=#FF0000
+hi Label           guifg=#FF0000
 exe "hi Operator        guifg=".g:orchid
-hi Keyword         guifg=#FFFFFF
+hi Keyword         guifg=#FF0000
 exe "hi Exception       guifg=".g:orchid
 exe "hi Comment         guifg=".g:coffee." gui=italic"
 
 exe "hi Special         guifg=".g:orchid
-hi SpecialChar     guifg=#FFFFFF
-hi Tag             guifg=#FFFFFF
+hi SpecialChar     guifg=#FF0000
+hi Tag             guifg=#FF0000
 exe "hi Delimiter       guifg=".g:spice
 hi SpecialComment  guifg=#FFFFFF
 hi Debug           guifg=#FFFFFF
@@ -204,8 +207,8 @@ hi PreCondit       guifg=#FFFFFF
 exe "hi Type            guifg=".g:spice
 "var"
 exe "hi StorageClass    guifg=".g:orchid
-hi Structure       guifg=#FFFFFF
-hi Typedef         guifg=#FFFFFF
+hi Structure       guifg=#FF0000
+hi Typedef         guifg=#FF0000
 
 
 " Number column
@@ -265,16 +268,16 @@ hi SpecialKey      guifg=#FFFFFF
 
 exe "hi Pmenu           guifg=".g:menu_fg." guibg=".g:menu_bg."'"
 exe "hi PmenuSel        guifg=".g:menu_select_fg." guibg=".g:menu_select_bg."'"
-exe "hi PmenuSbar       guibg=".g:menu_select_mg."'"
-exe "hi PmenuThumb      guibg=".g:menu_select_bg
+exe "hi PmenuSbar       guibg=".g:menu_bar_bg."'"
+exe "hi PmenuThumb      guibg=".g:menu_bar_fg."'"
 
 
 " Spelling (use default settings)
 
 exe "hi SpellBad           guifg=".g:error_fg."'"
-" hi SpellCap
-" hi SpellLocal
-" hi SpellRare
+" exe "hi SpellCap            guifg=".g:error_fg."'"
+" exe "hi SpellLocal           guifg=".g:error_fg."'"
+" exe "hi SpellRare           guifg=".g:error_fg."'"
 
 
 
@@ -319,11 +322,11 @@ function! NormalColorSet()
   exe "highlight LineNr guifg=".g:gutter_fg_normal." guibg=".g:gutter_bg_normal."'"
   exe "highlight CursorLineNr guifg=".g:gutter_cursorlinenr_fg_normal." guibg=".g:gutter_cursorlinenr_bg_normal."'"
   exe "highlight SignColumn guibg=".g:gutter_bg_normal."'"
-  
+
   " Gutter Syntastic
   exe "hi SyntasticErrorSign guibg=".g:gutter_bg_normal." guifg=".g:gutter_error_fg_normal."'"
   exe "hi SyntasticWarningSign guibg=".g:gutter_bg_normal." guifg=".g:gutter_warning_fg_normal."'"
-  
+
   " Gutter Git
   exe "highlight GitGutterAdd guibg=".g:gutter_bg_normal." guifg=".g:gutter_diff_add_fg_normal."'"
   exe "highlight GitGutterChange guibg=".g:gutter_bg_normal." guifg=".g:gutter_diff_change_fg_normal."'"

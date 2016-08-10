@@ -39,6 +39,7 @@ Plugin 'svermeulen/vim-easyclip'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'mkitt/tabline.vim'                        " Succinct tabline
 
 
 " VUNDLE (Required)
@@ -64,25 +65,16 @@ set autochdir             " New files are automatically saved in dir of current 
 syntax enable             " Enable syntax highlighting
 retab                     " Convert tabs to spaces on load
 set guicursor=a:blinkon0  " Disable cusor blink
-
+set autoread              " Auto-reload file on change
 
 " FONT SETTINGS
 
 set noantialias      " Turn on/off Anti-Aliased Fonts
 set linespace=0       " Space between each line (pixels I think)
 
-if has("gui_running")
+if has("gui_macvim")
   set transparency=2
-  if has("gui_gtk2")
-    set guifont=Inconsolata:12
-  elseif has("gui_macvim")
-    set guifont=SauceCodePro\ Nerd\ Font:h15
-    "set guifont=ProggyCleanTTSZ:h16
-  elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
-  endif
-elseif
-  let g:rehash256 = 1         " Terminal only colors
+  set guifont=SauceCodePro\ Nerd\ Font:h15
 endif
 
 
@@ -102,10 +94,6 @@ set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
 " :hi NonText guifg=#FB0082 guibg=#1c1c1c
 
 " INDENT GUIDE LINES
-"let g:indentLine_color_term = 239
-"let g:indentLine_color_gui = '#30525c'
-"let g:indentLine_color_tty_light = 7 " (default: 4)
-"let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧ │
 let g:indentLine_enabled = 0
 
@@ -129,15 +117,26 @@ let g:instant_markdown_autostart = 0
 let g:instant_markdown_slow = 1
 
 
+
+
+
 " AIRLINE (STATUS BAR)
 let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
+let g:airline_theme='cool'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 let g:airline#extensions#tabline#exclude_preview = 1
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#exclude_preview = 1
+let g:airline#extensions#bufferline#enabled = 0
+
+
+
+
+
+
 
 " NERDTREE
 let g:NERDTreeDirArrowExpandable = '▶'
@@ -161,7 +160,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_enable_highlighting=1
-let g:syntastic_javascript_checkers=['jscs', 'jshint']  " npm install jshint -g
+" let g:syntastic_javascript_checkers=['jscs', 'jshint']  " npm install jshint jscs -g
+let g:syntastic_javascript_checkers=['jshint']  " npm install jshint jscs -g
 
 " Ignore certain kinds of HTML errors (re: Angular)
 let g:syntastic_html_tidy_ignore_errors=['proprietary attribute', 'is not recognized!']
@@ -169,6 +169,8 @@ let g:syntastic_html_tidy_ignore_errors=['proprietary attribute', 'is not recogn
 " Extended syntax highlighting
 let g:used_javascript_libs = 'angularjs,requirejs,jasmine,angularuirouter'
 
+filetype plugin on
+au BufNewFile,BufRead * if &ft == '' | set ft=javascript | endif
 
 
 " WRAP MODE
@@ -318,7 +320,7 @@ let g:NERDTreeHighlightCursorline = 1
 " ================================================================================================
 
 " Comment Toggle
-map <D-Bslash> gcc
+map <D-Bslash> gcc<Esc>
 
 " Transparent mode toggle
 nmap <D-u> :call ToggleTrans()<cr>
