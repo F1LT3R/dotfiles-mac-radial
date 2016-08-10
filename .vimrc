@@ -82,8 +82,8 @@ endif
 
 " COLOR SCHEME
 
-colorscheme solarized
-" colorscheme scripty
+" colorscheme solarized
+colorscheme scripty
 set background=dark
 
 

@@ -184,7 +184,7 @@ exe "hi Conditional     guifg=".g:orchid
 hi Repeat          guifg=#FF0000
 hi Label           guifg=#FF0000
 exe "hi Operator        guifg=".g:orchid
-hi Keyword         guifg=#FF0000
+exe "hi Keyword         guifg=".g:orchid
 exe "hi Exception       guifg=".g:orchid
 exe "hi Comment         guifg=".g:coffee." gui=italic"
 

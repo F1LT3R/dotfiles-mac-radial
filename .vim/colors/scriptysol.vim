@@ -182,15 +182,15 @@ exe "hi Function   guifg=".g:henink
 exe "hi Statement       guifg=".g:orchid
 exe "hi Conditional     guifg=".g:orchid
 hi Repeat          guifg=#FF0000
-hi Label           guifg=#FF0000
+exe "hi Label           guifg=".g.orchid
 exe "hi Operator        guifg=".g:orchid
-hi Keyword         guifg=#FF0000
+exe "hi Keyword         guifg=".g:orchid
 exe "hi Exception       guifg=".g:orchid
 exe "hi Comment         guifg=".g:coffee." gui=italic"
 
 exe "hi Special         guifg=".g:orchid
 hi SpecialChar     guifg=#FF0000
-hi Tag             guifg=#FF0000
+exe "hi Tag             guifg=".g:orchid
 exe "hi Delimiter       guifg=".g:spice
 hi SpecialComment  guifg=#FFFFFF
 hi Debug           guifg=#FFFFFF
