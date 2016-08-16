@@ -1,0 +1,3 @@
+#!/bin/bash
+
+(touch $1; open -a MacVim.app $1)
