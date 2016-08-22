@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>21461CBA-B50C-441C-B3A2-C1CE2DF1645F</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>github radial analytics</string>
+			<key>text</key>
+			<string>gh ra</string>
+			<key>url</key>
+			<string>https://github.com/radialanalytics?utf8=%E2%9C%93&amp;query={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>76FFA5E8-A0AB-4568-8B62-2BC0C4F302EC</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>gim</string>
+			<key>spaces</key>
+			<string>%20</string>
+			<key>text</key>
+			<string>google images</string>
+			<key>url</key>
+			<string>https://www.google.com/search?q={query}&amp;tbm=isch</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>8C12D9A2-5D9C-4075-BA1D-D3AD88056BE3</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>gh pr</string>
+			<key>text</key>
+			<string>github pull requests</string>
+			<key>url</key>
+			<string>https://github.com/pulls?utf8=%E2%9C%93&amp;q=is%3Aopen+is%3Apr+author%3AF1LT3R+{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>95BDF93E-3661-4962-AC44-E5B7A4CA10E5</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>noun</string>
+			<key>text</key>
+			<string>The Noun Project</string>
+			<key>url</key>
+			<string>https://thenounproject.com/search/?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>A54EE694-1544-4CB6-A5A4-E41B32BF88F0</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>mail</string>
+			<key>text</key>
+			<string>mail (radial)</string>
+			<key>url</key>
+			<string>https://mail.google.com/mail/u/1/#search/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>DC932373-EA1E-4533-8691-FD544258CE0A</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>mail pwn</string>
+			<key>text</key>
+			<string>mail (pwn)</string>
+			<key>url</key>
+			<string>https://mail.google.com/mail/u/1/#search/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>DDC8B309-62D6-473C-BF2D-138454EE3FB4</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>gh repo</string>
+			<key>text</key>
+			<string>gh repo (F1LT3R)</string>
+			<key>url</key>
+			<string>https://github.com/search?q=user%3AF1LT3R+{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,3 +1,18 @@
 #!/bin/bash
 
-(touch $1; open -a MacVim.app $1)
+# If we have a colon we are going to open file at a certain line number
+if [[ $1 == *":"* ]]
+then
+  # Split Line/Function from Filename into an array
+  PARTS=($(echo $1 | sed 's/\(:\)/\'$'\n\1/g'))
+  # Get the filename
+  FILE=${PARTS[0]}
+  # Get the linenumber (numbers only, no weird stuff thanks)
+  LN=$(echo ${PARTS[1]} | sed -e 's/[^0-9]//g')
+  # Open the file at line in new window
+  (mvim $FILE -c :$LN &)
+else
+  # Open the file in the existing window
+  (touch $1; open -a MacVim.app $1)
+fi
+
