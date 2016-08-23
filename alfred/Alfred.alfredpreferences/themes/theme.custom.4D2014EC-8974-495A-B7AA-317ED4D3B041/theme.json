@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 7,
+      "subtext" : {
+        "size" : 17,
+        "colorSelected" : "#FEFFFFE2",
+        "font" : "ProggyCleanTTSZ",
+        "color" : "#A4C7FFFF"
+      },
+      "shortcut" : {
+        "size" : 15,
+        "colorSelected" : "#FFFFFF9E",
+        "font" : "System",
+        "color" : "#FFFFFFAE"
+      },
+      "backgroundSelected" : "#FF3ADCEB",
+      "text" : {
+        "size" : 27,
+        "colorSelected" : "#FEFFFFFF",
+        "font" : "ProggyCleanTTSZ",
+        "color" : "#FF3EF2FF"
+      },
+      "iconPaddingHorizontal" : 7,
+      "paddingVertical" : 4,
+      "iconSize" : 45
+    },
+    "search" : {
+      "paddingVertical" : 0,
+      "background" : "#4F62C500",
+      "spacing" : 0,
+      "text" : {
+        "size" : 54,
+        "colorSelected" : "#000000FF",
+        "font" : "ProggyCleanTTSZ",
+        "color" : "#FF3FF8FF"
+      },
+      "backgroundSelected" : "#B2D7FFFF"
+    },
+    "window" : {
+      "color" : "#661156B4",
+      "paddingHorizontal" : 0,
+      "width" : 573,
+      "borderPadding" : 0,
+      "borderColor" : "#000000FF",
+      "blur" : 40,
+      "roundness" : 3,
+      "paddingVertical" : 0
+    },
+    "credit" : "f1lt3r",
+    "separator" : {
+      "color" : "#CD00FFFF",
+      "thickness" : 0
+    },
+    "scrollbar" : {
+      "color" : "#5BAAFFFF",
+      "thickness" : 19
+    },
+    "name" : "neon"
+  }
+}

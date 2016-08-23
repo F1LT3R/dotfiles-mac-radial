@@ -2,9 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>hidehat</key>
-	<true/>
-	<key>hidemenu</key>
-	<true/>
+	<key>currentthemeuid</key>
+	<string>theme.custom.4D2014EC-8974-495A-B7AA-317ED4D3B041</string>
 </dict>
 </plist>
