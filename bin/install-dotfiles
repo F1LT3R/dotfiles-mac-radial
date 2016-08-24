@@ -17,7 +17,6 @@ ln -s $DIR/.gvimrc $HOME/.gvimrc
 ln -s $DIR/.vim/ $HOME/.vim
 ln -s $DIR/.tern-config $HOME/.tern-config
 
-
 # NODE
 ln -s $DIR/.noderc $HOME/.noderc
 
@@ -26,3 +25,6 @@ ln -s $DIR/.tigrc $HOME/.tigrc
 
 # JSHint
 ln -s $DIR/.jshintrc $HOME/.jshintrc
+
+# IRSSI
+ln -s $DIR/.irssi/config $HOME/.irssi/config

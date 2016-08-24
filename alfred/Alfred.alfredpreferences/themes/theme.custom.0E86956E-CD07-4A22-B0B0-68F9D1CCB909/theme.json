@@ -1,51 +1,51 @@
 {
   "alfredtheme" : {
     "result" : {
-      "textSpacing" : 7,
+      "textSpacing" : 0,
       "subtext" : {
         "size" : 16,
-        "colorSelected" : "#FEFFFFE2",
+        "colorSelected" : "#000000E2",
         "font" : "ProggyCleanTTSZ",
-        "color" : "#A4C7FFFF"
+        "color" : "#44F900A1"
       },
       "shortcut" : {
-        "size" : 15,
-        "colorSelected" : "#FFFFFF9E",
-        "font" : "System",
-        "color" : "#FFFFFFAE"
+        "size" : 16,
+        "colorSelected" : "#0000009E",
+        "font" : "ProggyCleanTTSZ",
+        "color" : "#59F900FF"
       },
-      "backgroundSelected" : "#FF3ADCEB",
+      "backgroundSelected" : "#00F916D6",
       "text" : {
         "size" : 16,
-        "colorSelected" : "#FEFFFFFF",
+        "colorSelected" : "#000000FF",
         "font" : "ProggyCleanTTSZ",
-        "color" : "#FF3EF2FF"
+        "color" : "#07F900FF"
       },
       "iconPaddingHorizontal" : 7,
-      "paddingVertical" : 6,
-      "iconSize" : 45
+      "paddingVertical" : 9,
+      "iconSize" : 32
     },
     "search" : {
       "paddingVertical" : 0,
-      "background" : "#4F62C500",
-      "spacing" : 0,
+      "background" : "#49C0344E",
+      "spacing" : 10,
       "text" : {
         "size" : 48,
         "colorSelected" : "#000000FF",
         "font" : "ProggyCleanTTSZ",
-        "color" : "#FF3FF8FF"
+        "color" : "#00F615FF"
       },
       "backgroundSelected" : "#B2D7FFFF"
     },
     "window" : {
-      "color" : "#661156B4",
+      "color" : "#0000008E",
       "paddingHorizontal" : 0,
       "width" : 573,
       "borderPadding" : 0,
       "borderColor" : "#000000FF",
-      "blur" : 40,
+      "blur" : 0,
       "roundness" : 3,
-      "paddingVertical" : 0
+      "paddingVertical" : 10
     },
     "credit" : "f1lt3r",
     "separator" : {
@@ -53,9 +53,9 @@
       "thickness" : 0
     },
     "scrollbar" : {
-      "color" : "#5BAAFFFF",
-      "thickness" : 19
+      "color" : "#00F800FF",
+      "thickness" : 23
     },
-    "name" : "neon"
+    "name" : "matrix"
   }
 }

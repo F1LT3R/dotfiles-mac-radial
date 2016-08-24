@@ -4,7 +4,6 @@ set rtp+=~/.vim/bundle/Vundle.vim  " Vundle Runtime Path
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'      " Plugin manager
 
-
 " PLUGIN LIST
 
 Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
@@ -42,7 +41,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'mkitt/tabline.vim'                        " Succinct tabline
 Plugin 'ekalinin/Dockerfile.vim'                  " Docker syntax highlighting
 
-
 " VUNDLE (Required)
 
 call vundle#end()            " required
@@ -75,15 +73,15 @@ set linespace=0       " Space between each line (pixels I think)
 
 if has("gui_macvim")
   set transparency=2
-  " set guifont=ProggyCleanTTSZ:h15
+  " set guifont=ProggyCleanTTSZ:h16
   set guifont=SauceCodePro\ Nerd\ Font:h15
 endif
 
 
 " COLOR SCHEME
 
-" colorscheme solarized
-colorscheme scripty
+colorscheme solarized
+" colorscheme scripty
 set background=dark
 
 
@@ -239,7 +237,7 @@ setlocal noeol | let b:PreserveNoEOL = 1
 
 
 " MAP THE LEADER KEY
-"let mapleader=","
+let mapleader=","
 set timeout timeoutlen=1500
 
 " DON'T HIDE DOUBLE-QUOTES (JSON)

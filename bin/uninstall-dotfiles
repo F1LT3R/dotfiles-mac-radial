@@ -15,6 +15,7 @@ rm $HOME/.zshrc
 rm $HOME/.vimrc
 rm $HOME/.gvimrc
 rm $HOME/.vim
+rm $HOME/.tern-config
 
 # NODE
 rm $HOME/.noderc
@@ -24,3 +25,6 @@ rm $HOME/.tigrc
 
 # JSHint
 rm $HOME/.jshintrc
+
+# IRSSI
+rm $HOME/.irssi/config
