@@ -40,6 +40,7 @@ Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mkitt/tabline.vim'                        " Succinct tabline
 Plugin 'ekalinin/Dockerfile.vim'                  " Docker syntax highlighting
+Plugin 'docunext/closetag.vim.git'                " Close HTML tags
 
 " VUNDLE (Required)
 
@@ -105,6 +106,8 @@ else
 endi
 
 
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+
 " UNDO LEVELS
 set undodir=~/.vim/undo/
 set undofile
@@ -148,7 +151,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height=3
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " configure syntastic syntax checking to check on open as well as save

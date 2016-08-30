@@ -1,0 +1,10 @@
+{
+  "rulers":[],
+  "draw_centered": true,
+  "gutter": false,
+  "indent_guide_options":
+  [
+    "draw_active"
+  ],
+  "show_minimap": false,
+}
