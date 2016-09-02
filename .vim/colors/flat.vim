@@ -1,6 +1,6 @@
-" Name:     Solarized vim colorscheme
-" Author:   Ethan Schoonover <es@ethanschoonover.com>
-" URL:      http://ethanschoonover.com/solarized
+" Name:     Flat vim colorscheme
+" Author:   Alistair MacDonald (Forked from Ethan Schoonover's Solarized theme) <es@ethanschoonover.com>
+" URL:      http://f1lt3r.com
 "           (see this url for latest release & screenshots)
 " License:  OSI approved MIT license (see end of this file)
 " Created:  In the middle of the night
@@ -97,8 +97,8 @@
 "
 " SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      sRGB        HSB
 " --------- ------- ---- -------  ----------- ---------- ----------- -----------
-" base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
-" base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
+" base03    #2C3E50  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
+" base02    #34495E  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
 " base01    #586e75 10/7 brgreen  240 #4e4e4e 45 -07 -07  88 110 117 194  25  46
 " base00    #657b83 11/7 bryellow 241 #585858 50 -07 -07 101 123 131 195  23  51
 " base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
@@ -257,30 +257,29 @@ let colors_name = "solarized"
     " let s:violet      = "#6c71c4"
     " let s:blue        = "#268bd2"
     " let s:cyan        = "#2aa198"
-    " "let s:green       = "#859900" "original
+    " let s:green       = "#859900" "original
     " let s:green       = "#719e07" "experimental
 
 
 
 if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
-    let s:base03      = "#002b36"
-    let s:base02      = "#0A5262"
-    let s:base01      = "#80A1AA"
-    let s:base00      = "#92B2BD"
-    let s:base0       = "#BCD6D8"
-    let s:base1       = "#D3E8E7"
-    let s:base2       = "#fdf6e3"
-    let s:base3       = "#FFFFFF"
-    let s:yellow      = "#FFCC06"
-    let s:orange      = "#FF7027"
-    let s:red         = "#FF4C49"
-    let s:magenta     = "#FF58C2"
-    let s:violet      = "#9BA5FF"
-    let s:blue        = "#3BC9FF"
-    let s:cyan        = "#3FE7DB"
-    "let s:green       = "#BFDC01" "original
-    let s:green       = "#A4E30B" "experimental
+    let s:base03      = "#2C3E50"
+    let s:base02      = "#34495E"
+    let s:base01      = "#7F8C8D"
+    let s:base00      = "#95A5A6"
+    let s:base0       = "#BDC3C7"
+    let s:base1       = "#e0e0e0"
+    let s:base2       = "#f5f5f5"
+    let s:base3       = "#ECF0F1"
+    let s:yellow      = "#E74C3C"
+    let s:orange      = "#E67E22"
+    let s:red         = "#F1C40F"
+    let s:magenta     = "#2ECC71"
+    let s:violet      = "#1ABC9C"
+    let s:blue        = "#3498DB"
+    let s:cyan        = "#95A5A6"
+    let s:green       = "#be643c" "experimental
 elseif (has("gui_running") && g:solarized_degrade == 1)
     " These colors are identical to the 256 color mode. They may be viewed
     " while in gui mode via "let g:solarized_degrade=1", though this is not

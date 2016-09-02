@@ -4,5 +4,7 @@
 <dict>
 	<key>limit</key>
 	<integer>2</integer>
+	<key>quicksearch</key>
+	<false/>
 </dict>
 </plist>
