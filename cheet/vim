@@ -1,0 +1,4 @@
+# Plugins
+
+Beautify JS/HTML                :call JsBeautify()<cr>
+Trim Whitespace                 :TrimWhiteSpace()<cr>

@@ -83,6 +83,7 @@ if has("gui_macvim")
   " set guifont=ProggyCleanTTSZ:h24
   set guifont=ProggyCleanTTSZ:h16
   " set guifont=SauceCodePro\ Nerd\ Font:h15
+  " set guifont=RobotoMono\ Nerd\ Font:h15
 endif
 
 
@@ -113,6 +114,11 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 endi
 
+
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 

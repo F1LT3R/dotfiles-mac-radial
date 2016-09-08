@@ -1,0 +1,56 @@
+# SHAPES
+
+Vector            V
+Pencil            P
+Line              L
+Rect              R
+Oval              O
+Rounded           U
+Text              T
+Artboard          A
+Slice             S
+
+
+# ZOOM
+
+Zoom              Z
+Reverse Zoom      Alt + Z
+Zoom In           Cmd + +
+Zoom Out          Cmd + -
+Actual Size       Cmd + 0
+Center Canvas     Cmd + 1
+Zoom Selection    Cmd + 2
+Center Selection  Cmd + 3
+Drag Viewport     Space + Mouse-Drag
+
+
+# View Toggles
+
+Pixels            Ctl + P
+Rulers            Ctl + R
+Grid              Ctl + G
+Select Handles    Ctl + H
+Distance Guides   Ctl + L
+
+
+# Layers
+
+Union             Alt + Cmd + U
+Subtract          Alt + Cmd + S
+Intersect         Alt + Cmd + I
+Difference        Alt + Cmd + X
+Transform         Shf + Cmd + T
+Rotate            Shf + Cmd + T
+
+
+# Arrange
+
+Forward           Alt + Cmd + Up
+Front             Ctl + Alt + Cmd + Up
+Backward          Alt + Cmd + Down
+Back              Ctl + Alt + Cmd + Down
+Group             Cmd + G
+Group             Shf + Cmd + G
+Hide              Shf + Cmd + H
+Lock              Shf + Cmd + L
+Rename            Cmd + R

@@ -714,11 +714,13 @@
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
-	<true/>
+	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
 	<key>EnableRendezvous</key>
 	<false/>
+	<key>FlashTabBarInFullscreen</key>
+	<true/>
 	<key>FocusFollowsMouse</key>
 	<false/>
 	<key>FsTabDelay</key>
@@ -735,6 +737,8 @@
 	<true/>
 	<key>HideTab</key>
 	<true/>
+	<key>HideTabCloseButton</key>
+	<false/>
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
@@ -814,11 +818,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1590 626 796 473 0 0 2560 1417 </string>
+	<string>1590 561 918 498 0 0 2560 1417 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1318 37 633 672 0 0 2560 1417 </string>
+	<string>640 22 1277 1395 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1280 25 1277 1392 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -4708,7 +4712,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>1A71D41D-16EC-469E-BABE-D602B7049CC4</string>
 	<key>NoSyncLastTipTime</key>
-	<real>494523385.54183102</real>
+	<real>494947538.38327801</real>
 	<key>NoSyncNeverRemindPrefsChangesLost</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -4774,6 +4778,8 @@
 		<string>0042</string>
 		<string>0043</string>
 		<string>0043</string>
+		<string>0044</string>
+		<string>0045</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -4845,7 +4851,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-09-02T15:15:20Z</date>
+	<date>2016-09-06T13:07:18Z</date>
 	<key>SUSkippedVersion</key>
 	<string>2.0.0.20150412</string>
 	<key>SavePasteHistory</key>
@@ -4856,12 +4862,16 @@
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<true/>
+	<key>ShowNewOutputIndicator</key>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.2319861778846154</real>
+	<real>0.17131410256410257</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>

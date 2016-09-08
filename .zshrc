@@ -17,6 +17,9 @@ SAVEHIST=99999999999
 source $HOME/.hiddenrc
 
 
+### MacVim as Default editor
+export $EDITOR=/Applications/MacVim.app/Contents/MacOS/MacVim
+
 ### Aliases
 
 # Grep Source fro ~TODO Spec
