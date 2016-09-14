@@ -25,12 +25,7 @@ Plugin 'junegunn/goyo.vim'                        " Distraction free editing
 Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser output
 Plugin 'genoma/vim-less'                          " Less syntax support
 Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
-
 Plugin 'chrisbra/colorizer'
-
-" Plugin 'groenewege/vim-less'                      " LESS color highlighting
-" Plugin 'coldfix/hexHighlight'
-" Plugin 'skammer/vim-css-color'                    " Hex color highlighting
 Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
 Plugin 'elzr/vim-json'                            " Get quotes back for JSON (why VIM removes!?)
 Plugin 'maksimr/vim-jsbeautify'                   " JS/JSON Beautifier
@@ -48,6 +43,12 @@ Plugin 'ekalinin/Dockerfile.vim'                  " Docker syntax highlighting
 Plugin 'docunext/closetag.vim.git'                " Close HTML tags
 Plugin 'chriskempson/base16-vim'                  " Awesome Base16 color schemes
 
+" Plugin 'isRuslan/vim-es6'
+" Plugin 'groenewege/vim-less'                      " LESS color highlighting
+" Plugin 'coldfix/hexHighlight'
+" Plugin 'skammer/vim-css-color'                    " Hex color highlighting
+
+
 " VUNDLE (Required)
 
 call vundle#end()            " required
@@ -57,11 +58,8 @@ filetype plugin indent on    " required
 " BASIC EDITOR SETUP
 
 set number                " Line Numbers
-set shiftwidth=2          " Width to shift over
 set nowrap                " Start without wrapping
 set cursorline            " Highlight the current line
-set tabstop=2             " 2 Spaces Per Tab
-set expandtab             " Insert spaces with tab key
 set laststatus=2          " Always display status bar
 set nocursorcolumn        " Cursor column highlight is slow
 set noswapfile            " Comment our rather than add to .gitignore
@@ -69,20 +67,29 @@ set encoding=utf-8        " Unicode
 set hlsearch              " Highlight searched words
 set autochdir             " New files are automatically saved in dir of current file
 syntax enable             " Enable syntax highlighting
-retab                     " Convert tabs to spaces on load
 set guicursor=a:blinkon0  " Disable cusor blink
 set autoread              " Auto-reload file on change
 
+" 2 Spaces Setup
+" set tabstop=2             " 2 Spaces Per Tab
+" set expandtab             " Insert spaces with tab key
+" retab                     " Convert tabs to spaces on load"
+
+
+" Tab (As 4 spaces) Setup
+set autoindent noexpandtab tabstop=2 shiftwidth=2
+
 " FONT SETTINGS
 
-set noantialias      " Turn on/off Anti-Aliased Fonts
+" set noantialias      " Turn on/off Anti-Aliased Fonts
 set linespace=0       " Space between each line (pixels I think)
 
 if has("gui_macvim")
   set transparency=0
   " set guifont=ProggyCleanTTSZ:h24
-  set guifont=ProggyCleanTTSZ:h16
-  " set guifont=SauceCodePro\ Nerd\ Font:h15
+  " set guifont=ProggyCleanTTSZ:h16
+  " set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete:h15
+  set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h15
   " set guifont=RobotoMono\ Nerd\ Font:h15
 endif
 
@@ -115,10 +122,10 @@ else
 endi
 
 
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
@@ -173,13 +180,19 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_enable_highlighting=1
 " let g:syntastic_javascript_checkers=['jscs', 'jshint']  " npm install jshint jscs -g
-let g:syntastic_javascript_checkers=['jshint']  " npm install jshint jscs -g
+" let g:syntastic_javascript_checkers=['jshint']  " npm install jshint jscs -g
+
+" Use XO
+let g:syntastic_javascript_eslint_generic = 1
+let g:syntastic_javascript_eslint_exec = 'xo'
+let g:syntastic_javascript_eslint_args = '--reporter=compact'
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Ignore certain kinds of HTML errors (re: Angular)
-let g:syntastic_html_tidy_ignore_errors=['proprietary attribute', 'is not recognized!']
+" let g:syntastic_html_tidy_ignore_errors=['proprietary attribute', 'is not recognized!']
 
 " Extended syntax highlighting
-let g:used_javascript_libs = 'angularjs,requirejs,jasmine,angularuirouter'
+" let g:used_javascript_libs = 'angularjs,requirejs,jasmine,angularuirouter'
 
 filetype plugin on
 au BufNewFile,BufRead * if &ft == '' | set ft=javascript | endif
