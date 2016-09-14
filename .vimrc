@@ -25,7 +25,6 @@ Plugin 'junegunn/goyo.vim'                        " Distraction free editing
 Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser output
 Plugin 'genoma/vim-less'                          " Less syntax support
 Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
-
 Plugin 'chrisbra/colorizer'
 
 " Plugin 'groenewege/vim-less'                      " LESS color highlighting
@@ -80,10 +79,10 @@ set linespace=0       " Space between each line (pixels I think)
 
 if has("gui_macvim")
   set transparency=0
-  " set guifont=ProggyCleanTTSZ:h24
-  set guifont=ProggyCleanTTSZ:h16
-  " set guifont=SauceCodePro\ Nerd\ Font:h15
-  " set guifont=RobotoMono\ Nerd\ Font:h15
+  " set guifont=ProggyCleanTTSZ\ Nerd\ Font\ Complete:h16
+  " set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete:h16
+  set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h16
+  " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h15
 endif
 
 
@@ -115,10 +114,22 @@ else
 endi
 
 
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" autocmd FileType nerdtree setlocal nolist
+" let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+" let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+" let g:DevIconsEnableFoldersOpenClose = 1
+" let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+
+
+
+let g:airline_powerline_fonts=1
+let g:WebDevIconsUnicodeDecorateFolderNodes=1
+let g:WebDevIconsNerdTreeAfterGlyphPadding='  '
+let g:WebDevIconsNerdTreeGitPluginForceVAlign=0
+
+
+
+
 
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
@@ -135,6 +146,7 @@ let g:instant_markdown_slow = 1
 
 
 
+set completefunc=emoji#complete
 
 
 " AIRLINE (STATUS BAR)

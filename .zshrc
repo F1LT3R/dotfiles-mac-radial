@@ -18,7 +18,7 @@ source $HOME/.hiddenrc
 
 
 ### MacVim as Default editor
-export $EDITOR=/Applications/MacVim.app/Contents/MacOS/MacVim
+# export $EDITOR=/Applications/MacVim.app/Contents/MacOS/MacVim
 
 ### Aliases
 
