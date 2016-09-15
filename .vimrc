@@ -72,7 +72,7 @@ set autoread              " Auto-reload file on change
 
 " 2 Spaces Setup
 " set tabstop=2             " 2 Spaces Per Tab
-" set expandtab             " Insert spaces with tab key
+set expandtab             " Insert spaces with tab key
 " retab                     " Convert tabs to spaces on load"
 
 
@@ -87,9 +87,9 @@ set linespace=0       " Space between each line (pixels I think)
 if has("gui_macvim")
   set transparency=0
   " set guifont=ProggyCleanTTSZ\ Nerd\ Font\ Complete:h16
-  " set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete:h16
-  set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h16
-  " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h15
+  " set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete:h14
+  " set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h16
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h13
 endif
 
 
@@ -142,8 +142,7 @@ let g:instant_markdown_slow = 1
 
 
 
-set completefunc=emoji#complete
-
+let g:ycm_path_to_python_interpreter="/usr/local/python"
 
 " AIRLINE (STATUS BAR)
 let g:airline_powerline_fonts=1

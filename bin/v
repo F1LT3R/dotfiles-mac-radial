@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # If we have a colon we are going to open file at a certain line number
 if [[ $1 == *":"* ]]
 then
@@ -12,7 +11,15 @@ then
   # Open the file at line in new window
   (mvim $FILE -c :$LN &)
 else
-  # Open the file in the existing window
-  (touch $1; open -a MacVim.app $1)
+	if [ ! -f "$1" ]
+	then
+		read -p "Touch file: \"$1\"? (y/n) " DOTOUCH;
+		if [ "$DOTOUCH" == "y" ]; then
+		  touch $1
+			echo "Touched file: \"$1\""
+    fi
+	fi
+	# Open the file in the existing window
+	open -a MacVim.app $1
 fi
 
