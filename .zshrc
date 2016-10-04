@@ -16,7 +16,6 @@ SAVEHIST=99999999999
 # Hidden RC File
 source $HOME/.hiddenrc
 
-
 ### MacVim as Default editor
 # export $EDITOR=/Applications/MacVim.app/Contents/MacOS/MacVim
 
@@ -56,5 +55,3 @@ alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --s
 # Copy js.lang to json.lang with the following command
 # cp "$(dirname $(brew list highlight | head -n 1))/share/highlight/langDefs/js.lang" "$(dirname $(brew list highlight | head -n 1))/share/highlight/langDefs/json.lang"
 # Syntax Highlighting for "cat"
-
-export PATH="/usr/local/sbin:$PATH"

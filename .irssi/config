@@ -19,8 +19,7 @@ chatnets = {
 
 channels = (
   { name = "#angularjs"; chatnet = "Freenode"; autojoin = "Yes"; }
-  { name = "#pulledpork"; chatnet = "Freenode"; autojoin = "Yes"; }
-  { name = "#snort"; chatnet = "Freenode"; autojoin = "Yes"; }
+  { name = "#ossec"; chatnet = "Freenode"; autojoin = "Yes"; }
 );
 
 aliases = {

@@ -6,47 +6,46 @@ Plugin 'VundleVim/Vundle.vim'      " Plugin manager
 
 " PLUGIN LIST
 
-Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
-Plugin 'scrooloose/nerdtree.git'                  " File browser sidebar
-Plugin 'scrooloose/syntastic'                     " Syntax/error checking
-Plugin 'airblade/vim-gitgutter'                   " Git Diff in sidebar
-Plugin 'tpope/vim-fugitive'                             " Visualize Git branches in Powerline
+" VIM GUI
 Plugin 'mhinz/vim-startify'                       " Fancy VIM start screen
-Plugin 'vim-airline/vim-airline'
-Plugin 'F1LT3R/vim-airline-themes'
-Plugin 'othree/javascript-libraries-syntax.vim' " Syntax highlighting for Angular
-Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
-Plugin 'terryma/vim-multiple-cursors'             " Multi-select and edit
-Plugin 'tpope/vim-commentary'
-Plugin 'ctrlpvim/ctrlp.vim'                       " File list on steriods (like Sublime Ctrl+P)
-Plugin 'osyo-manga/vim-over'                      " Realtime search/replace highlighting
-Plugin 'Yggdroot/indentLine'                      " Indent level guide lines (pretty but slower)
+Plugin 'vim-airline/vim-airline'                  " Better status bar
+Plugin 'vim-airline/vim-airline-themes'           " Status bar themes
+Plugin 'scrooloose/nerdtree.git'                  " File browser sidebar
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'airblade/vim-gitgutter'                   " Git Diff in sidebar
+Plugin 'tpope/vim-fugitive'                       " Visualize Git branches in Powerline
 Plugin 'junegunn/goyo.vim'                        " Distraction free editing
-Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser output
-Plugin 'genoma/vim-less'                          " Less syntax support
-Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
-Plugin 'chrisbra/colorizer'
-Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
-Plugin 'elzr/vim-json'                            " Get quotes back for JSON (why VIM removes!?)
-Plugin 'maksimr/vim-jsbeautify'                   " JS/JSON Beautifier
-Plugin 'tpope/vim-surround'
-Plugin 'godlygeek/tabular'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-abolish'
-Plugin 'svermeulen/vim-easyclip'
-Plugin 'tpope/vim-unimpaired'
+Plugin 'ryanoasis/vim-devicons'                   " File type UI font icons
 Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'mkitt/tabline.vim'                        " Succinct tabline
-Plugin 'ekalinin/Dockerfile.vim'                  " Docker syntax highlighting
-Plugin 'docunext/closetag.vim.git'                " Close HTML tags
 Plugin 'chriskempson/base16-vim'                  " Awesome Base16 color schemes
 
-" Plugin 'isRuslan/vim-es6'
-" Plugin 'groenewege/vim-less'                      " LESS color highlighting
-" Plugin 'coldfix/hexHighlight'
-" Plugin 'skammer/vim-css-color'                    " Hex color highlighting
+" Editor Control
+Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
+Plugin 'terryma/vim-multiple-cursors'             " Multi-select and edit
+Plugin 'tpope/vim-commentary'                     " Comment/Uncomment w/ Cmd + Backslash
+Plugin 'osyo-manga/vim-over'                      " Realtime search/replace highlighting
+Plugin 'Yggdroot/indentLine'                      " Indent level guide lines (pretty but slower)
+Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
+Plugin 'tpope/vim-repeat'                         " Add . repeat support for plugins
+Plugin 'Valloric/YouCompleteMe'                   " Intellisense-like word completion
+Plugin 'docunext/closetag.vim.git'                " close html tags
+Plugin 'bruno-/vim-alt-mappings'
+
+" Syntax
+Plugin 'scrooloose/syntastic'                     " Syntax/error checking
+Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
+Plugin 'othree/javascript-libraries-syntax.vim'   " Syntax highlighting for Angular
+Plugin 'genoma/vim-less'                          " Less syntax support
+Plugin 'chrisbra/colorizer'                       " Highlight CSS/Less Colors in the editor
+Plugin 'elzr/vim-json'                            " Get quotes back for JSON (why VIM removes!?)
+Plugin 'maksimr/vim-jsbeautify'                   " JS/JSON Beautifier
+
+" " Markdown / Writing
+Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser output
+Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
+
+
 
 
 " VUNDLE (Required)
@@ -58,7 +57,7 @@ filetype plugin indent on    " required
 " BASIC EDITOR SETUP
 
 set number                " Line Numbers
-set nowrap                " Start without wrapping
+set nowrap                " Start withou wrapping
 set cursorline            " Highlight the current line
 set laststatus=2          " Always display status bar
 set nocursorcolumn        " Cursor column highlight is slow
@@ -67,17 +66,20 @@ set encoding=utf-8        " Unicode
 set hlsearch              " Highlight searched words
 set autochdir             " New files are automatically saved in dir of current file
 syntax enable             " Enable syntax highlighting
-set guicursor=a:blinkon0  " Disable cusor blink
 set autoread              " Auto-reload file on change
 
-" 2 Spaces Setup
-" set tabstop=2             " 2 Spaces Per Tab
-set expandtab             " Insert spaces with tab key
-" retab                     " Convert tabs to spaces on load"
 
+" Chane Cursor Shape for Different Modes
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" Tab (As 4 spaces) Setup
-set autoindent noexpandtab tabstop=2 shiftwidth=2
+" set autoindent noexpandtab tabstop=2 shiftwidth=2
+
+" Spaces
+set autoindent expandtab shiftwidth=2 tabstop=2
+retab
+
 
 " FONT SETTINGS
 
@@ -85,11 +87,17 @@ set autoindent noexpandtab tabstop=2 shiftwidth=2
 set linespace=0       " Space between each line (pixels I think)
 
 if has("gui_macvim")
-  set transparency=0
+  set guicursor=a:blinkon0  " Disable cusor blink
+  set transparency=2
   " set guifont=ProggyCleanTTSZ\ Nerd\ Font\ Complete:h16
   " set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete:h14
   " set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h16
   set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h13
+
+  " Hide MacVim chrome (inc. scrollbars)
+  set guioptions-=T
+  set guioptions-=r
+  set guioptions-=L
 endif
 
 
@@ -106,8 +114,6 @@ set background=dark
 " HANDLED IN COLOR SCHEME NOW
 "" WHITESPACE LIST CHARS
 set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
-" :hi Specialkey guibg=#FB0082 guifg=#1c1c1c
-" :hi NonText guifg=#FB0082 guibg=#1c1c1c
 
 " INDENT GUIDE LINES
 let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧ │
@@ -142,7 +148,7 @@ let g:instant_markdown_slow = 1
 
 
 
-let g:ycm_path_to_python_interpreter="/usr/local/python"
+" let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
 
 " AIRLINE (STATUS BAR)
 let g:airline_powerline_fonts=1
@@ -175,18 +181,29 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_error_symbol = '☠'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_enable_highlighting=1
+
+" JSHint
 " let g:syntastic_javascript_checkers=['jscs', 'jshint']  " npm install jshint jscs -g
 " let g:syntastic_javascript_checkers=['jshint']  " npm install jshint jscs -g
 
-" Use XO
-let g:syntastic_javascript_eslint_generic = 1
-let g:syntastic_javascript_eslint_exec = 'xo'
-let g:syntastic_javascript_eslint_args = '--reporter=compact'
-let g:syntastic_javascript_checkers = ['eslint']
+" XO
+" let g:syntastic_javascript_eslint_generic = 1
+" let g:syntastic_javascript_eslint_exec = 'xo'
+" let g:syntastic_javascript_eslint_args = '--reporter=compact'
+" let g:syntastic_javascript_checkers = ['eslint']
+
+" Babel ESLint
+let g:syntastic_javascript_checkers = ['eslint']    " npm install -g eslint babel-eslint (+rc file)
+let g:syntastic_javascript_eslint_exec = 'eslint_d' " npm install -g eslint_d
 
 " Ignore certain kinds of HTML errors (re: Angular)
 " let g:syntastic_html_tidy_ignore_errors=['proprietary attribute', 'is not recognized!']
@@ -306,62 +323,205 @@ function! ToggleColorScheme()
   endif
 endfunction
 
-" Toggle FontSize
-let b:FontSizeSwitch = "no"
-function! ToggleFontSize()
-  if exists("b:FontSizeSwitch") && b:FontSizeSwitch == "yes"
-    let b:FontSizeSwitch = "no"
-    set guifont=ProggyCleanTTSZ:h16
-  else
-    let b:FontSizeSwitch = "yes"
-    set guifont=ProggyCleanTTSZ:h31
-  endif
-endfunction
 
 
 
 
-" Toggle ScrollBars
-let b:ScrollBars = "no"
-
-" Hide MacVim chrome (inc. scrollbars)
-set guioptions-=T
-set guioptions-=r
-set guioptions-=L
-
-function! ToggleScrollBars()
-  if exists("b:ScrollBars") && b:ScrollBars == "yes"
-    let b:ScrollBars = "no"
-    set guioptions-=r
-  else
-    let b:ScrollBars = "yes"
-    set guioptions+=r
-  endif
-endfunction
 
 
 
-" Toggle NerdTree
-let g:ntt = "yes"
-function! ToggleNerdTree()
-  if g:ntt == "yes"
-    let g:ntt = "no"
-    NERDTreeFind
-  else
-    let g:ntt = "yes"
-    NERDTreeClose
-  endif
-endfunction
-let g:NERDTreeHighlightCursorline = 1
 
 
 
+
+
+
+
+
+" " Base16 Color Definition (Flat)
+
+" " GUI color definitions
+" let s:gui00 = "#2C3E50"
+" let s:gui01 = "#34495E"
+" let s:gui02 = "#7F8C8D"
+" let s:gui03 = "#95A5A6"
+" let s:gui04 = "#BDC3C7"
+" let s:gui05 = "#e0e0e0"
+" let s:gui06 = "#f5f5f5"
+" let s:gui07 = "#ECF0F1"
+" let s:gui08 = "#E74C3C"
+" let s:gui09 = "#E67E22"
+" let s:gui0A = "#F1C40F"
+" let s:gui0B = "#2ECC71"
+" let s:gui0C = "#1ABC9C"
+" let s:gui0D = "#3498DB"
+" let s:gui0E = "#9B59B6"
+" let s:gui0F = "#be643c"
+
+" " Mode Colors
+" let s:NormalBG = s:gui0B
+" let s:NormalFG = s:gui07
+" let s:InsertBG = s:gui0D
+" let s:InsertFG = s:gui01
+" let s:InsertFG2 = s:gui07
+" let s:VisualBG = s:gui0E
+" let s:VisualFG = s:gui07
+
+
+" " Completion menu Colors
+" exe "hi Pmenu           guifg=".s:gui01." guibg=".s:gui05."'"
+" exe "hi PmenuSel        guifg=".s:gui0F." guibg=".s:gui0B."'"
+" exe "hi PmenuSbar       guibg=".s:gui04."'"
+" exe "hi PmenuThumb      guibg=".s:gui08."'"
+
+" " Colorize line numbers in insert and visual modes
+" " ------------------------------------------------
+" function! SetCursorLineNrColorInsert(mode)
+"     " Insert mode: blue
+"     if a:mode == "i"
+"       exe "highlight CursorLineNr guifg=".s:NormalFG. " guibg=".s:NormalBG
+"     " Replace mode: red
+"     elseif a:mode == "r"
+"         highlight CursorLineNr ctermfg=1 guifg=#dc322f
+"     endif
+" endfunction
+
+" function! SetCursorLineNrColorVisual()
+"   set updatetime=0
+"   exe "highlight Cursor guifg=#FFFFFF guibg=".s:VisualBG
+"   exe "highlight CursorLineNr guibg=".s:VisualBG
+"   return ''
+" endfunction
+
+" function! ResetCursorLineNrColor()
+"   set updatetime=4000
+"   exe "highlight Cursor guifg=#FFFFFF guibg=".s:NormalBG
+"   exe "highlight CursorLineNr guibg=".s:NormalBG
+" endfunction
+
+" vnoremap <silent> <expr> <SID>SetCursorLineNrColorVisual SetCursorLineNrColorVisual()
+" nnoremap <silent> <script> v v<SID>SetCursorLineNrColorVisual<left><right>
+" nnoremap <silent> <script> V V<SID>SetCursorLineNrColorVisual<left><right>
+" nnoremap <silent> <script> <C-v> <C-v><SID>SetCursorLineNrColorVisual<left><right>
+
+" augroup CursorLineNrColorSwap
+"     autocmd!
+"     autocmd InsertEnter * call SetCursorLineNrColorInsert(v:insertmode)
+"     autocmd InsertLeave * call ResetCursorLineNrColor()
+"     autocmd CursorHold * call ResetCursorLineNrColor()
+" augroup END
+
+" " hi Visual guifg=#FB0082 guibg=#FFFFFF
+
+" " Other Colors
+" exe "highlight MatchParen guibg=".s:InsertBG." guifg=".s:InsertFG
+
+" " Normal Mode Colors
+" exe "highlight Cursor guifg=#FFFFFF guibg=".s:NormalBG
+" exe "highlight CursorLineNr guibg=".s:NormalBG." guifg=".s:NormalFG
+
+" " Visual Mode Colors
+" exe "hi Visual guibg="s:VisualBG
+" exe "highlight MatchParen guibg=".s:VisualBG." guifg=".s:VisualFG
+
+" " Store Original Colors
+
+" function! GetCol(ctx, hiName)
+"   let b:colVal = synIDattr(synIDtrans(hlID(a:hiName)), a:ctx)
+"   if len(b:colVal) > 0
+"     return b:colVal
+"   else
+"     return "NONE"
+"   endif
+" endfunction
+
+" function! SetHiColLeave(hiName)
+"   let b:guifg = GetCol('fg', a:hiName)
+"   let b:guibg = GetCol('bg', a:hiName)
+"   let b:command = "autocmd InsertLeave * highlight ".a:hiName." guifg=".b:guifg." guibg=".b:guibg
+"   exe b:command
+"   echom b:command
+"   return b:command
+" endfunction
+
+" let s:hiGroup = [
+"   \"Cursor",
+"   \"CursorLine",
+"   \"CursorLineNR",
+"   \"LineNR",
+"   \"SignColumn",
+"   \"GitGutterAdd",
+"   \"GitGutterChange",
+"   \"GitGutterDelete",
+"   \"GitGutterChangeDelete",
+"   \"SyntasticErrorSign",
+"   \"SyntasticWarningSign",
+"   \"SyntasticStyleErrorSign",
+"   \"SyntasticStyleWarningSign",
+"   \"SyntasticErrorLine",
+"   \"SyntasticWarningLine",
+"   \"SyntasticStyleErrorLine",
+"   \"SyntasticStyleWarningLin",
+"   \]
+
+" " Recalled as active colors may change during session
+" function! SetOrigHiCols()
+"   for hiName in s:hiGroup
+"     :call SetHiColLeave(hiName)
+"   endfor
+" endfunction
+
+" " Store original cols on Insert Enter
+" autocmd InsertEnter * :call SetOrigHiCols()
+
+" " Insert Mode Colors
+
+
+" exe "autocmd InsertEnter * highlight CursorLine guibg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight Cursor guibg=".s:InsertBG
+" exe "autocmd InsertEnter * highlight LineNr guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight CursorLineNr guibg=".s:InsertFG2." guifg=".s:InsertBG
+" exe "autocmd InsertEnter * highlight SignColumn guibg=".s:InsertBG
+" exe "autocmd InsertEnter * highlight GitGutterAdd guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight GitGutterChange guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight GitGutterDelete guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight GitGutterChangeDelete guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight SyntasticErrorSign guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight SyntasticWarningSign guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight SyntasticStyleErrorSign guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight SyntasticStyleWarningSign guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight SyntasticErrorLine guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight SyntasticWarningLine guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight SyntasticStyleErrorLine guibg=".s:InsertBG." guifg=".s:InsertFG
+" exe "autocmd InsertEnter * highlight SyntasticStyleWarningLine guibg=".s:InsertBG." guifg=".s:InsertFG
+
+
+
+" " WHITESPACE LIST CHARS  ↵
+" set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
+" exe "hi Specialkey guifg=".s:NormalBG
+" ":hi NonText guifg=#FB0082 guibg=#1c1c1c
+" :hi Specialkey guibg=#FB0082
+" :hi NonText guifg=#FB0082
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
 " KEYBOARD MAPPING
 " ================================================================================================
 
 " Comment Toggle
 map <D-Bslash> gcc<Esc>
-" map <D-Bslash> gcc
 " Compile and run C code
 map <D-R> :exe '!gcc %:p' <bar> exe '!'.getcwd().'/a.out'<cr>
 " Transparent mode toggle
@@ -383,175 +543,26 @@ nnoremap <C-i> :IndentLinesToggle<CR>
 nnoremap <D-0> :call TrimWhiteSpace()<CR>
 nnoremap <D-9> :ColorToggle<CR>
 
-" Vim-Over: search/replace/highlihght
 
-map <F1> :OverCommandLine<CR>
+" Ctrl + Direction: Move Cursor Between Splits
+nnoremap <C-Left> <C-w><Left>
+nnoremap <C-Right> <C-w><Right>
+nnoremap <C-Up> <C-w><Up>
+nnoremap <C-Down> <C-w><Down>
+
+" Alt + Dir:  Move Between Tabs
+nnoremap <Esc>[1;9D :tabp<CR>
+nnoremap <Esc>[1;9C :tabn<CR>
+
+
+map <F1> :OverCommandLine<CR>                             " Vim-Over: search/replace/highlihght
 noremap <F2> :set list!<CR>                               " Toggle Show Whitespace Chars
 nnoremap <F3> :set hlsearch!<CR>                          " Toggle Search Highlight
 nnoremap <F4> :GundoToggle<CR>                            " Map undo tree
 nnoremap <F5> :InstantMarkdownPreview<CR>                 " Markdown Preview
 nnoremap <F6> :call ToggleWrapMode()<cr>                  " Wrap/Write Mode
-nnoremap <F7> :call ToggleColorScheme()<CR>               " Switch between Solarized and Custom color sceheme
+" nnoremap <F7> :call ToggleColorScheme()<CR>               " Switch between Solarized and Custom color sceheme
 " map <F8> <Plug>ToggleHexHighlight
-nnoremap <F8> :call ToggleFontSize()<CR>                  " Toggle Large/Small Font Size
-nnoremap <F9> :call ToggleScrollBars()<CR>                " Toggle Scrollbars
-map <F10> :call ToggleNerdTree()<cr>
-
-
-
-
-
-
-
-
-
-
-
-" Base16 Color Definition (Flat)
-
-" GUI color definitions
-let s:gui00 = "#2C3E50"
-let s:gui01 = "#34495E"
-let s:gui02 = "#7F8C8D"
-let s:gui03 = "#95A5A6"
-let s:gui04 = "#BDC3C7"
-let s:gui05 = "#e0e0e0"
-let s:gui06 = "#f5f5f5"
-let s:gui07 = "#ECF0F1"
-let s:gui08 = "#E74C3C"
-let s:gui09 = "#E67E22"
-let s:gui0A = "#F1C40F"
-let s:gui0B = "#2ECC71"
-let s:gui0C = "#1ABC9C"
-let s:gui0D = "#3498DB"
-let s:gui0E = "#9B59B6"
-let s:gui0F = "#be643c"
-
-" Completion menu Colors
-
-exe "hi Pmenu           guifg=".s:gui01." guibg=".s:gui05."'"
-exe "hi PmenuSel        guifg=".s:gui0F." guibg=".s:gui0B."'"
-exe "hi PmenuSbar       guibg=".s:gui04."'"
-exe "hi PmenuThumb      guibg=".s:gui08."'"
-
-
-
-
-
-
-
-
-
-
-" " Colorize line numbers in insert and visual modes
-" " ------------------------------------------------
-" function! SetCursorLineNrColorInsert(mode)
-"     " Insert mode: blue
-"     if a:mode == "i"
-"         "highlight CursorLineNr ctermfg=4 guifg=#268bd2
-
-"     " Replace mode: red
-"     elseif a:mode == "r"
-"         "highlight CursorLineNr ctermfg=1 guifg=#dc322f
-"     endif
-" endfunction
-
-" function! SetCursorLineNrColorVisual()
-"   set updatetime=0
-"   highlight Cursor guifg=#FB0082 guibg=#FFFFFF
-"   highlight LineNr guifg=#FB0082 guibg=#58164b
-"   highlight CursorLineNr guifg=#58164b guibg=#FB0082
-"   highlight SignColumn guifg=#FB0082 guibg=#58164b
-"   highlight GitGutterAdd guifg=#FB0082 guibg=#58164b
-"   highlight GitGutterChange guifg=#FB0082 guibg=#58164b
-"   highlight GitGutterDelete guifg=#FB0082 guibg=#58164b
-"   highlight GitGutterChangeDelete guifg=#FB0082 guibg=#58164b
-"   hi SyntasticErrorSign guibg=#58164b guifg=#FB0082
-"   hi SyntasticWarningSign guibg=#58164b guifg=#FB0082
-"   return ''
-" endfunction
-
-
-" function! ResetCursorLineNrColor()
-"   set updatetime=4000
-"   highlight Cursor guifg=#FFFFFF guibg=#268bd2
-"   highlight LineNr guifg=#657b83 guibg=#073642
-"   highlight SignColumn guibg=#073642
-"   highlight CursorLineNr guifg=#657b83 guibg=#073642
-"   highlight GitGutterAdd guibg=#073642 guifg=#5f8700
-"   highlight GitGutterChange guibg=#073642 guifg=#b58900
-"   highlight GitGutterDelete guibg=#073642 guifg=#d70000
-"   highlight GitGutterChangeDelete guibg=#073642 guifg=#5f5faf
-"   hi SyntasticErrorSign guibg=#073642 guifg=#d70000
-"   hi SyntasticWarningSign guibg=#073642 guifg=#5f5faf
-" endfunction
-
-" vnoremap <silent> <expr> <SID>SetCursorLineNrColorVisual SetCursorLineNrColorVisual()
-" nnoremap <silent> <script> v v<SID>SetCursorLineNrColorVisual<left><right>
-" nnoremap <silent> <script> V V<SID>SetCursorLineNrColorVisual<left><right>
-" nnoremap <silent> <script> <C-v> <C-v><SID>SetCursorLineNrColorVisual<left><right>
-
-" augroup CursorLineNrColorSwap
-"     autocmd!
-"     autocmd InsertEnter * call SetCursorLineNrColorInsert(v:insertmode)
-"     autocmd InsertLeave * call ResetCursorLineNrColor()
-"     autocmd CursorHold * call ResetCursorLineNrColor()
-" augroup END
-
-" hi Visual guifg=#FB0082 guibg=#FFFFFF
-
-" " Normal Mode Colors
-" highlight CursorLine guibg=#073642
-" highlight Cursor guifg=#FFFFFF guibg=#268bd2
-" highlight LineNr guifg=#657b83 guibg=#073642
-" " highlight SignColumn guibg=#073642
-" hi SyntasticErrorSign guibg=#073642 guifg=#d70000
-" hi SyntasticWarningSign guibg=#073642 guifg=#5f5faf
-
-
-" " Inseirt Enter
-" autocmd InsertEnter * highlight CursorLine guibg=#1c1c1c
-" autocmd InsertEnter * highlight Cursor guifg=#FFFFFF guibg=#F9CD00
-" autocmd InsertEnter * highlight CursorLineNr guibg=#F9CD00 guifg=#b58900
-" autocmd InsertEnter * highlight LineNr guibg=#b58900 guifg=#F9CD00
-" autocmd InsertEnter * highlight SignColumn guibg=#b58900
-" autocmd InsertEnter * highlight GitGutterAdd guibg=#b58900 guifg=#F9CD00
-" autocmd InsertEnter * highlight GitGutterChange guibg=#b58900 guifg=#F9CD00
-" autocmd InsertEnter * highlight GitGutterDelete guibg=#b58900 guifg=#F9CD00
-" autocmd InsertEnter * highlight GitGutterChangeDelete guibg=#b58900 guifg=#F9CD00
-" autocmd InsertEnter * hi SyntasticErrorSign guibg=#b58900 guifg=#F9CD00
-" autocmd InsertEnter * hi SyntasticWarningSign guibg=#b58900 guifg=#F9CD00
-
-" "autocmd InsertEnter * highlight SyntasticErrorSign guibg=#b58900 guifg=#F9CD00
-" "autocmd InsertEnter * highlight SyntasticWarningSign guibg=#b58900 guifg=#F9CD00
-" "autocmd InsertEnter * highlight SyntasticStyleErrorSign guibg=#b58900 guifg=#F9CD00
-" "autocmd InsertEnter * highlight SyntasticStyleWarningSign guibg=#b58900 guifg=#F9CD00
-" "autocmd InsertEnter * highlight SyntasticErrorLine guibg=#b58900 guifg=#F9CD00
-" "autocmd InsertEnter * highlight SyntasticWarningLine guibg=#b58900 guifg=#F9CD00
-" "autocmd InsertEnter * highlight SyntasticStyleErrorLine guibg=#b58900 guifg=#F9CD00
-" "autocmd InsertEnter * highlight SyntasticStyleWarningLine  guibg=#b58900 guifg=#F9CD00
-
-" " Insert Leave
-" autocmd InsertLeave * highlight CursorLine guibg=#073642
-" autocmd InsertLeave * highlight Cursor guifg=#FFFFFF guibg=#268bd2
-" autocmd InsertLeave * highlight CursorLineNr guifg=#657b83 guibg=#073642
-" autocmd InsertLeave * highlight LineNr guifg=#657b83 guibg=#073642
-" autocmd InsertLeave * highlight SignColumn guibg=#073642
-" autocmd InsertLeave * highlight GitGutterAdd guibg=#073642 guifg=#5f8700
-" autocmd InsertLeave * highlight GitGutterChange guibg=#073642 guifg=#b58900
-" autocmd InsertLeave * highlight GitGutterDelete guibg=#073642 guifg=#d70000
-" autocmd InsertLeave * highlight GitGutterChangeDelete guibg=#073642 guifg=#5f5faf
-" autocmd InsertLeave * hi SyntasticErrorSign guibg=#073642 guifg=#d70000
-" autocmd InsertLeave * hi SyntasticWarningSign guibg=#073642 guifg=#5f5faf
-
-
-
-" highlight MatchParen guibg=#b58900 guifg=#FFFFFF
-
-
-" " WHITESPACE LIST CHARS  ↵
-" set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
-" ":hi Specialkey guibg=#FB0082 guifg=#1c1c1c
-" ":hi NonText guifg=#FB0082 guibg=#1c1c1c
-" :hi Specialkey guibg=#FB0082
-" :hi NonText guifg=#FB0082
+" nnoremap <F8> :call ToggleFontSize()<CR>                  " Toggle Large/Small Font Size
+" nnoremap <F9> :call ToggleScrollBars()<CR>                " Toggle Scrollbars
+map <F10> :NERDTreeTabsToggle<cr>

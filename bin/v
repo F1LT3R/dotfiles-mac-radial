@@ -1,5 +1,9 @@
 #!/bin/bash
 # If we have a colon we are going to open file at a certain line number
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
 if [[ $1 == *":"* ]]
 then
   # Split Line/Function from Filename into an array
@@ -13,13 +17,13 @@ then
 else
 	if [ ! -f "$1" ]
 	then
+		printf "${RED}Does not exist \"$1\"${NC}\n"
 		read -p "Touch file: \"$1\"? (y/n) " DOTOUCH;
 		if [ "$DOTOUCH" == "y" ]; then
 		  touch $1
-			echo "Touched file: \"$1\""
+			printf "${GREEN}Touched file: \"$1\"${NC}\n"
     fi
 	fi
 	# Open the file in the existing window
 	open -a MacVim.app $1
 fi
-
