@@ -311,33 +311,6 @@ nnoremap <silent> gcsb :<c-u>let @z=&so<cr>:set so=0 noscb nowrap nofen<cr>:bo v
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_add_preview_to_completeopt = 0
 
-" Toggle ColorScheme
-let b:ColorSchemeSwitch = "yes"
-function! ToggleColorScheme()
-  if exists("b:ColorSchemeSwitch") && b:ColorSchemeSwitch == "yes"
-    let b:ColorSchemeSwitch = "no"
-    :colorscheme mokai2
-  else
-    let b:ColorSchemeSwitch = "yes"
-    colorscheme solarized
-  endif
-endfunction
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 " " Base16 Color Definition (Flat)
 
 " " GUI color definitions
@@ -374,186 +347,39 @@ endfunction
 " exe "hi PmenuSbar       guibg=".s:gui04."'"
 " exe "hi PmenuThumb      guibg=".s:gui08."'"
 
-" " Colorize line numbers in insert and visual modes
-" " ------------------------------------------------
-" function! SetCursorLineNrColorInsert(mode)
-"     " Insert mode: blue
-"     if a:mode == "i"
-"       exe "highlight CursorLineNr guifg=".s:NormalFG. " guibg=".s:NormalBG
-"     " Replace mode: red
-"     elseif a:mode == "r"
-"         highlight CursorLineNr ctermfg=1 guifg=#dc322f
-"     endif
-" endfunction
-
-" function! SetCursorLineNrColorVisual()
-"   set updatetime=0
-"   exe "highlight Cursor guifg=#FFFFFF guibg=".s:VisualBG
-"   exe "highlight CursorLineNr guibg=".s:VisualBG
-"   return ''
-" endfunction
-
-" function! ResetCursorLineNrColor()
-"   set updatetime=4000
-"   exe "highlight Cursor guifg=#FFFFFF guibg=".s:NormalBG
-"   exe "highlight CursorLineNr guibg=".s:NormalBG
-" endfunction
-
-" vnoremap <silent> <expr> <SID>SetCursorLineNrColorVisual SetCursorLineNrColorVisual()
-" nnoremap <silent> <script> v v<SID>SetCursorLineNrColorVisual<left><right>
-" nnoremap <silent> <script> V V<SID>SetCursorLineNrColorVisual<left><right>
-" nnoremap <silent> <script> <C-v> <C-v><SID>SetCursorLineNrColorVisual<left><right>
-
-" augroup CursorLineNrColorSwap
-"     autocmd!
-"     autocmd InsertEnter * call SetCursorLineNrColorInsert(v:insertmode)
-"     autocmd InsertLeave * call ResetCursorLineNrColor()
-"     autocmd CursorHold * call ResetCursorLineNrColor()
-" augroup END
-
-" " hi Visual guifg=#FB0082 guibg=#FFFFFF
-
-" " Other Colors
-" exe "highlight MatchParen guibg=".s:InsertBG." guifg=".s:InsertFG
-
-" " Normal Mode Colors
-" exe "highlight Cursor guifg=#FFFFFF guibg=".s:NormalBG
-" exe "highlight CursorLineNr guibg=".s:NormalBG." guifg=".s:NormalFG
-
-" " Visual Mode Colors
-" exe "hi Visual guibg="s:VisualBG
-" exe "highlight MatchParen guibg=".s:VisualBG." guifg=".s:VisualFG
-
-" " Store Original Colors
-
-" function! GetCol(ctx, hiName)
-"   let b:colVal = synIDattr(synIDtrans(hlID(a:hiName)), a:ctx)
-"   if len(b:colVal) > 0
-"     return b:colVal
-"   else
-"     return "NONE"
-"   endif
-" endfunction
-
-" function! SetHiColLeave(hiName)
-"   let b:guifg = GetCol('fg', a:hiName)
-"   let b:guibg = GetCol('bg', a:hiName)
-"   let b:command = "autocmd InsertLeave * highlight ".a:hiName." guifg=".b:guifg." guibg=".b:guibg
-"   exe b:command
-"   echom b:command
-"   return b:command
-" endfunction
-
-" let s:hiGroup = [
-"   \"Cursor",
-"   \"CursorLine",
-"   \"CursorLineNR",
-"   \"LineNR",
-"   \"SignColumn",
-"   \"GitGutterAdd",
-"   \"GitGutterChange",
-"   \"GitGutterDelete",
-"   \"GitGutterChangeDelete",
-"   \"SyntasticErrorSign",
-"   \"SyntasticWarningSign",
-"   \"SyntasticStyleErrorSign",
-"   \"SyntasticStyleWarningSign",
-"   \"SyntasticErrorLine",
-"   \"SyntasticWarningLine",
-"   \"SyntasticStyleErrorLine",
-"   \"SyntasticStyleWarningLin",
-"   \]
-
-" " Recalled as active colors may change during session
-" function! SetOrigHiCols()
-"   for hiName in s:hiGroup
-"     :call SetHiColLeave(hiName)
-"   endfor
-" endfunction
-
-" " Store original cols on Insert Enter
-" autocmd InsertEnter * :call SetOrigHiCols()
-
-" " Insert Mode Colors
-
-
-" exe "autocmd InsertEnter * highlight CursorLine guibg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight Cursor guibg=".s:InsertBG
-" exe "autocmd InsertEnter * highlight LineNr guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight CursorLineNr guibg=".s:InsertFG2." guifg=".s:InsertBG
-" exe "autocmd InsertEnter * highlight SignColumn guibg=".s:InsertBG
-" exe "autocmd InsertEnter * highlight GitGutterAdd guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight GitGutterChange guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight GitGutterDelete guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight GitGutterChangeDelete guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight SyntasticErrorSign guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight SyntasticWarningSign guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight SyntasticStyleErrorSign guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight SyntasticStyleWarningSign guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight SyntasticErrorLine guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight SyntasticWarningLine guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight SyntasticStyleErrorLine guibg=".s:InsertBG." guifg=".s:InsertFG
-" exe "autocmd InsertEnter * highlight SyntasticStyleWarningLine guibg=".s:InsertBG." guifg=".s:InsertFG
-
-
-
-" " WHITESPACE LIST CHARS  ↵
-" set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
-" exe "hi Specialkey guifg=".s:NormalBG
-" ":hi NonText guifg=#FB0082 guibg=#1c1c1c
-" :hi Specialkey guibg=#FB0082
-" :hi NonText guifg=#FB0082
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
 " KEYBOARD MAPPING
 " ================================================================================================
 
 " Comment Toggle
-map <D-Bslash> gcc<Esc>
-" Compile and run C code
-map <D-R> :exe '!gcc %:p' <bar> exe '!'.getcwd().'/a.out'<cr>
+map <C-Bslash> gcc<Esc>
 " Transparent mode toggle
-nmap <D-u> :call ToggleTrans()<cr>
+nmap <C-u> :call ToggleTrans()<cr>
 " Normal Lazy Move Down
-nnoremap <D-j> :m .+1<CR>==
+nnoremap <C-j> :m .+1<CR>==
 " Normal Lazy Move Up
-nnoremap <D-k> :m .-2<CR>==
+nnoremap <C-k> :m .-2<CR>==
 " Insert Lazy Move Down
-inoremap <D-j> <ESC>:m .+1<CR>==gi
+inoremap <C-j> <ESC>:m .+1<CR>==gi
 " Insert Lazt Move Up
-inoremap <D-k> <ESC>:m .-2<CR>==gi
+inoremap <C-k> <ESC>:m .-2<CR>==gi
 " Visual Lazy Move Down
-vnoremap <D-j> :m '>+1<CR>gv=gv
+vnoremap <C-j> :m '>+1<CR>gv=gv
 " Visual Lazy Move Up
-vnoremap <D-k> :m '<-2<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 " Toggle Indent Guidlines
 nnoremap <C-i> :IndentLinesToggle<CR>
-nnoremap <D-0> :call TrimWhiteSpace()<CR>
-nnoremap <D-9> :ColorToggle<CR>
+nnoremap <C-0> :call TrimWhiteSpace()<CR>
+nnoremap <C-9> :ColorToggle<CR>
 
+" Ctrl + Dir: Move Between Tabs
+nnoremap <C-Left> :tabp<CR>
+nnoremap <C-Right> :tabn<CR>
 
-" Ctrl + Direction: Move Cursor Between Splits
-nnoremap <C-Left> <C-w><Left>
-nnoremap <C-Right> <C-w><Right>
-nnoremap <C-Up> <C-w><Up>
-nnoremap <C-Down> <C-w><Down>
-
-" Alt + Dir:  Move Between Tabs
-nnoremap <Esc>[1;9D :tabp<CR>
-nnoremap <Esc>[1;9C :tabn<CR>
-
+" Alt + Dir: Move Cursor Between Split
+nnoremap <Esc>[1;9D <C-w><Left>
+nnoremap <Esc>[1;9A <C-w><Up>
+nnoremap <Esc>[1;9B <C-w><Down>
+nnoremap <Esc>[1;9C <C-w><Right>
 
 map <F1> :OverCommandLine<CR>                             " Vim-Over: search/replace/highlihght
 noremap <F2> :set list!<CR>                               " Toggle Show Whitespace Chars
@@ -561,8 +387,5 @@ nnoremap <F3> :set hlsearch!<CR>                          " Toggle Search Highli
 nnoremap <F4> :GundoToggle<CR>                            " Map undo tree
 nnoremap <F5> :InstantMarkdownPreview<CR>                 " Markdown Preview
 nnoremap <F6> :call ToggleWrapMode()<cr>                  " Wrap/Write Mode
-" nnoremap <F7> :call ToggleColorScheme()<CR>               " Switch between Solarized and Custom color sceheme
-" map <F8> <Plug>ToggleHexHighlight
-" nnoremap <F8> :call ToggleFontSize()<CR>                  " Toggle Large/Small Font Size
-" nnoremap <F9> :call ToggleScrollBars()<CR>                " Toggle Scrollbars
+map <F8> <Plug>ToggleHexHighlight
 map <F10> :NERDTreeTabsToggle<cr>
