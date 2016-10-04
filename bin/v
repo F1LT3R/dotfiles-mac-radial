@@ -13,7 +13,7 @@ then
   # Get the linenumber (numbers only, no weird stuff thanks)
   LN=$(echo ${PARTS[1]} | sed -e 's/[^0-9]//g')
   # Open the file at line in new window
-  (mvim $FILE -c :$LN &)
+  (vim $FILE -c :$LN &)
 else
 	if [ ! -f "$1" ]
 	then
@@ -25,5 +25,5 @@ else
     fi
 	fi
 	# Open the file in the existing window
-	open -a MacVim.app $1
+	vim $1
 fi

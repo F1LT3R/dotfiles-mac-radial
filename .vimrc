@@ -19,13 +19,13 @@ Plugin 'ryanoasis/vim-devicons'                   " File type UI font icons
 Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
 Plugin 'mkitt/tabline.vim'                        " Succinct tabline
 Plugin 'chriskempson/base16-vim'                  " Awesome Base16 color schemes
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Editor Control
 Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
 Plugin 'terryma/vim-multiple-cursors'             " Multi-select and edit
 Plugin 'tpope/vim-commentary'                     " Comment/Uncomment w/ Cmd + Backslash
 Plugin 'osyo-manga/vim-over'                      " Realtime search/replace highlighting
-Plugin 'Yggdroot/indentLine'                      " Indent level guide lines (pretty but slower)
 Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
 Plugin 'tpope/vim-repeat'                         " Add . repeat support for plugins
 Plugin 'Valloric/YouCompleteMe'                   " Intellisense-like word completion
@@ -67,12 +67,36 @@ set hlsearch              " Highlight searched words
 set autochdir             " New files are automatically saved in dir of current file
 syntax enable             " Enable syntax highlighting
 set autoread              " Auto-reload file on change
+set relativenumber
+set undofile
 
+" Fix VIMs Regex Formatting for searches
+nnoremap / /\v
+vnoremap / /\v
 
-" Chane Cursor Shape for Different Modes
+" Case Insensitive Seach
+set ignorecase
+set smartcase
+
+" Substitute globally by default
+set gdefault
+
+" Show results as typing
+set incsearch
+set showmatch
+set hlsearch
+
+" Clear the Search
+nnoremap <leader><space> :noh<cr>
+
+" Change Cursor Shape for Different Modes
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" Jump to Match w/ Tab
+nnoremap <tab> %
+vnoremap <tab> %
 
 " set autoindent noexpandtab tabstop=2 shiftwidth=2
 
@@ -119,12 +143,17 @@ set listchars=eol:˼,tab:»·,trail:.,extends:>,precedes:<,nbsp:_
 let g:indentLine_char = '│'  " Options: │┆⏐┊╽▏⠇⠅  ፧ │
 let g:indentLine_enabled = 0
 
-" DRAW 100 CHAR RULER
-if exists('+colorcolumn')
-  set colorcolumn=100
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
-endi
+" " DRAW 100 CHAR RULER
+" if exists('+colorcolumn')
+"   set colorcolumn=100
+" else
+"   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+" endif
+
+set wrap
+set textwidth=100
+set formatoptions=qrn1
+set colorcolumn=100
 
 let g:airline_powerline_fonts=1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign=1
@@ -350,6 +379,9 @@ let g:ycm_add_preview_to_completeopt = 0
 " KEYBOARD MAPPING
 " ================================================================================================
 
+" Can hit semi-colon as colon
+nnoremap ; :
+
 " Comment Toggle
 map <C-Bslash> gcc<Esc>
 " Transparent mode toggle
@@ -367,7 +399,6 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 " Visual Lazy Move Up
 vnoremap <C-k> :m '<-2<CR>gv=gv
 " Toggle Indent Guidlines
-nnoremap <C-i> :IndentLinesToggle<CR>
 nnoremap <C-0> :call TrimWhiteSpace()<CR>
 nnoremap <C-9> :ColorToggle<CR>
 
@@ -380,6 +411,18 @@ nnoremap <Esc>[1;9D <C-w><Left>
 nnoremap <Esc>[1;9A <C-w><Up>
 nnoremap <Esc>[1;9B <C-w><Down>
 nnoremap <Esc>[1;9C <C-w><Right>
+
+" Enforce Vimish keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
 
 map <F1> :OverCommandLine<CR>                             " Vim-Over: search/replace/highlihght
 noremap <F2> :set list!<CR>                               " Toggle Show Whitespace Chars
