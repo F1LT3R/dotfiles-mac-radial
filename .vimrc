@@ -150,7 +150,8 @@ let g:indentLine_enabled = 0
 "   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 " endif
 
-set wrap
+" Line Wrapping
+set nowrap
 set textwidth=100
 set formatoptions=qrn1
 set colorcolumn=100
@@ -333,7 +334,7 @@ let g:startify_custom_header = readfile(expand('~/.vim/ascii-art/panther.txt'))
 " (PS: this is kind of janky, but I like it anyway)
 nnoremap <silent> gcsb :<c-u>let @z=&so<cr>:set so=0 noscb nowrap nofen<cr>:bo vs<cr>Ljzt:setl scb<cr><c-w>p:setl scb<cr>:let &so=@z<cr>
 
-
+set splitright
 
 
 " YouCompleteMe Settings
@@ -402,27 +403,57 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap <C-0> :call TrimWhiteSpace()<CR>
 nnoremap <C-9> :ColorToggle<CR>
 
-" Ctrl + Dir: Move Between Tabs
-nnoremap <C-Left> :tabp<CR>
-nnoremap <C-Right> :tabn<CR>
+" " Ctrl + Dir: Move Between Tabs
+" nnoremap <C-Left> :tabp<CR>
+" nnoremap <C-Right> :tabn<CR>
 
-" Alt + Dir: Move Cursor Between Split
-nnoremap <Esc>[1;9D <C-w><Left>
-nnoremap <Esc>[1;9A <C-w><Up>
-nnoremap <Esc>[1;9B <C-w><Down>
-nnoremap <Esc>[1;9C <C-w><Right>
+" " Alt + Dir: Move Cursor Between Split
+" nnoremap <Esc>[1;9D <C-w><Left>
+" nnoremap <Esc>[1;9A <C-w><Up>
+" NNOREMAP <ESC>[1;9B <C-w><Down>
+" NNOREMAP <ESC>[1;9C <C-w><Right>
+
+" SET ALT+SHIFT+DIR KEYs
+let s:ALT_SHIFT_LEFT = "<Esc>[1;10D"
+let s:ALT_SHIFT_RIGHT = "<Esc>[1;10C"
+
+" SET ALT+DIR KEYS
+let s:ALT_LEFT = "<ESC>[1;9D"
+let s:ALT_UP = "<ESC>[1;9A"
+let s:ALT_RIGHT = "<ESC>[1;9C"
+let s:ALT_DOWN = "<ESC>[1;9B"
+
+" SET CTL+DIR KEYS
+let s:CTL_LEFT = "<C-LEft>"
+let s:CTL_UP = "<C-UP>"
+let s:CTL_RIGHT = "<C-Right>"
+let s:CTL_DOWN = "<C-DOwn>"
+
+" ALT + SHIFT + DIR: MOve Between Tabs
+exe "nnoremap ".s:ALT_SHIFT_LEFT." :tabp<CR>"
+exe "nnoremap ".s:ALT_SHIFT_RIGHT." :tabn<CR>"
+
+" ALT + Dir: Move Between Buffers (User buffers, they are better, CTRLP!)
+exe "nnoremap ".s:ALT_LEFT." :bprevious<CR>"
+exe "nnoremap ".s:ALT_RIGHT." :bnext<CR>"
+
+" CTL + Dir: Move Cursor Between Split
+exec "nnoremap ".s:CTL_LEFT." <C-w><Left>"
+exec "nnoremap ".s:CTL_UP." <C-w><Up>"
+exec "nnoremap ".s:CTL_RIGHT." <C-w><Right>"
+exec "nnoremap ".s:CTL_DOWN." <C-w><Down>"
 
 " Enforce Vimish keys
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
+" nnoremap <up> <nop>
+" nnoremap <down> <nop>
+" nnoremap <left> <nop>
+" nnoremap <right> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
+" nnoremap j gj
+" nnoremap k gk
 
 map <F1> :OverCommandLine<CR>                             " Vim-Over: search/replace/highlihght
 noremap <F2> :set list!<CR>                               " Toggle Show Whitespace Chars
