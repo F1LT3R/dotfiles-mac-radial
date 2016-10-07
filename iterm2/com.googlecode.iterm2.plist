@@ -1410,7 +1410,7 @@
 			<key>Blink Allowed</key>
 			<true/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "This ain't VIM, bro."
