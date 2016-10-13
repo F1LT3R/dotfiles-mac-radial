@@ -7,19 +7,20 @@ Plugin 'VundleVim/Vundle.vim'      " Plugin manager
 " PLUGIN LIST
 
 " VIM GUI
+Plugin 'scrooloose/nerdtree.git'                  " File browser sidebar
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ryanoasis/vim-devicons'                   " File type UI font icons
 Plugin 'mhinz/vim-startify'                       " Fancy VIM start screen
 Plugin 'vim-airline/vim-airline'                  " Better status bar
 Plugin 'vim-airline/vim-airline-themes'           " Status bar themes
-Plugin 'scrooloose/nerdtree.git'                  " File browser sidebar
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'airblade/vim-gitgutter'                   " Git Diff in sidebar
 Plugin 'tpope/vim-fugitive'                       " Visualize Git branches in Powerline
 Plugin 'junegunn/goyo.vim'                        " Distraction free editing
-Plugin 'ryanoasis/vim-devicons'                   " File type UI font icons
 Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
 Plugin 'mkitt/tabline.vim'                        " Succinct tabline
 Plugin 'chriskempson/base16-vim'                  " Awesome Base16 color schemes
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'miyakogi/seiya.vim'                       " Clear VIM background
 
 " Editor Control
 Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
@@ -41,7 +42,7 @@ Plugin 'chrisbra/colorizer'                       " Highlight CSS/Less Colors in
 Plugin 'elzr/vim-json'                            " Get quotes back for JSON (why VIM removes!?)
 Plugin 'maksimr/vim-jsbeautify'                   " JS/JSON Beautifier
 
-" " Markdown / Writing
+" Markdown / Writing
 Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser output
 Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
 
@@ -62,7 +63,7 @@ set cursorline            " Highlight the current line
 set laststatus=2          " Always display status bar
 set nocursorcolumn        " Cursor column highlight is slow
 set noswapfile            " Comment our rather than add to .gitignore
-set encoding=utf-8        " Unicode
+set encoding=utf8         " Unicode
 set hlsearch              " Highlight searched words
 set autochdir             " New files are automatically saved in dir of current file
 syntax enable             " Enable syntax highlighting
@@ -85,6 +86,10 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
+
+" MAP THE LEADER KEY
+let mapleader=","
+set timeout timeoutlen=1500
 
 " Clear the Search
 nnoremap <leader><space> :noh<cr>
@@ -132,6 +137,8 @@ endif
 colorscheme base16-flat
 set background=dark
 
+" Clear the background color
+let g:seiya_auto_enable=1
 
 " OTHER SETTINGS
 
@@ -264,20 +271,6 @@ function! ToggleWrapMode()
 endfunction
 
 
-" Toggle Transparency
-let b:trans = "no"
-function! ToggleTrans()
-  if exists("b:trans") && b:trans == "yes"
-    let b:trans = "no"
-    set transparency=2
-  else
-    let b:trans = "yes"
-    set transparency=30
-  endif
-endfunction
-
-
-
 " REMOVE TRAILING WHITESPACE ON SAVE
 " function! StripTrailingWhitespace()
 "   let l:chars = col("$")
@@ -313,9 +306,6 @@ setlocal noeol | let b:PreserveNoEOL = 1
 
 
 
-" MAP THE LEADER KEY
-let mapleader=","
-set timeout timeoutlen=1500
 
 " DON'T HIDE DOUBLE-QUOTES (JSON)
 " ================================================================================================
@@ -334,7 +324,6 @@ let g:startify_custom_header = readfile(expand('~/.vim/ascii-art/panther.txt'))
 " (PS: this is kind of janky, but I like it anyway)
 nnoremap <silent> gcsb :<c-u>let @z=&so<cr>:set so=0 noscb nowrap nofen<cr>:bo vs<cr>Ljzt:setl scb<cr><c-w>p:setl scb<cr>:let &so=@z<cr>
 
-set splitright
 
 
 " YouCompleteMe Settings
@@ -344,22 +333,49 @@ let g:ycm_add_preview_to_completeopt = 0
 " " Base16 Color Definition (Flat)
 
 " " GUI color definitions
-" let s:gui00 = "#2C3E50"
-" let s:gui01 = "#34495E"
-" let s:gui02 = "#7F8C8D"
-" let s:gui03 = "#95A5A6"
-" let s:gui04 = "#BDC3C7"
-" let s:gui05 = "#e0e0e0"
-" let s:gui06 = "#f5f5f5"
-" let s:gui07 = "#ECF0F1"
-" let s:gui08 = "#E74C3C"
-" let s:gui09 = "#E67E22"
-" let s:gui0A = "#F1C40F"
-" let s:gui0B = "#2ECC71"
-" let s:gui0C = "#1ABC9C"
-" let s:gui0D = "#3498DB"
-" let s:gui0E = "#9B59B6"
-" let s:gui0F = "#be643c"
+let s:gui00 = "#2C3E50"
+let s:gui01 = "#34495E"
+let s:gui02 = "#7F8C8D"
+let s:gui03 = "#95A5A6"
+let s:gui04 = "#BDC3C7"
+let s:gui05 = "#e0e0e0"
+let s:gui06 = "#f5f5f5"
+let s:gui07 = "#ECF0F1"
+let s:gui08 = "#E74C3C"
+let s:gui09 = "#E67E22"
+let s:gui0A = "#F1C40F"
+let s:gui0B = "#2ECC71"
+let s:gui0C = "#1ABC9C"
+let s:gui0D = "#3498DB"
+let s:gui0E = "#9B59B6"
+let s:gui0F = "#be643c"
+
+" Terminal color definitions
+let s:cterm00 = "00"
+let s:cterm03 = "08"
+let s:cterm05 = "07"
+let s:cterm07 = "15"
+let s:cterm08 = "01"
+let s:cterm0A = "03"
+let s:cterm0B = "02"
+let s:cterm0C = "06"
+let s:cterm0D = "04"
+let s:cterm0E = "05"
+if exists('base16colorspace') && base16colorspace == "256"
+  let s:cterm01 = "18"
+  let s:cterm02 = "19"
+  let s:cterm04 = "20"
+  let s:cterm06 = "21"
+  let s:cterm09 = "16"
+  let s:cterm0F = "17"
+else
+  let s:cterm01 = "10"
+  let s:cterm02 = "11"
+  let s:cterm04 = "12"
+  let s:cterm06 = "13"
+  let s:cterm09 = "09"
+  let s:cterm0F = "14"
+endif
 
 " " Mode Colors
 " let s:NormalBG = s:gui0B
@@ -371,11 +387,19 @@ let g:ycm_add_preview_to_completeopt = 0
 " let s:VisualFG = s:gui07
 
 
-" " Completion menu Colors
-" exe "hi Pmenu           guifg=".s:gui01." guibg=".s:gui05."'"
-" exe "hi PmenuSel        guifg=".s:gui0F." guibg=".s:gui0B."'"
-" exe "hi PmenuSbar       guibg=".s:gui04."'"
-" exe "hi PmenuThumb      guibg=".s:gui08."'"
+" Completion menu Colors
+if has("gui_macvim")
+  exe "hi Pmenu           guifg=".s:gui01." guibg=".s:gui05."'"
+  exe "hi PmenuSel        guifg=".s:gui0F." guibg=".s:gui0B."'"
+  exe "hi PmenuSbar       guibg=".s:gui04."'"
+  exe "hi PmenuThumb      guibg=".s:gui08."'"
+else
+  exe "hi Pmenu           ctermfg=".s:cterm01." ctermbg=".s:cterm05."'"
+  exe "hi PmenuSel        ctermfg=".s:cterm0F." ctermbg=".s:cterm0B."'"
+  exe "hi PmenuSbar       ctermbg=".s:cterm04."'"
+  exe "hi PmenuThumb      ctermbg=".s:cterm08."'"
+endif
+
 
 " KEYBOARD MAPPING
 " ================================================================================================
@@ -442,6 +466,8 @@ exec "nnoremap ".s:CTL_LEFT." <C-w><Left>"
 exec "nnoremap ".s:CTL_UP." <C-w><Up>"
 exec "nnoremap ".s:CTL_RIGHT." <C-w><Right>"
 exec "nnoremap ".s:CTL_DOWN." <C-w><Down>"
+
+nnoremap <Esc>w :bd<CR>
 
 " Enforce Vimish keys
 " nnoremap <up> <nop>
