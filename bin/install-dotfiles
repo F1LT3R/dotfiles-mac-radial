@@ -5,6 +5,9 @@ DIR="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )../)"
 
 ### Link .RC Files
 
+# Dotfiles
+ln -s $DIR/Sublime\ Text\ 3/Packages/Theme\ -\ Default $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/Theme\ -\ Default
+
 # ZProfile
 ln -s $DIR/.zprofile $HOME/.zprofile
 

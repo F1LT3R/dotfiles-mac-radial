@@ -5,6 +5,9 @@
 
 ### Un-Link .RC Files
 
+# Sublime Text 3 Theme Default
+rm -s $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/Theme\ -\ Default
+
 # ZProfile
 rm $HOME/.zprofile
 
