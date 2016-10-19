@@ -37,6 +37,8 @@ alias reup="source ~/.zshrc"
 # Kill Chrome
 alias killchrome="killall -9 \"Google Chrome\""
 
+# Sublime Text Alias
+alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 ### Terminal Syntax Highlighting
 
