@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Turn Off
+csrutil disable
+chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+killall SystemUIServer
+
+# Turn On
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# killall SystemUIServer
