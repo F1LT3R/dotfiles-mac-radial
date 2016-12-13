@@ -37412,9 +37412,11 @@
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 0 100</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/iterm2</string>
+	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{1118, 811}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{712, 521}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -37452,19 +37454,23 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>526 562 384 129 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 364 620 392 0 0 1440 877 </string>
+	<string>970 769 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>630 317 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>139 841 796 473 0 0 2560 1417 </string>
+	<string>243 788 918 495 0 0 2560 1417 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 22 1279 1395 0 0 2560 1417 </string>
+	<string>720 40 714 837 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>263 489 650 502 0 0 2560 1417 </string>
+	<string>281 420 730 527 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>385 135 650 479 0 0 2560 1417 </string>
+	<key>NeverWarnAboutShortLivedSessions_42CD9FA7-108A-405E-BEC6-9AF8ADEC9460</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_42CD9FA7-108A-405E-BEC6-9AF8ADEC9460_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -39106,6 +39112,8 @@
 			<string>/Users/alistair</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
+	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>1ED49469-D53D-4E77-B6E8-71303104431A</string>
 	<key>NoSyncNeverAskAboutSettingAlternateMouseScroll</key>
@@ -39194,7 +39202,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-10-15T01:33:08Z</date>
+	<date>2016-11-21T18:58:34Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -39258,7 +39266,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.10</string>
+	<string>3.0.12</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

@@ -333,8 +333,8 @@
         "attributes": ["hover"],
         "layer0.opacity": 0.0,
         "layer1.opacity": 1.0,
-        "font.face": "ProggyCleanTTSZ Nerd Font",
-        "font.size": 15
+        "font.face": "SauceCodePro Nerd Font",
+        "font.size": 18
     },
 
 
@@ -360,8 +360,8 @@
         "class": "sidebar_heading",
         "color": [0, 100, 150],
         "font.bold": false,
-        "font.face": "ProggyCleanTTSZ Nerd Font",
-        "font.size": 15,
+        "font.face": "SauceCodePro Nerd Font",
+        "font.size": 18,
         "shadow_color": [0, 0, 0],
         "shadow_offset": [0, 1]
     },
@@ -380,8 +380,8 @@
         "color": [180, 180, 180],
         "font.bold": false,
         "font.italic": false,
-        "font.face": "ProggyCleanTTSZ Nerd Font",
-        "font.size": 14
+        "font.face": "SauceCodePro Nerd Font",
+        "font.size": 18
     },
     {
         "class": "sidebar_label",
