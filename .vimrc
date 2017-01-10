@@ -6,6 +6,8 @@ Plugin 'VundleVim/Vundle.vim'      " Plugin manager
 
 " PLUGIN LIST
 
+Plugin 'scrooloose/syntastic'                     " Syntax/error checking
+
 " VIM GUI
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ryanoasis/vim-devicons'                   " File type UI font icons
@@ -14,28 +16,18 @@ Plugin 'vim-airline/vim-airline'                  " Better status bar
 Plugin 'vim-airline/vim-airline-themes'           " Status bar themes
 Plugin 'airblade/vim-gitgutter'                   " Git Diff in sidebar
 Plugin 'tpope/vim-fugitive'                       " Visualize Git branches in Powerline
-Plugin 'junegunn/goyo.vim'                        " Distraction free editing
 Plugin 'sjl/gundo.vim'                            " Undo tree vizualization
-Plugin 'mkitt/tabline.vim'                        " Succinct tabline
 Plugin 'chriskempson/base16-vim'                  " Awesome Base16 color schemes
 Plugin 'miyakogi/seiya.vim'                       " Clear VIM background
 
 " Editor Control
 Plugin 'edsono/vim-matchit'                       " Jump to matching XML tag with %
-Plugin 'terryma/vim-multiple-cursors'             " Multi-select and edit
 Plugin 'tpope/vim-commentary'                     " Comment/Uncomment w/ Cmd + Backslash
-Plugin 'osyo-manga/vim-over'                      " Realtime search/replace highlighting
 Plugin 'vim-scripts/PreserveNoEOL'                " Don't add \n to EOF
-Plugin 'tpope/vim-repeat'                         " Add . repeat support for plugins
 Plugin 'Valloric/YouCompleteMe'                   " Intellisense-like word completion
-Plugin 'docunext/closetag.vim.git'                " close html tags
 Plugin 'bruno-/vim-alt-mappings'
 
-
 " Syntax
-Plugin 'scrooloose/syntastic'                     " Syntax/error checking
-Plugin 'pangloss/vim-javascript'                  " JavaScript Syntax Addons
-Plugin 'othree/javascript-libraries-syntax.vim'   " Syntax highlighting for Angular
 Plugin 'genoma/vim-less'                          " Less syntax support
 Plugin 'chrisbra/colorizer'                       " Highlight CSS/Less Colors in the editor
 Plugin 'elzr/vim-json'                            " Get quotes back for JSON (why VIM removes!?)
@@ -45,20 +37,18 @@ Plugin 'maksimr/vim-jsbeautify'                   " JS/JSON Beautifier
 Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser output
 Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
 
-
-
+" Time Tracking
+Plugin 'wakatime/vim-wakatime'
 
 " VUNDLE (Required)
-
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 
 " BASIC EDITOR SETUP
-
 set number                " Line Numbers
 set nowrap                " Start withou wrapping
-set cursorline            " Highlight the current line
+set nocursorline            " Highlight the current line
 set laststatus=2          " Always display status bar
 set nocursorcolumn        " Cursor column highlight is slow
 set noswapfile            " Comment our rather than add to .gitignore
@@ -69,6 +59,9 @@ syntax enable             " Enable syntax highlighting
 set autoread              " Auto-reload file on change
 set relativenumber
 set undofile
+set lazyredraw
+syntax sync minlines=256
+set synmaxcol=200
 
 " Fix VIMs Regex Formatting for searches
 nnoremap / /\v
@@ -129,7 +122,7 @@ endif
 
 " Theme
 colorscheme base16-flat
-let g:airline_theme='base16-flat'
+" let g:airline_theme='base16-flat'
 set background=dark
 
 " Clear the background color
@@ -204,7 +197,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height=3
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_error_symbol = '☠'
@@ -222,42 +215,20 @@ let g:syntastic_enable_highlighting=1
 " let g:syntastic_javascript_checkers=['jshint']  " npm install jshint jscs -g
 
 " XO
-" let g:syntastic_javascript_eslint_generic = 1
-" let g:syntastic_javascript_eslint_exec = 'xo'
-" let g:syntastic_javascript_eslint_args = '--reporter=compact'
-" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_generic = 1
+let g:syntastic_javascript_eslint_exec = 'xo'
+let g:syntastic_javascript_eslint_args = '--reporter=compact'
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Babel ESLint
-let g:syntastic_javascript_checkers = ['eslint']    " npm install -g eslint babel-eslint (+rc file)
-let g:syntastic_javascript_eslint_exec = 'eslint_d' " npm install -g eslint_d
+" let g:syntastic_javascript_checkers = ['eslint']    " npm install -g eslint babel-eslint (+rc file)
+" let g:syntastic_javascript_eslint_exec = 'eslint_d' " npm install -g eslint_d
 
 " Ignore certain kinds of HTML errors (re: Angular)
 " let g:syntastic_html_tidy_ignore_errors=['proprietary attribute', 'is not recognized!']
 
 " Extended syntax highlighting
 " let g:used_javascript_libs = 'angularjs,requirejs,jasmine,angularuirouter'
-
-filetype plugin on
-au BufNewFile,BufRead * if &ft == '' | set ft=javascript | endif
-
-
-" WRAP MODE
-let b:wrapmode = "no"
-function! ToggleWrapMode()
-  if exists("b:wrapmode") && b:wrapmode == "yes"
-    let b:wrapmode = "no"
-    set nowrap
-    set nolinebreak
-    set nobreakindent
-    Goyo!
-  else
-    let b:wrapmode = "yes"
-    set wrap
-    set linebreak
-    set breakindent
-    Goyo 60x100%
-  endif
-endfunction
 
 
 " REMOVE TRAILING WHITESPACE ON SAVE
@@ -323,50 +294,50 @@ let g:ycm_add_preview_to_completeopt = 0
 
 " " Base16 Color Definition (Flat)
 
-" " GUI color definitions
-let s:gui00 = "#2C3E50"
-let s:gui01 = "#34495E"
-let s:gui02 = "#7F8C8D"
-let s:gui03 = "#95A5A6"
-let s:gui04 = "#BDC3C7"
-let s:gui05 = "#e0e0e0"
-let s:gui06 = "#f5f5f5"
-let s:gui07 = "#ECF0F1"
-let s:gui08 = "#E74C3C"
-let s:gui09 = "#E67E22"
-let s:gui0A = "#F1C40F"
-let s:gui0B = "#2ECC71"
-let s:gui0C = "#1ABC9C"
-let s:gui0D = "#3498DB"
-let s:gui0E = "#9B59B6"
-let s:gui0F = "#be643c"
+" " " GUI color definitions
+" let s:gui00 = "#2C3E50"
+" let s:gui01 = "#34495E"
+" let s:gui02 = "#7F8C8D"
+" let s:gui03 = "#95A5A6"
+" let s:gui04 = "#BDC3C7"
+" let s:gui05 = "#e0e0e0"
+" let s:gui06 = "#f5f5f5"
+" let s:gui07 = "#ECF0F1"
+" let s:gui08 = "#E74C3C"
+" let s:gui09 = "#E67E22"
+" let s:gui0A = "#F1C40F"
+" let s:gui0B = "#2ECC71"
+" let s:gui0C = "#1ABC9C"
+" let s:gui0D = "#3498DB"
+" let s:gui0E = "#9B59B6"
+" let s:gui0F = "#be643c"
 
-" Terminal color definitions
-let s:cterm00 = "00"
-let s:cterm03 = "08"
-let s:cterm05 = "07"
-let s:cterm07 = "15"
-let s:cterm08 = "01"
-let s:cterm0A = "03"
-let s:cterm0B = "02"
-let s:cterm0C = "06"
-let s:cterm0D = "04"
-let s:cterm0E = "05"
-if exists('base16colorspace') && base16colorspace == "256"
-  let s:cterm01 = "18"
-  let s:cterm02 = "19"
-  let s:cterm04 = "20"
-  let s:cterm06 = "21"
-  let s:cterm09 = "16"
-  let s:cterm0F = "17"
-else
-  let s:cterm01 = "10"
-  let s:cterm02 = "11"
-  let s:cterm04 = "12"
-  let s:cterm06 = "13"
-  let s:cterm09 = "09"
-  let s:cterm0F = "14"
-endif
+" " Terminal color definitions
+" let s:cterm00 = "00"
+" let s:cterm03 = "08"
+" let s:cterm05 = "07"
+" let s:cterm07 = "15"
+" let s:cterm08 = "01"
+" let s:cterm0A = "03"
+" let s:cterm0B = "02"
+" let s:cterm0C = "06"
+" let s:cterm0D = "04"
+" let s:cterm0E = "05"
+" if exists('base16colorspace') && base16colorspace == "256"
+"   let s:cterm01 = "18"
+"   let s:cterm02 = "19"
+"   let s:cterm04 = "20"
+"   let s:cterm06 = "21"
+"   let s:cterm09 = "16"
+"   let s:cterm0F = "17"
+" else
+"   let s:cterm01 = "10"
+"   let s:cterm02 = "11"
+"   let s:cterm04 = "12"
+"   let s:cterm06 = "13"
+"   let s:cterm09 = "09"
+"   let s:cterm0F = "14"
+" endif
 
 " " Mode Colors
 " let s:NormalBG = s:gui0B
@@ -396,7 +367,7 @@ endif
 " ================================================================================================
 
 " Can hit semi-colon as colon
-nnoremap ; :
+" nnoremap ; :
 
 " Comment Toggle
 map <C-Bslash> gcc<Esc>
@@ -426,8 +397,8 @@ nnoremap <C-9> :ColorToggle<CR>
 " nnoremap <Esc>[1;9D <C-w><Left>
 " nnoremap <Esc>[1;9A <C-w><Up>
 " NNOREMAP <ESC>[1;9B <C-w><Down>
-" NNOREMAP <ESC>[1;9C <C-w><Right>
 
+" NNOREMAP <ESC>[1;9C <C-w><Right>
 " SET ALT+SHIFT+DIR KEYs
 let s:ALT_SHIFT_LEFT = "<Esc>[1;10D"
 let s:ALT_SHIFT_RIGHT = "<Esc>[1;10C"
@@ -445,33 +416,40 @@ let s:ALT_UP = "<ESC>[1;9A"
 let s:ALT_DOWN = "<ESC>[1;9B"
 
 " SET CTL+DIR KEYS
-let s:CTL_LEFT = "<C-LEft>"
+let s:CTL_LEFT = "<C-Left>"
 let s:CTL_RIGHT = "<C-Right>"
 let s:CTL_UP = "<C-UP>"
 let s:CTL_DOWN = "<C-DOwn>"
 
-" ALT + SHIFT + DIR: Move Between Tabs
-exe "nnoremap ".s:ALT_SHIFT_LEFT." :tabp<CR>"
-exe "nnoremap ".s:ALT_SHIFT_RIGHT." :tabn<CR>"
+let s:CCR = "<C-[>"
+let s:CCL = "<C-]>"
 
-" ALT + Dir: Move Between Buffers (User buffers, they are better, CTRLP!)
-exe "nnoremap ".s:SHIFT_LEFT." :bp<CR>"
-exe "nnoremap ".s:SHIFT_RIGHT." :bn<CR>"
+" ALT + SHIFT + DIR: Move Between Tabs
+" exe "nnoremap ".s:ALT_SHIFT_LEFT." :tabp<CR>"
+" exe "nnoremap ".s:ALT_SHIFT_RIGHT." :tabn<CR>"
+
+" " ALT + Dir: Move Between Buffers
+" exe "nnoremap ".s:SHIFT_LEFT." :bp<CR>"
+" exe "nnoremap ".s:SHIFT_RIGHT." :bn<CR>"
+
+" " ALT + Dir: Move Between Buffers
+exe "nnoremap ".s:CCL." :bp<CR>"
+exe "nnoremap ".s:CCR." :bn<CR>"
 
 
 " nnoremap <Leader><Left> :bp<CR>
 " nnoremap <Leader><Right> :bn<CR>
 
 " CTL + Dir: Move Cursor Between Split
-exec "nnoremap ".s:CTL_LEFT." <C-w><Left>"
-exec "nnoremap ".s:CTL_UP." <C-w><Up>"
-exec "nnoremap ".s:CTL_RIGHT." <C-w><Right>"
-exec "nnoremap ".s:CTL_DOWN." <C-w><Down>"
+" exec "nnoremap ".s:CTL_LEFT." <C-w><Left>"
+" exec "nnoremap ".s:CTL_UP." <C-w><Up>"
+" exec "nnoremap ".s:CTL_RIGHT." <C-w><Right>"
+" exec "nnoremap ".s:CTL_DOWN." <C-w><Down>"
 
-nnoremap <Esc>w :bd<CR>
+nnoremap <Esc>w :bd<CR> " Close buffer key
 nnoremap <Leader>p :CtrlP<CR> 
 
-" Enforce Vimish keys
+" " Enforce Vimish keys
 " nnoremap <up> <nop>
 " nnoremap <down> <nop>
 " nnoremap <left> <nop>
@@ -488,5 +466,6 @@ noremap <F2> :set list!<CR>                               " Toggle Show Whitespa
 nnoremap <F3> :set hlsearch!<CR>                          " Toggle Search Highlight
 nnoremap <F4> :GundoToggle<CR>                            " Map undo tree
 nnoremap <F5> :InstantMarkdownPreview<CR>                 " Markdown Preview
-nnoremap <F6> :call ToggleWrapMode()<cr>                  " Wrap/Write Mode
 map <F8> <Plug>ToggleHexHighlight
+
+set ttimeoutlen=0

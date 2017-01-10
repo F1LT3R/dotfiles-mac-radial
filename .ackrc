@@ -2,10 +2,14 @@
 
 --color
 
---pager
-less -r
+#--pager
+#less -r
 
 --ignore-directory=is:node_modules
+--ignore-file=is:Markserv.log
+--ignore-file=is:npm.debug.*
+
+
 
 --type-set=css:ext:less
 --type-set=css:ext:scss
