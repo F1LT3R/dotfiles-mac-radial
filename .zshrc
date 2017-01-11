@@ -13,7 +13,13 @@ export HISTFILE=~/.histfile
 HISTSIZE=99999999999
 SAVEHIST=99999999999
 
-# Hidden RC File
+### Bash Setup
+
+# Use VI Mode in Shell (ESC to use)
+set -o vi
+
+
+# Hidden RC File, for API keys, etc.
 source $HOME/.hiddenrc
 
 ### MacVim as Default editor
