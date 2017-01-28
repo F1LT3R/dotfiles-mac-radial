@@ -26,3 +26,8 @@ export PATH="$PATH:$HOME/dotfiles/bin"
 # Allow AnyApplication.app to use PATH
 launchctl setenv PATH $PATH
 # osascript -e 'tell app "Dock" to quit'
+
+# Android SDK
+export ANDROID_HOME=/Users/al/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools

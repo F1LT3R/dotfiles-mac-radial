@@ -3,6 +3,12 @@
 # Get dotfiles DIR relative to this script
 DIR="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )../)"
 
+# SublimeText3
+
+ln -s $DIR/st3/Packages/User/Default\ (OSX).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ (OSX).sublime-keymap
+ln -s $DIR/st3/Packages/User/Distraction\ Free.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Distraction\ Free.sublime-settings
+ln -s $DIR/st3/Packages/User/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+
 ### Link .RC Files
 
 # Ack

@@ -16,7 +16,7 @@ SAVEHIST=99999999999
 ### Bash Setup
 
 # Use VI Mode in Shell (ESC to use)
-set -o vi
+# set -o vi
 
 
 # Hidden RC File, for API keys, etc.

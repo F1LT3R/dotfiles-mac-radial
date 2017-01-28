@@ -1,0 +1,75 @@
+[
+  {
+    "keys": [
+      "supe+ctrl+y"
+    ],
+    "command": "dired",
+    "args": {
+      "immediate": true
+    }
+  },
+  {
+    "keys": [
+      "alt+f"
+    ],
+    "command": "focus_side_bar"
+  },
+  {
+    "keys": [
+      "super+back_slash"
+    ],
+    "command": "toggle_comment",
+    "args": {
+      "block": false
+    }
+  },
+  {
+    "keys": [
+      "tab"
+    ],
+    "command": "move",
+    "args": {
+      "by": "lines",
+      "forward": true
+    },
+    "context": [
+      {
+        "key": "auto_complete_visible"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "shift+tab"
+    ],
+    "command": "move",
+    "args": {
+      "by": "lines",
+      "forward": false
+    },
+    "context": [
+      {
+        "key": "auto_complete_visible"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "ctrl+\\"
+    ],
+    "command": "toggle_comment",
+    "args": {
+      "block": false
+    }
+  },
+  {
+    "keys": ["super+ctrl+left"],
+    "command": "chain",
+    "args": {
+      "commands": [
+        ["toggle_side_bar"],
+        ["focus_side_bar"]
+      ]
+    }
+  }
+]
