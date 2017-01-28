@@ -8,7 +8,7 @@ DIR="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )../)"
 ln -sF $DIR/st3/Packages/User/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 ln -sF $DIR/st3/Packages/User/Distraction\ Free.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Distraction\ Free.sublime-settings
 ln -sF $DIR/st3/Packages/User/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-ln -sF $DIR/st3/Packages/User/Theme\ -\ Afterglow ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Theme\ -\ Afterglow
+ln -sF $DIR/st3/Packages/Theme\ -\ Afterglow ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Theme\ -\ Afterglow
 
 ### Link .RC Files
 
