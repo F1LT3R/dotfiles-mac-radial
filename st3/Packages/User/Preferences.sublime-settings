@@ -1,0 +1,54 @@
+{
+	"always_show_minimap_viewport": false,
+	"auto_complete_commit_on_tab": false,
+	"auto_indent": true,
+	"auto_match_enabled": true,
+	"color_inactive_tabs": false,
+	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+	"color_scheme_old": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"detect_indentation": true,
+	"draw_minimap": false,
+	"draw_minimap_border": false,
+	"ensure_newline_at_eof_on_save": false,
+	"extensions":
+	[
+		"vertexshader"
+	],
+	"font_face": "SauceCodePro Nerd Font",
+	"font_options":
+	[
+		"no_round",
+		"no_bold",
+		"no_antialias"
+	],
+	"font_size": 17,
+	"hide_minimap": true,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_to_bracket": false,
+	"margin": 4,
+	"rulers":
+	[
+		80,
+		100,
+		0
+	],
+	"scroll_speed": 2.0,
+	"sidebar_row_padding_small": true,
+	"sidebar_size_12": true,
+	"smart_indent": true,
+	"status_bar_brighter": true,
+	"tab_size": 4,
+	"tabs_padding_small": true,
+	"tabs_small": true,
+	"theme": "Afterglow-blue.sublime-theme",
+	"theme_ol2": "Default.sublime-theme",
+	"theme_old": "Afterglow-blue.sublime-theme",
+	"theme_old2": "Seti_orig.sublime-theme",
+	"translate_tabs_to_spaces": false,
+	"trim_automatic_white_space": true
+}
