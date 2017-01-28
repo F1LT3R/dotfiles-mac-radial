@@ -8,6 +8,7 @@
 	"color_scheme_old": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"detect_indentation": true,
 	"draw_minimap": false,
+    "always_show_minimap_viewport": false,
 	"draw_minimap_border": false,
 	"ensure_newline_at_eof_on_save": false,
 	"extensions":

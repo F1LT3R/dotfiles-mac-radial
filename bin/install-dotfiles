@@ -5,17 +5,17 @@ DIR="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )../)"
 
 # SublimeText3
 
-ln -s $DIR/st3/Packages/User/Default\ (OSX).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ (OSX).sublime-keymap
-ln -s $DIR/st3/Packages/User/Distraction\ Free.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Distraction\ Free.sublime-settings
-ln -s $DIR/st3/Packages/User/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+ln -sF $DIR/st3/Packages/User/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
+ln -sF $DIR/st3/Packages/User/Distraction\ Free.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Distraction\ Free.sublime-settings
+ln -sF $DIR/st3/Packages/User/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+
+# Sublime Custom Theme
+# ln -s $DIR/Sublime\ Text\ 3/Packages/Theme\ -\ Default $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/Theme\ -\ Default
 
 ### Link .RC Files
 
 # Ack
 ln -s $DIR/.ackrc $HOME/.ackrc
-
-# Sublime Custom Theme
-ln -s $DIR/Sublime\ Text\ 3/Packages/Theme\ -\ Default $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/Theme\ -\ Default
 
 # ZProfile
 ln -s $DIR/.zprofile $HOME/.zprofile
