@@ -4,23 +4,24 @@
 	"auto_indent": true,
 	"auto_match_enabled": true,
 	"color_inactive_tabs": false,
-	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Blackboard (SL).tmTheme",
 	"color_scheme_old": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"detect_indentation": true,
 	"draw_minimap": false,
-    "always_show_minimap_viewport": false,
 	"draw_minimap_border": false,
 	"ensure_newline_at_eof_on_save": false,
+    "line_numbers": false,
 	"extensions":
 	[
 		"vertexshader"
 	],
-	"font_face": "SauceCodePro Nerd Font",
+	"font_face": "Sauce Code Pro",
+	"font_face_x": "SauceCodePro Nerd Font",
 	"font_options":
 	[
-		"no_round",
-		"no_bold",
-		"no_antialias"
+		"x_no_round",
+		"x_no_bold",
+		"x_no_antialias"
 	],
 	"font_size": 17,
 	"hide_minimap": true,

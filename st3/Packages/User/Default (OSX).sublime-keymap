@@ -71,5 +71,12 @@
         ["focus_side_bar"]
       ]
     }
+  },
+  {
+    "keys": ["super+shift+w"],
+    "command": "toggle_setting",
+    "args": {
+      "setting": "word_wrap"
+    }
   }
 ]
