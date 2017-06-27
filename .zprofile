@@ -17,8 +17,8 @@ export PATH=$PATH:$HOME/.virtualenvs/apollo/bin
 # Node.JS
 source "$HOME/.noderc"
 
-# Postgresql 9.4 Path
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+# Postgresql 9.6 Path
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 # Custom Bin Scripts
 export PATH="$PATH:$HOME/dotfiles/bin"
@@ -31,3 +31,6 @@ launchctl setenv PATH $PATH
 export ANDROID_HOME=/Users/al/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
+
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

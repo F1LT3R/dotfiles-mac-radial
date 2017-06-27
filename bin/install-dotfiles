@@ -5,7 +5,7 @@ DIR="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )../)"
 
 # SublimeText3
 
-ln -sF $DIR/st3/Packages/User/Default\ (OSX).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ (OSX).sublime-keymap
+ln -sF $DIR/st3/Packages/User/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 ln -sF $DIR/st3/Packages/User/Distraction\ Free.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Distraction\ Free.sublime-settings
 ln -sF $DIR/st3/Packages/User/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
 ln -sF $DIR/st3/Packages/User/Theme\ -\ Afterglow ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Theme\ -\ Afterglow
@@ -41,3 +41,7 @@ ln -s $DIR/.jshintrc $HOME/.jshintrc
 
 # IRSSI
 ln -s $DIR/.irssi/config $HOME/.irssi/config
+
+# EditorConfig
+ln -s $DIR/.editorconfig/config $HOME/.editorconfig
+

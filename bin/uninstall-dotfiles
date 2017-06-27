@@ -3,6 +3,13 @@
 
 
 
+
+
+
+
+
+
+
 ### Un-Link .RC Files
 
 # Ack
@@ -34,3 +41,6 @@ rm $HOME/.jshintrc
 
 # IRSSI
 rm $HOME/.irssi/config
+
+# EditorConfig
+ln -s $DIR/.editorconfig/config $HOME/.editorconfig

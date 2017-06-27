@@ -20,7 +20,7 @@ SAVEHIST=99999999999
 
 
 # Hidden RC File, for API keys, etc.
-source $HOME/.hiddenrc
+source $HOME/.apikeys
 
 ### MacVim as Default editor
 # export $EDITOR=/Applications/MacVim.app/Contents/MacOS/MacVim
@@ -57,7 +57,7 @@ alias less='less -m -N -g -i -J --line-numbers --underline-special'
 alias more='less'
 
 # Use "highlight" in place of "cat"
-alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-light $2"
+alias kat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-light $2"
 
 # Setup JSON Syntax Highlighting
 # Copy js.lang to json.lang with the following command

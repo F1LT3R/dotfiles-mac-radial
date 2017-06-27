@@ -557,35 +557,35 @@
     {
         "class": "sidebar_label",
         // "font.size": 13,
-        "color": [116, 116, 116], // 03
-        // "font.face": "Sauce Code Pro"
+        "color": [190, 190, 190], // 03
+        "font.face": "Sauce Code Pro"
     },
     // Sidebar entry font size 12
     {
         "class": "sidebar_label",
         "settings": ["sidebar_size_12"],
-        "color": [116, 116, 116] // 03
+        "color": [190, 190, 190] // 03
     },
     // Sidebar entry font size 13
     {
         "class": "sidebar_label",
         "settings": ["sidebar_size_13"],
         "font.size": 13,
-        "color": [116, 116, 116] // 03
+        "color": [190, 190, 190] // 03
     },
     // Sidebar entry font size 14
     {
         "class": "sidebar_label",
         "settings": ["sidebar_size_14"],
         "font.size": 14,
-        "color": [116, 116, 116] // 03
+        "color": [190, 190, 190] // 03
     },
     // Sidebar folder entry
     {
         "class": "sidebar_label",
         "parents": [{"class": "tree_row","attributes": ["expandable"]}],
         // "font.bold": true,
-        "color": [160, 160, 160] // 03
+        "color": [190, 190, 190] // 03
     },
     {
         "class": "sidebar_label",

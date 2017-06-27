@@ -12,3 +12,8 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Update Man paths for Node.JS
 unset MANPATH
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+
+# Yarn
+export PATH="$PATH:/opt/yarn-0.24.6/bin"
+export PATH="$PATH:`yarn global bin`"
