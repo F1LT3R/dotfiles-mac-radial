@@ -37,8 +37,6 @@ Plugin 'maksimr/vim-jsbeautify'                   " JS/JSON Beautifier
 Plugin 'suan/vim-instant-markdown'                " Realtime Markdown browser output
 Plugin 'hallison/vim-markdown'                    " Markdown syntax, underline links, etc
 
-" Time Tracking
-Plugin 'wakatime/vim-wakatime'
 
 " VUNDLE (Required)
 call vundle#end()            " required
@@ -200,10 +198,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_error_symbol = '☠'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
+" let g:syntastic_error_symbol = '☠'
+" let g:syntastic_style_error_symbol = '⁉️'
+" let g:syntastic_warning_symbol = '⚠️'
+" let g:syntastic_style_warning_symbol = '💩'
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_aggregate_errors = 1
@@ -211,14 +209,15 @@ let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_enable_highlighting=1
 
 " JSHint
-" let g:syntastic_javascript_checkers=['jscs', 'jshint']  " npm install jshint jscs -g
-" let g:syntastic_javascript_checkers=['jshint']  " npm install jshint jscs -g
 
 " XO
 let g:syntastic_javascript_eslint_generic = 1
+" let g:syntastic_javascript_eslint_exec = 'xo'
 let g:syntastic_javascript_eslint_exec = 'xo'
+" let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_javascript_eslint_args = '--reporter=compact'
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['xo']
+" let g:syntastic_javascript_checkers = ['eslint']
 
 " Babel ESLint
 " let g:syntastic_javascript_checkers = ['eslint']    " npm install -g eslint babel-eslint (+rc file)
@@ -447,7 +446,7 @@ exe "nnoremap ".s:CCR." :bn<CR>"
 " exec "nnoremap ".s:CTL_DOWN." <C-w><Down>"
 
 nnoremap <Esc>w :bd<CR> " Close buffer key
-nnoremap <Leader>p :CtrlP<CR> 
+nnoremap <Leader>p :CtrlP<CR>
 
 " " Enforce Vimish keys
 " nnoremap <up> <nop>
@@ -469,3 +468,8 @@ nnoremap <F5> :InstantMarkdownPreview<CR>                 " Markdown Preview
 map <F8> <Plug>ToggleHexHighlight
 
 set ttimeoutlen=0
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](doc|tmp|node_modules)',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }

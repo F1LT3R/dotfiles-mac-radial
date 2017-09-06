@@ -8,7 +8,7 @@ source $ZSH/oh-my-zsh.sh
 DEFAULT_USER=$(whoami)
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git git-extras git-flow git-remote-branch gitfast node npm osx pip python osx colored-man colorize grunt django postgres brew grunt brew fabric brew-cask docker)
+plugins=(git git-extras git-flow git-remote-branch gitfast node npm nvm react-native scd tig yarn osx pip python osx grunt django postgres brew grunt brew fabric brew-cask docker colored-man-pages vi-mode)
 export HISTFILE=~/.histfile
 HISTSIZE=99999999999
 SAVEHIST=99999999999
@@ -20,7 +20,7 @@ SAVEHIST=99999999999
 
 
 # Hidden RC File, for API keys, etc.
-source $HOME/.apikeys
+# source $HOME/.apikeys
 
 ### MacVim as Default editor
 # export $EDITOR=/Applications/MacVim.app/Contents/MacOS/MacVim
@@ -57,7 +57,7 @@ alias less='less -m -N -g -i -J --line-numbers --underline-special'
 alias more='less'
 
 # Use "highlight" in place of "cat"
-alias kat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-light $2"
+alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-light $2"
 
 # Setup JSON Syntax Highlighting
 # Copy js.lang to json.lang with the following command

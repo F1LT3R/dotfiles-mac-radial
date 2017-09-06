@@ -1,0 +1,2 @@
+#!/bin/bash
+gulp default; ionic cordova build android ; ionic cordova run android

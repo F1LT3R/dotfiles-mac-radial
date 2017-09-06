@@ -37609,7 +37609,7 @@
 	<key>HideActivityIndicator</key>
 	<false/>
 	<key>HideMenuBarInFullscreen</key>
-	<true/>
+	<false/>
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
@@ -37630,6 +37630,8 @@
 	<integer>0</integer>
 	<key>HotkeyCode</key>
 	<integer>0</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>0</integer>
 	<key>IRMemory</key>
@@ -37690,7 +37692,7 @@
 	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
 	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
 	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAdCAAAAAAANIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
+	DIAIgAlRMSNAdKAAAAAAANIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
 	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
 	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
 	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
@@ -37718,17 +37720,17 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>526 562 384 129 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>0 556 700 622 0 0 1920 1178 </string>
+	<string>370 193 700 622 0 0 1440 878 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>424 238 606 456 0 0 1920 1178 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>930 577 1018 447 0 0 1920 1200 </string>
+	<string>35 497 918 381 0 0 1440 878 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 594 592 584 0 0 1920 1178 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>332 1330 810 579 0 0 1920 1178 </string>
+	<string>720 28 720 850 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 24 960 1154 0 0 1920 1178 </string>
+	<string>720 4 720 874 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 47 960 1131 0 0 1920 1178 </string>
 	<key>NeverWarnAboutShortLivedSessions_42CD9FA7-108A-405E-BEC6-9AF8ADEC9460</key>
@@ -38052,6 +38054,8 @@
 			<false/>
 			<key>Foreground Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>0.8784313725490196</real>
 				<key>Color Space</key>
@@ -41959,9 +41963,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-05-03T03:58:02Z</date>
-	<key>SUSkippedVersion</key>
-	<string>3.0.15</string>
+	<date>2017-09-05T15:43:32Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -42022,10 +42024,12 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.14</string>
+	<string>3.1.beta.8</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

@@ -1,3 +1,7 @@
 {
-	"line_numbers": true,
+	"line_numbers": false,
+	"margin": 0,
+	"rulers":
+	[
+	]
 }
