@@ -1,2 +1,5 @@
 #!/bin/bash
-git commit -m "$(echo $@)"
+# custocom "git commit -m \"$(echo $@)\""
+# git commit -m "$(echo $@)"
+A="123"
+$(echo "git commit -m \"$(echo "$A")\"")
