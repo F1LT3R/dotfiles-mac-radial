@@ -1,4 +1,2 @@
 #!/bin/bash
-printf "\033[35m🖖  "
-printf $@
-printf "\033[0m\n"
+echo -e "\033[35m🖖  $@\033[0m\n"

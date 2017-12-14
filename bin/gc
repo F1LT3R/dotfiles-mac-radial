@@ -1,7 +1,4 @@
 #!/bin/bash
-#printf '%s ' "$@"
-# COMMAND="git commit -m \"$(printf '%s ' "$@")\""
-COMMAND="git commit -m \"$(printf $@)\""
-# COMMAND="git commit -m "$(echo $@)
-# echo $COMMAND
-$COMMAND
+COMMAND="git commit -m \"$@\""
+spock $COMMAND
+eval $COMMAND
