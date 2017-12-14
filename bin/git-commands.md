@@ -4,5 +4,8 @@ gl = git pull
 gf = git fetch
 gc = git commit -m "$@"
 gam = git commit --amend -m "$@"
-
 gd = git diff | git diff $@
+gs = git status
+gpom = git push origin master
+glom = git pull origin master
+gk = git checkout $@
