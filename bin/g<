@@ -1,3 +1,4 @@
 #!/bin/bash
 COMMAND="git commit -m \"$@\""
 spock $COMMAND
+eval $COMMAND

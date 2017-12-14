@@ -1,0 +1,3 @@
+#!/bin/bash
+COMMAND="git push"
+spock $COMMAND
