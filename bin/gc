@@ -1,4 +1,4 @@
 #!/bin/bash
 COMMAND="git commit -m \"$(printf $@)\""
-spock $(printf $COMMAND)
+spock $(printf "$COMMAND")
 $COMMAND
