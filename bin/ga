@@ -1,2 +1,4 @@
 #!/bin/bash
-git add -A
+COMMAND="git add -A"
+spock $COMMAND
+eval $COMMAND
