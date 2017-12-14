@@ -1,5 +1,4 @@
 #!/bin/bash
-# custocom "git commit -m \"$(echo $@)\""
-# git commit -m "$(echo $@)"
-A="123"
-$(echo "git commit -m \"$(echo "\"$@\"")\"")
+COMMAND="git commit -m \"$(printf $@)\""
+spock COMMAND
+$COMMAND
